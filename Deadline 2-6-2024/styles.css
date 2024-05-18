@@ -2,8 +2,17 @@
   margin: 0;
   padding: 0;
 }
+a{
+  text-decoration: none;
+}
+ul li{
+  list-style: none;
+}
+li a:hover{
+  color: aqua;
+  transition: 0.3s;
+}
 /* header */
-
 .header-top-customer {
   display: flex;
   align-items: center;
