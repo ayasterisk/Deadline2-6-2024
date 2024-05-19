@@ -1,8 +1,7 @@
 <?php
 include "Module/Header.php";
 ?>
-<?php include "reg.php";
-?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,7 +42,7 @@ include "Module/Header.php";
 
 				<div id="field-fullname" class="clearfix large_form">
 					<label for="full_name" class="label icon-field"><i class="icon-login icon-user "></i></label>
-					<input required="" type="text" value="" name="tenkhaachhang" placeholder="Họ và Tên" id="full_name" class="text" size="30">
+					<input required="" type="text" value="" name="tenkhaachhang" placeholder="Họ và Tên" id="fullname" class="text" size="30">
 				</div>
 				<div id="field-gender" class="clearfix large_form">
 					<input id="radio1" type="radio" value="0" name="gioitinh"> 
@@ -61,7 +60,7 @@ include "Module/Header.php";
 				</div>
 				<div id="field-password" class="clearfix large_form large_form-mrb">
 					<label for="password" class="label icon-field"><i class="icon-login icon-shield "></i></label>
-					<input required="" type="password" value="" placeholder="Mật khẩu" name="password" id="password" class="password text" size="30">
+					<input required="" type="password" value="" placeholder="Mật khẩu" name="matkhau" id="password" class="password text" size="30">
 				</div>
 				<div id="field-confirmPassword" class="clearfix large_form large_form-mrb">
 					<label for="confirmPassword" class="label icon-field"><i class="icon-login icon-shield "></i></label>
@@ -88,6 +87,13 @@ include "Module/Header.php";
 					<label for="credit" class="label icon-field"><i class="icon-login icon-user "></i></label>
 					<input type="text" value="" name="thetindung" placeholder="Thẻ tín dụng (Tên ngân hàng-số tài khoản)" id="credit" class="text" size="30">
 				</div>
+				<div id="field-credit" class="clearfix large_form">
+					<label for="invite" class="label icon-field"><i class="icon-login icon-user "></i></label>
+					<input type="text" value="" name="magioithieu" placeholder="Mã giới thiệu" id="invite" class="text" size="30">
+				</div>
+				<label for="registration_time">Thời điểm đăng ký:</label>
+  <input type="datetime-local" id="registration_time" name="ngaydangkythanhvien" required>
+				
 				
  
 				<div class="clearfix large_form sitebox-recaptcha ">
@@ -101,6 +107,7 @@ include "Module/Header.php";
 					</div>		
 					<div class="req_pass">Bạn đã có tài khoản? <a href="dangnhap.php">Đăng nhập ngay</a></div>
 				</div>
+
 			</form>
 			<script>
 				// JavaScript để kiểm tra mật khẩu
@@ -127,6 +134,10 @@ include "Module/Header.php";
 				  }
 				}
 									  </script>
+									  <script>
+  const registrationTime = new Date();
+  document.getElementById('registration_time').value = registrationTime.toISOString().substring(0, 16);
+</script>
 
 			</div>
 		</div>
@@ -134,6 +145,18 @@ include "Module/Header.php";
 </div>		</main>
 </body>
 </html>
+<?php
+
+if (isset($_POST['ngaydangkythanhvien'])) {
+  $registration_time = $_POST['ngaydangkythanhvien'];
+
+  // Xử lý dữ liệu $registration_time
+
+  echo "Thời điểm đăng ký: " . $registration_time;
+}
+
+?>
+
 <?php
 include "Module/Footer.php";
 ?>
