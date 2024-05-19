@@ -229,6 +229,8 @@ li a:hover{
 .content {
   justify-content: space-around;
   display: flex;
+  max-width: 1420px;
+  margin: 0 auto;
 }
 .Left{
 	width:350px;
