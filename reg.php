@@ -15,7 +15,7 @@ $credit=$_POST['customer[credit]'];
 
 
 
-if(!empty($fullname) && !empty($gender) && !empty($birthday) && !empty($email) && !empty($password) && !empty($confirmpassword) && !empty($address) && !empty($bank) && !empty($debitcard) && !empty($credit)){
+if(!empty($fullname) && !empty($gender) && !empty($birthday) && !empty($email) && !empty($password) && !empty($confirmpassword) && !empty($address)){
     echo "<pre>";
 print_r($_POST);
 $sql= "INSERT INTO 'quanlykhachhang' ('fullname','gender','birthday','email','password','address','registration_time','bank','debitcard','credit') VALUE ('$fullname','$gender','$birthday','$email',md5('$password'),'$address','$registration_time','$bank','$debitcard','$credit')";

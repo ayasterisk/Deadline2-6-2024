@@ -8,6 +8,7 @@ include "Module/Header.php";
        <title></title>
        <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     </head>
 
 	<body>
@@ -51,7 +52,7 @@ include "Module/Header.php";
 				</div>
 				<div id="field-birthday" class="clearfix large_form">
 					<label for="birthday" class="label icon-field"><i class="icon-login icon-envelope "></i></label>
-					<input type="text" value="" placeholder="mm/dd/yyyy" name="customer[birthday]" id="birthday" class="text" size="30">
+					<input required="" type="text" value="" placeholder="mm/dd/yyyy" name="customer[birthday]" id="birthday" class="text" size="30">
 				</div>
 				<div id="field-email" class="clearfix large_form">
 					<label for="email" class="label icon-field"><i class="icon-login icon-envelope "></i></label>
@@ -76,15 +77,15 @@ include "Module/Header.php";
 				</div> 
 				<div id="field-bank" class="clearfix large_form">
 					<label for="bank" class="label icon-field"><i class="icon-login icon-user "></i></label>
-					<input required="" type="text" value="" name="customer[bank]" placeholder="Tài khoản ngân hàng (Tên ngân hàng-số tài khoản)" id="bank" class="text" size="30">
+					<input type="text" value="" name="customer[bank]" placeholder="Tài khoản ngân hàng (Tên ngân hàng-số tài khoản)" id="bank" class="text" size="30">
 				</div>
 				<div id="field-debit card" class="clearfix large_form">
 					<label for="debit card" class="label icon-field"><i class="icon-login icon-user "></i></label>
-					<input required="" type="text" value="" name="customer[debit card]" placeholder="Thẻ ghi nợ (Tên ngân hàng-số tài khoản)" id="debit card" class="text" size="30">
+					<input type="text" value="" name="customer[debit card]" placeholder="Thẻ ghi nợ (Tên ngân hàng-số tài khoản)" id="debit card" class="text" size="30">
 				</div>
 				<div id="field-credit" class="clearfix large_form">
 					<label for="credit" class="label icon-field"><i class="icon-login icon-user "></i></label>
-					<input required="" type="text" value="" name="customer[credit]" placeholder="Thẻ tín dụng (Tên ngân hàng-số tài khoản)" id="credit" class="text" size="30">
+					<input type="text" value="" name="customer[credit]" placeholder="Thẻ tín dụng (Tên ngân hàng-số tài khoản)" id="credit" class="text" size="30">
 				</div>
 				
  
@@ -132,3 +133,6 @@ include "Module/Header.php";
 </div>		</main>
 </body>
 </html>
+<?php
+include "Module/Footer.php";
+?>
