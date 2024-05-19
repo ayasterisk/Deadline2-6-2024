@@ -3,17 +3,20 @@ require 'connect.php';
 $sql = "SELECT * FROM quanlysanpham";
 $query = mysqli_query($conn, $sql);
 ?>
+<?php
+    include("Module/Header.php");
+ ?>
 <!DOCTYPE html>
 <html class="htmlgiohang">
-
 <head>
     <meta charset="utf-8">
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="tranggiohang1.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div class="content">
+    <div class="content__cart">
         <div class="content__icon">
             <i class="fa-solid fa-cart-shopping"></i>
             <span>Giỏ Hàng</span>
@@ -104,7 +107,7 @@ $query = mysqli_query($conn, $sql);
                     </div>
                 </div>
                 <input type="text" name="" id="" value="<?php ?>" readonly class="tongtien">
-                <div><a href="/thanhtoannhom4/thanhtoannhom4.php"><button name="buttondathang" value="Đặt hàng" class="buttondathang">Đặt hàng</button></a></div>
+                <div><a href="#"><button name="buttondathang" value="Đặt hàng" class="buttondathang">Đặt hàng</button></a></div>
             </div>
             <div class="content_cothethich">
                 <div class="content_title">
@@ -114,11 +117,11 @@ $query = mysqli_query($conn, $sql);
                 <div class="content_title_main">
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/1a_6c1ac53636f846418e2f718244ac97c2_master.webp" alt="anh" />
-                            <h3>Ghế sofa</h3>
+                            <img src="Image/tu-giay-go-cao-su-2-cua-2-ngan-keo-1.jpg" alt="anh" />
+                            <h3>Tủ để giày gỗ cao su</h3>
                             <div class="main_sanpham">
-                                <div class="giasanpham">19000<sup>đ</sup></div>
-                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                                <div class="giasanpham">2,950,000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">0<sup>đ</sup></div>
                             </div>
                             <div class="sanpham1-mua">
                                 <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
@@ -128,7 +131,7 @@ $query = mysqli_query($conn, $sql);
                     </div>
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/blue1.jpg" alt="anh" />
+                            <img src="Image/tu-giay-go-tu-nhien-KG68064-01a.jpg" alt="anh" />
                             <h3>Ghế sofa gỗ cao cấp hiện đại Ghế đôi sofa 115cm tiện ích sang trọng GSF001</h3>
                             <div class="main_sanpham">
                                 <div class="giasanpham">19000<sup>đ</sup></div>
@@ -142,11 +145,11 @@ $query = mysqli_query($conn, $sql);
                     </div>
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/blue2.jpg" alt="anh" />
-                            <h3>Ghế sofa</h3>
+                            <img src="Image/ghe-xoay-van-phong-chan-sat-1.jpg" alt="anh" />
+                            <h3>Ghế xoay lưng thấp nệm bọc da HOGVP162</h3>
                             <div class="main_sanpham">
-                                <div class="giasanpham">19000<sup>đ</sup></div>
-                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                                <div class="giasanpham">738,000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">820,000<sup>đ</sup></div>
                             </div>
                             <div class="sanpham1-mua">
                                 <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
@@ -156,11 +159,11 @@ $query = mysqli_query($conn, $sql);
                     </div>
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/blue3.jpg" alt="anh" />
-                            <h3>Ghế sofa</h3>
+                            <img src="Image/gia-treo-do-khung-sat-co-gio-de-do-ban-1.jpg" alt="anh" />
+                            <h3>Giá để đồ phòng tắm khung sắt</h3>
                             <div class="main_sanpham">
-                                <div class="giasanpham">19000<sup>đ</sup></div>
-                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                                <div class="giasanpham">1,850,000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">0<sup>đ</sup></div>
                             </div>
                             <div class="sanpham1-mua">
                                 <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
@@ -170,11 +173,11 @@ $query = mysqli_query($conn, $sql);
                     </div>
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/blue4.jpg" alt="anh" />
-                            <h3>Ghế sofa</h3>
+                            <img src="Image/gia-treo-do-phong-tam-sat-son-tinh-dien-1.jpg" alt="anh" />
+                            <h3>Kệ để đồ phòng tắm</h3>
                             <div class="main_sanpham">
-                                <div class="giasanpham">19000<sup>đ</sup></div>
-                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                                <div class="giasanpham">2,600,000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">0<sup>đ</sup></div>
                             </div>
                             <div class="sanpham1-mua">
                                 <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
@@ -184,11 +187,11 @@ $query = mysqli_query($conn, $sql);
                     </div>
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/blue5.jpg" alt="anh" />
-                            <h3>Ghế sofa</h3>
+                            <img src="Image/ke-nha-bep-da-nang-khung-sat-go-cao-su-1.jpg" alt="anh" />
+                            <h3>Kệ bếp đa năng 60x40x115cm gỗ cao su KB68048</h3>
                             <div class="main_sanpham">
-                                <div class="giasanpham">19000<sup>đ</sup></div>
-                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                                <div class="giasanpham">1,800,000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">2,000,000<sup>đ</sup></div>
                             </div>
                             <div class="sanpham1-mua">
                                 <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
@@ -198,11 +201,11 @@ $query = mysqli_query($conn, $sql);
                     </div>
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/blue6.jpg" alt="anh" />
-                            <h3>Ghế sofa</h3>
+                            <img src="Image/ke-sach-6-tang-go-cao-su-0.jpg" alt="anh" />
+                            <h3>Kệ sách 6 tầng</h3>
                             <div class="main_sanpham">
-                                <div class="giasanpham">19000<sup>đ</sup></div>
-                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                                <div class="giasanpham">1,960,000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">2,450,000<sup>đ</sup></div>
                             </div>
                             <div class="sanpham1-mua">
                                 <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
@@ -212,11 +215,11 @@ $query = mysqli_query($conn, $sql);
                     </div>
                     <div class="sanpham1">
                         <form action="">
-                            <img src="img/blue7.jpg" alt="anh" />
-                            <h3>Ghế sofa</h3>
+                            <img src="Image/ke-tu-dat-goc-tuong-chan-sat-1.jpg" alt="anh" />
+                            <h3>Tủ kệ góc tường gỗ cao su</h3>
                             <div class="main_sanpham">
-                                <div class="giasanpham">19000<sup>đ</sup></div>
-                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                                <div class="giasanpham">3,825,000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">4,250,000<sup>đ</sup></div>
                             </div>
                             <div class="sanpham1-mua">
                                 <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
@@ -227,5 +230,9 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </div>
         </div>
+    </div>
 </body>
+<?php
+   include ("Module/Footer.php");
+?>
 </html>

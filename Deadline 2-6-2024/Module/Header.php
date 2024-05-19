@@ -25,7 +25,7 @@
             ></a>
           </div>
           <div class="header-bottom-logo">
-            <a href="#"><img src="./img/Future furniture.png" alt="" /></a>
+            <a href="#"><img src="./img/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
             <ul>

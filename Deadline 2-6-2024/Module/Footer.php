@@ -59,7 +59,7 @@
         <div class="footer-bottom">
           <div class="footer-bottom-trademark">
             <pre>
-  © 2021 - Bản quyền của Nhà Xinh - thương hiệu thuộc AKA Furniture
+  © 2021 - Bản quyền của Nhà Xinh - thương hiệu thuộc Furniture
   Từ năm 1999 - thương hiệu đăng ký số 284074 Cục sở hữu trí tuệ
             </pre>
           </div>
