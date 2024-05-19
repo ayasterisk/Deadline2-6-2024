@@ -3,10 +3,6 @@
 }
 a{
     text-decoration: none;
-    color: darkcyan;
-}
-a:hover{
-    color: red;
 }
 input{
     cursor: pointer;
@@ -29,6 +25,9 @@ input{
     border-bottom: 1px solid darkgrey;
     background-color: #f9f9f9;
     padding: 10px;
+}
+.content__voucher a:hover ,.content__giamgia a:hover{
+    color: red;
 }
 .content_tablegiohang{
     font-size: 20px;
