@@ -1,0 +1,238 @@
+*
+{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: inherit;
+
+}
+#page-container
+{
+   display: flex;
+   margin: 0 auto;
+   width: 100%;
+
+}
+.content-menu 
+{
+ margin-left: 100px;
+ margin-right: 50px;
+ padding: 30px 50px 75px 100px;
+ text-align: left;
+}
+.content-menu ul
+{
+  
+}
+.content-menu ul p
+{
+  font-size: 15px;
+  font-weight: bold;
+  display: inline;
+
+}
+
+.content-menu ul li
+{
+  font-size: 12px;
+  display: block;
+}
+.content-menu ul li ul
+{
+  display: block;
+}
+.content-menu ul li ul li
+{
+  display: block;
+}
+.content-warpMain
+{
+  padding: 25px 50px 75px 50px;
+}
+.content-warpMain p
+{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 70px;
+}
+.content-warpMain ul li
+{
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  border-bottom: 2px dashed #15b2af;
+}
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+html {
+  font-size: 92.5%;
+  line-height: 1.6rem;
+  box-sizing: border-box;
+}
+.grid {
+  width: 1470px;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 240px;
+}
+.grid__full-width {
+  width: 100%;
+}
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+}
+.grid__column-2-4 {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 20%;
+}
+/*------------------------------------------------------------------Header------------------------------------------------------------------------------------*/
+
+.header {
+  height: 233px;
+  background-color: black;
+  border-bottom: black;
+  width: 100%;
+  color: #f8f8f8;
+}
+.header__navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+  margin-bottom: 10px;
+}
+.header__navbar li {
+  list-style: none;
+  padding-left: 5px;
+}
+.header__navbar-list {
+  margin-left: 0;
+}
+.header__navbar-item,
+.header__navbar-item-link {
+  display: inline;
+  font-size: 19px;
+}
+.header__navbar-list a {
+  text-decoration: none;
+  color: #f8f8f8f8;
+}
+.header__navbar-list a:hover {
+  color: darkgray;
+}
+.header__navbar-item-link img {
+  margin-top: 0px;
+}
+.headerSearch {
+  display: flex;
+}
+.header__logo a {
+  margin: 40px;
+}
+.header-banner {
+  margin-left: 110px;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #f8f8f8f8;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.header-box {
+  height: 30px;
+  display: flex;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 30px;
+  align-items: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  width: 75%;
+}
+
+.header-box input {
+  width: 900px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+}
+.header-box a .fa-magnifying-glass {
+  font-size: 18px;
+}
+
+#header_href-sofa a {
+  border-left: none;
+}
+button {
+  cursor: pointer;
+}
+.header__logo {
+  flex: 1;
+}
+.header__search-bar {
+  flex: 4;
+}
+.header__search-button {
+  margin-left: 20px;
+}
+.header__search-button button {
+  color: darkgray;
+  height: 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border: white;
+  border-radius: 5px;
+}
+
+/*-----------------------------------------------------footer-----------------------------------------------------------------------------------------------------*/
+.footer {
+  padding-top: 12px;
+  background-color: black;
+  justify-content: space-between;
+  color:  #f8f8f8;
+  
+}
+.footer-heading {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.footer-list {
+  margin-top: 50px;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.footer-list ul li
+{
+ display: inline;
+ margin: 20px;
+}
+.footer-bottom-icon {
+  color: white;
+  display: flex;
+}
+.footer-bottom-icon a {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.footer-bottom-icon p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-bottom {
+  border-top: 2px solid skyblue;
+  display: flex;
+  justify-content: space-between;
+}
