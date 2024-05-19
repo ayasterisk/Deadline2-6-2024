@@ -286,10 +286,12 @@ li a:hover{
 
 }
 .head-right h3 {
-font-size: 20px;
+font-size: 30px;
 font-weight: bold;
 color: #333;
 text-align: center;
+margin-top: 15px;
+margin-bottom: 25px;
 }
 .right-content-sanpham {
 display: flex;
