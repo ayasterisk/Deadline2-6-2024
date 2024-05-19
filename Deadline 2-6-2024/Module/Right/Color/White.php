@@ -1,11 +1,11 @@
-<div class="head-right"><h3>SOFA</h3></div>
+
+<div class="head-right"><h3>White</h3></div>
     <div class="right-content-sanpham">
         <div class="sanpham-one">
-            <img src="Image/DEN-BAN-GIANFRANCO-GUNMETAL-116914E-600x400.jpg" alt="anh" width="267px" height="250px"  />
-            <h1>Đèn bàn Gianfranco Gunmetal</h1>
+            <img src="Image/tu-trung-bay-go-tu-nhien-ktb68127-01.jpg" alt="anh" width="267px" height="250px"/>
+            <h1>Tủ trang trí gỗ</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham">2,040,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">1,900,000<sup>đ</sup></div>
+                <div class="cost-sanpham">4.950.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -13,11 +13,11 @@
             </div>
         </div>
         <div class="sanpham-one">
-            <img src="Image/tham-cotton-vie-recycl-160x230-tap37jb.i-600x400.jpg" alt="anh" width="267px" height="250px"  />
-            <h1>Thảm Cotton Vie Recycl 160X230 TAP37JB.I</h1>
+            <img src="Image/tu-giay-go-tu-nhien-KG68064-01a.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Tủ giày kết hợp kệ trang trí gỗ</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham">6,200,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">7,750,000<sup>đ</sup></div>
+                <div class="cost-sanpham">3.780.000<sup>đ</sup></div>
+                <div class="reduce-sanpham">4.200.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -25,11 +25,10 @@
             </div>
         </div>
         <div class="sanpham-one">
-            <img src="Image/tuquanao.jpg" alt="anh" width="267px" height="250px"  />
-            <h1>Tủ quần áo</h1>
+            <img src="Image/tu-giay-go-cao-su-2-cua-2-ngan-keo-1.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Tủ để giày gỗ cao su</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham">1.520.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">1,700,000<sup>đ</sup></div>
+                <div class="cost-sanpham">2.950.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -37,11 +36,11 @@
             </div>
         </div>
         <div class="sanpham-one">
-            <img src="Image/armchair-hung-king-600x400.jpg" alt="anh" width="267px" height="250px"  />
-            <h1>Armchair Hung King</h1>
+            <img src="Image/ke-sach-go-cao-su-1.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Kệ sách đứng</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham">10,965,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">12,900,000<sup>đ</sup></div>
+                <div class="cost-sanpham">2.322.000<sup>đ</sup></div>
+                <div class="reduce-sanpham">2.580.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -49,11 +48,11 @@
             </div>
         </div>
         <div class="sanpham-one">
-            <img src="Image/baph163_1_f9f65edb7b58436f8af2e740446ce7c8_master.jpg" alt="anh" width="267px" height="250px"  />
-            <h1>Đèn bàn DIAMOND</h1>
+            <img src="Image/ke-sach-6-tang-go-cao-su-0.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Kệ sách 6 tầng</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham"><sup>đ</sup></div>
-                <div class="reduce-sanpham">173,250,000<sup>đ</sup></div>
+                <div class="cost-sanpham">1.960.000<sup>đ</sup></div>
+                <div class="reduce-sanpham">2.450.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -61,11 +60,57 @@
             </div>
         </div>
         <div class="sanpham-one">
-            <img src="Image/gia-treo-do-phong-tam-sat-son-tinh-dien-1.jpg" alt="anh" width="267px" height="250px"  />
+            <img src="Image/ghe-an-boc-nem-chan-sat-cao-cap-1.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Ghế ăn bọc nệm Si chân sắt sỡn tĩnh điện GAK135</h1>
+            <div class="pri-sanpham">
+            <div class="cost-sanpham">1.650.000<sup>đ</sup></div>
+            </div>
+            <div class="buy-sanpham">
+                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
+                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
+            </div>
+        </div>
+        <div class="sanpham-one">
+            <img src="Image/giuong-tang-go-khung-sat-GT011-03.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Giường tầng 140x200cm gỗ cao su khung sắt GT011</h1>
+            <div class="pri-sanpham">
+                <div class="cost-sanpham">10.972.000<sup>đ</sup></div>
+                <div class="reduce-sanpham">11.550.000<sup>đ</sup></div>
+            </div>
+            <div class="buy-sanpham">
+                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
+                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
+            </div>
+        </div>
+        <div class="sanpham-one">
+            <img src="Image/ke-nha-bep-da-nang-khung-sat-go-cao-su-1.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Kệ bếp đa năng 60x40x115cm gỗ cao su KB68048</h1>
+            <div class="pri-sanpham">
+                <div class="cost-sanpham">1.800.000<sup>đ</sup></div>
+                <div class="reduce-sanpham">2.000.000<sup>đ</sup></div>
+            </div>
+            <div class="buy-sanpham">
+                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
+                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
+            </div>
+        </div>
+        <div class="sanpham-one">
+            <img src="Image/ke-tu-dat-goc-tuong-chan-sat-1.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Tủ kệ góc tường gỗ cao su</h1>
+            <div class="pri-sanpham">
+                <div class="cost-sanpham">3.825.000<sup>đ</sup></div>
+                <div class="reduce-sanpham">4.250.000<sup>đ</sup></div>
+            </div>
+            <div class="buy-sanpham">
+                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
+                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
+            </div>
+        </div>
+        <div class="sanpham-one">
+            <img src="Image/gia-treo-do-phong-tam-sat-son-tinh-dien-1.jpg" alt="anh" width="267px" height="250px" />
             <h1>Kệ để đồ phòng tắm</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham"><sup>đ</sup></div>
-                <div class="reduce-sanpham">2,600,000<sup>đ</sup></div>
+                <div class="cost-sanpham">2.600.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -73,11 +118,11 @@
             </div>
         </div>
         <div class="sanpham-one">
-            <img src="Image/chan-ga-goi-cao-cap-sagatex-1.png" alt="anh" width="267px" height="250px"  />
-            <h1>Chăn Ga Gối Cao Cấp, Tiêu Chuẩn Khách Sạn 6 Sao</h1>
+            <img src="Image/ghe-xoay-van-phong-chan-sat-1.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Ghế xoay lưng thấp nệm bọc da HOGVP162</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham">4.588.600<sup>đ</sup></div>
-                <div class="reduce-sanpham">5.922.000<sup>đ</sup></div>
+                <div class="cost-sanpham">738.000<sup>đ</sup></div>
+                <div class="reduce-sanpham">820.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -85,59 +130,10 @@
             </div>
         </div>
         <div class="sanpham-one">
-            <img src="Image/1a_6c1ac53636f846418e2f718244ac97c2_master.webp" alt="anh" width="267px" height="250px"  />
-            <h1>Ghế Công Thái Học Ergonomic Ergostuhl Fenix 8</h1>
+            <img src="Image/gia-treo-do-khung-sat-co-gio-de-do-ban-1.jpg" alt="anh" width="267px" height="250px" />
+            <h1>Giá để đồ phòng tắm khung sắt</h1>
             <div class="pri-sanpham">
-                <div class="cost-sanpham">7,900,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">9,600,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/o1cn01lvcmew1vsmoknzidx___2211252306171-0-cib_948b6784bd53459e86f6a015b546d9a7_small.webp" alt="anh" width="267px" height="250px"  />
-            <h1>Ghế Vaz</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">860,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">1,100,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/d7b9c9d0c80ad7ac5f2df92452a5a46_0b830f584057499a8de4e09ef69f69ae_large_f2d51bb5106a4235a4c1b9dcd65557fc_small.webp" alt="anh" width="267px" height="250px"  />
-            <h1>Giường Hồ Bơi GL-16</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">3,165,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">4,900,000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/z4459966006565_62b8537c075fb9cc1e95d9a546b9d525.jpg" alt="anh" width="267px" height="250px"  />
-            <h1>GIƯỜNG SOFA THÔNG MINH COLIF SMART C (KÍCH THƯỚC 1M2)</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">5,490,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">7,800,000 ₫<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/51z3CiIsnUL._SR476,476_.jpg" alt="anh" width="267px" height="250px"  />
-            <h1>FOTOSOK Đầu giường màu trắng có 3 ngăn kéo</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">900,000<sup>đ</sup></div>
-                <div class="reduce-sanpham">1,200,000<sup>đ</sup></div>
+                <div class="cost-sanpham">1.850.000<sup>đ</sup></div>
             </div>
             <div class="buy-sanpham">
                 <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
@@ -147,12 +143,12 @@
     </div>
     <div class="sanpham">
         <div class="pagination">
-          <a href="#">&laquo;</a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">&raquo;</a>
+          <a href="index.php?xem=White&id=1">&laquo;</a>
+          <a href="index.php?xem=White&id=1" class="active">1</a>
+          <a href="index.php?xem=White&id=2">2</a>
+          <a href="index.php?xem=White&id=3">3</a>
+          <a href="index.php?xem=White&id=4">4</a>
+          <a href="index.php?xem=White&id=5">5</a>
+          <a href="index.php?xem=White&id=2">&raquo;</a>
         </div>
       </div>
