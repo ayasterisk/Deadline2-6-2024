@@ -134,7 +134,7 @@ header{
 /* footer */
 .footer-wrapper {
   margin: auto;
-  width: 1500px;
+  max-width: 1420px;
 }
 .footer-title {
   color: rgb(255, 255, 255);
