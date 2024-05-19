@@ -1,6 +1,4 @@
-*{
-    margin: 0;
-}
+
 a{
     text-decoration: none;
 }
@@ -11,9 +9,9 @@ input{
     background-color: #f6eea0;
     font-family: 'roboto', sans-serif;
   }
-.content{
+.content__cart{
     margin: auto;
-    width: 1400px;
+    width: 1420px;
 }
 .content__icon{
     font-size: 50px;
@@ -33,7 +31,7 @@ input{
     font-size: 20px;
     text-align: center;
     margin: auto;
-    width: 1400px;
+    width: 1420px;
     margin-top: 20px;
     border: 1px solid darkgrey;
 }
@@ -139,7 +137,7 @@ input{
     margin-top: 20px;
     position: sticky;
     bottom: 0;
-    width: 1400px;
+    width: 1420px;
     border-bottom: 1px solid darkgrey;
     background-color: #f9f9f9;
 }
@@ -192,7 +190,7 @@ input{
     margin-top: 20px;
 }
 .content_title_main{
-    width: 1400px;
+    width: 1420px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -213,7 +211,7 @@ input{
     margin-top: 20px;
     margin-bottom: 10px;
 }
-img{
+.content_title_main img{
     width: 200px;
     height: 180px;
 }
