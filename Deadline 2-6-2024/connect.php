@@ -1,7 +1,7 @@
 <?php
    $sever='localhost';
-   $email='root';
-   $password='';
+   $user='root';
+   $pass='';
    $database='quanlinoithat';
    //kết nối database
    $conn=new mysqli($sever,$user,$pass,$database);
