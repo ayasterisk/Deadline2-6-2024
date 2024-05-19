@@ -12,10 +12,10 @@
             <a href="index.php?xem=Prohome-Moho&id=1"><div class="filter"><strong>Prohome - Moho</strong></div></a>
         </li>
         <li>
-            <a href="index.php?xem=Fence-Jazz&id=1"><div class="filter"><strong>Fence - Jazz</strong></div></a>
+            <a href="index.php?xem=Penny-Ahura&id=1"><div class="filter"><strong>Penny - Ahura</strong></div></a>
         </li>
         <li>
-            <a href="index.php?xem=Penny-Ahura&id=1"><div class="filter"><strong>Penny - Ahura</strong></div></a>
+            <a href="index.php?xem=Fence-Jazz&id=1"><div class="filter"><strong>Fence - Jazz</strong></div></a>
         </li>
         <li>
             <a href="index.php?xem=AnotherBrand&id=1"><div class="filter"><strong>Các hãng khác</strong></div></a>

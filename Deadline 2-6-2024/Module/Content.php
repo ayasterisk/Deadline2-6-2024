@@ -66,7 +66,7 @@
             if ($tam=='dangky'){
                 include('dangky.php');
                 }
-            if ($tam==''){
+            if ($tam=='tatcasanpham'){
                 include('Module/Right/tatcasanpham.php');
                 }
         ?>
