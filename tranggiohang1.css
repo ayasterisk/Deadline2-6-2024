@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: darkcyan;
+}
+a:hover{
+    color: red;
+}
+input{
+    cursor: pointer;
+}
+.htmlgiohang {
+    background-color: #f6eea0;
+    font-family: 'roboto', sans-serif;
+  }
+.content{
+    margin: auto;
+    width: 1400px;
+}
+.content__icon{
+    font-size: 50px;
+    margin-top: 20px;
+}
+.content__notegiamgia{
+    font-size: 20px ;
+    margin-top: 20px;
+    border-bottom: 1px solid darkgrey;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+.content_tablegiohang{
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    width: 1400px;
+    margin-top: 20px;
+    border: 1px solid darkgrey;
+}
+.content_tablegiohang tr, .content_tablegiohang td{
+    padding: 10px;
+}
+.content_tr1{
+    background-color: rgb(148, 142, 142);
+    color: white;
+    border:none ;
+}
+.content_tr2{
+    background-color: white;
+    border:none ;
+}
+.content_tr2 .soluong{
+    text-align: center;
+}
+.content_tr2 input{
+    border: none;
+    font-size: 20px;
+}
+.content__voucher{
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px solid darkgrey;
+    background-color: #f9f9f9;
+}
+.content__voucher a{
+    margin-left: 940px;
+}
+.content_them{
+    margin-left: 50px;
+}
+.content_them button{
+    padding: 10px;
+    width: 170px;
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+.content_them button:hover{
+    background-color: aqua;
+    color: orangered;
+    transition: 0.3s;
+}
+.content__tr5{
+    background-color: #f9f9f9;
+}
+.content__giamgia{
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px solid darkgrey;
+    background-color: #f9f9f9;
+}
+.content__giamgia a{
+    margin-left: 1120px;
+}
+.content__xoa input{
+    border: none;
+    font-size: 20px;
+}
+.content__button__dathang div{
+   margin-left: 5px;
+}
+.buttondathang{
+    width: 170px;
+    padding: 10px;
+    border: solid darkgrey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+    margin-left:80px;
+    cursor: pointer;
+}
+.buttondathang:hover{
+    background-color: aqua;
+    transition: 0.3s;
+    color: orangered;
+}
+.content__tr4{
+    background-color: #f9f9f9;
+}
+.content_input_chonall,.tongthanhtoan,.tongtien{
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    margin-top: 20px;
+}
+.content_input_spkohoatdong{
+    width: 300px;
+    height: 50px;
+    border: none;
+    margin-top: 20px;
+    font-size: 20px;
+}
+.content__dathangtong{
+    display: flex;
+    margin-top: 20px;
+    position: sticky;
+    bottom: 0;
+    width: 1400px;
+    border-bottom: 1px solid darkgrey;
+    background-color: #f9f9f9;
+}
+.content__dathangtong input{
+    margin-left: 10px;
+}
+.content_input_spkohoatdong,.tongthanhtoan{
+    margin-left: 70px;
+}
+.main__tooltip{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.content__tooltip {
+    display: none;
+    position: absolute;
+    top: -230px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:aquamarine;
+    color: black;
+    width: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    white-space: nowrap;
+}
+.content__tooltip::after {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+}
+
+.main__tooltip:hover .content__tooltip {
+    display: block;
+}
+.tooltip_tongtien{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+/*------------CONTENT TITLE ---------------------*/
+.content_title{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.content_title_main{
+    width: 1400px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    border: 1px solid darkgray;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+}
+.content_title_main .sanpham1:hover{
+    box-shadow: 0px 4px 8px rgba(255, 165, 0, 0.6);
+    background-color:darkorange;
+    border-color: darkorange;
+    width: 345px;
+    transition: 0.3s;
+}
+.sanpham1{
+    width: 330px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+img{
+    width: 200px;
+    height: 180px;
+}
+.main_sanpham{
+    display: flex;
+    justify-content: space-around;
+}
+.main_sanpham .giasanpham{
+    font-size: 20px;
+    margin-left: 80px;
+}
+.giagiamsanpham{
+    margin-right: 80px;
+    text-decoration: line-through;
+}
+.sanpham1-mua{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3px;
+}
+.sanpham1-mua a{
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+}
+.add_giohang{
+    margin-left: 60px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.chitiet-sanpham{
+    margin-right: 60px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+.sanpham1-mua a:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
