@@ -1,6 +1,5 @@
 <?php
 require('connect.php');
-die;
 $database = "CREATE DATABASE IF NOT EXISTS $database CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
 mysqli_query($conn, $database);
 $quanlybackhachhang = "CREATE TABLE quanlibackhachhang(
