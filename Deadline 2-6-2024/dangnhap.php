@@ -2,19 +2,16 @@
 session_start();
 ob_start();
 include "Module/Header.php";
+?>
+<?php
 
 
-if((isset($_POST['đăng nhập'])) && ($_POST['đăng nhập'])){
-$email=$_POST['customer[email]'];
-$password=$_POST['customer[password]'];
-$role=checkuser($email,$password);
-$_SESSION['role']=$role;
-if ($role==1) header('location: index.php');
-else {
-	$txt_error="Email hoặc Password không tồn tại!";
-}
-//header('location: login.php');
 
+if(isset($_POST['email'])){
+$email=$_POST['tendangnhap'];
+$password=$_POST['matkhau'];
+
+$sql="SELECT * FROM "
 
 }
 
