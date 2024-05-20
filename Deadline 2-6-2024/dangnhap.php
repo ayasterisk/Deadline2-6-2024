@@ -7,14 +7,25 @@ include "Module/Header.php";
 
 
 
-if(isset($_POST['email'])){
+if(isset($_POST['email']))
+{
 $email=$_POST['tendangnhap'];
 $password=$_POST['matkhau'];
 
-$sql="SELECT * FROM "
-
+$sql="SELECT * FROM quanlykhachhang WHERE tendangnhap='$email'";
+$query= mysqli_query($conn,$sql);
+$data = mysqli_fetch_assoc($query);
+$checkemail= mysqli_num_rows($query);
+if($checkemail ==1){
+	$checkpass=password_verify($password, $data['matkhau']);
+	if($checkpass){
+		$_SESSION['user'] = $data;
+		header('location: index.php');
+	}
+    else echo "Sai mật khẩu!";
 }
-
+else echo "email không tồn tại";
+}
 
 ?>
 
@@ -62,7 +73,7 @@ $sql="SELECT * FROM "
 						<h2 class="title"></h2>
 					</div>
                 </div>
-				<form accept-charset="UTF-8" action="reg.php" id="customer_login" method="post">
+				<form accept-charset="UTF-8" action="" id="customer_login" method="post">
 
 				
 					<div class="clearfix large_form">
