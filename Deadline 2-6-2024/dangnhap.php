@@ -4,7 +4,7 @@ ob_start();
 include "Module/Header.php";
 ?>
 <?php
-
+include "connect.php";
 
 
 if(isset($_POST['email']))
@@ -77,26 +77,14 @@ else echo "email không tồn tại";
 
 				
 					<div class="clearfix large_form">
-						<label for="customer_email" class="icon-field"><i class="icon-login icon-envelope "></i></label>
-						<input required="" type="email" value="" name="customer[email]" id="customer_email" placeholder="Vui lòng nhập email của bạn" class="text">
+						<label for="email" class="icon-field"><i class="icon-login icon-envelope "></i></label>
+						<input required="" type="email" value="" name="email" id="email" placeholder="Vui lòng nhập email của bạn" class="text">
 					</div>
 					
 					<div class="clearfix large_form large_form-mrb">
-						<label for="customer_password" class="icon-field"><i class="icon-login icon-shield"></i></label>
-						<input required="" type="password" value="" name="customer[password]" id="customer_password" placeholder="Vui lòng nhập mật khẩu" class="text" size="16">      
+						<label for="password" class="icon-field"><i class="icon-login icon-shield"></i></label>
+						<input required="" type="password" value="" name="matkhau" id="password" placeholder="Vui lòng nhập mật khẩu" class="text" size="16">      
 					</div>
-
-
-					<?php 
-					 if(isset($txt_error)&&($txt_error!="")){
-						echo"<font color='red'>" .$txt_error. "</font>";
-					 }?>
-				
-
-
-
-
-
 					<div class="clearfix large_form sitebox-recaptcha ">
 						This site is protected by reCAPTCHA and the Google
 						<a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a> 

@@ -156,6 +156,15 @@ if (isset($_POST['ngaydangkythanhvien'])) {
 }
 
 ?>
+<?php
+
+if (isset($_POST['ma_kh'])) {
+  $makh = $_POST['ma_kh'];
+
+  $makh=$makh +1;
+}
+
+?>
 
 <?php
 include "Module/Footer.php";
