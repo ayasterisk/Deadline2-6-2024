@@ -5,7 +5,9 @@ include "Module/Header.php";
 ?>
 <?php
 include "connect.php";
-
+if (isset($_SESSION['user'])){
+	header('location:index.php');
+}
 
 if(isset($_POST['email']))
 {
