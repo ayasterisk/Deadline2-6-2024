@@ -17,8 +17,6 @@ $invite=$_POST['magioithieu'];
 
 
 if(!empty($fullname)&&!empty($gender)&&!empty($birthday) && !empty($email) && !empty($password) && !empty($address)){
-echo "<pre>";
-print_r($_POST);
 $password= password_hash($password,PASSWORD_DEFAULT);
 $sql= "INSERT INTO `quanlykhachhang` ( `tenkhaachhang`, `tendangnhap`, `matkhau`, `ngaysinh`, `gioitinh`, `diachi`, `sodienthoai`, `thetindung`, `theghino`, `taikhoannganhang`, `ngaydangkythanhvien`, `magioithieu`) VALUE ('$fullname','$email','$password','$birthday','$gender','$address','$numberphone','$credit','$debitcard','$bank','$registration_time','$invite')";
 if($conn->query(($sql))===TRUE){

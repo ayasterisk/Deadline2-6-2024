@@ -17,10 +17,7 @@ $query= mysqli_query($conn,$sql);
 $data = mysqli_fetch_assoc($query);
 $checkemail= mysqli_num_rows($query);
 if($checkemail ==1){
-	echo $data['matkhau'];
-	echo $password;
 	$checkPass=password_verify($password, $data['matkhau']);
-	var_dump($checkPass);
 	if($checkPass){
 		$_SESSION['user'] = $data;
 		header('location: index.php');
