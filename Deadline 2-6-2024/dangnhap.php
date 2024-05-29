@@ -9,7 +9,7 @@ include "connect.php";
 
 if(isset($_POST['email']))
 {
-$email=$_POST['tendangnhap'];
+$email=$_POST['email'];
 $password=$_POST['matkhau'];
 
 $sql="SELECT * FROM quanlykhachhang WHERE tendangnhap='$email'";
@@ -17,8 +17,11 @@ $query= mysqli_query($conn,$sql);
 $data = mysqli_fetch_assoc($query);
 $checkemail= mysqli_num_rows($query);
 if($checkemail ==1){
-	$checkpass=password_verify($password, $data['matkhau']);
-	if($checkpass){
+	echo $data['matkhau'];
+	echo $password;
+	$checkPass=password_verify($password, $data['matkhau']);
+	var_dump($checkPass);
+	if($checkPass){
 		$_SESSION['user'] = $data;
 		header('location: index.php');
 	}
