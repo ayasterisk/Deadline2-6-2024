@@ -1,5 +1,4 @@
 <?php
-session_start();
 ob_start();
 include "Module/Header.php";
 ?>
@@ -14,6 +13,14 @@ if(isset($_POST['email']))
 $email=$_POST['email'];
 $password=$_POST['matkhau'];
 
+// Kiểm tra tài khoản admin
+if ($email === 'admin@gmail.com' && $password === '113') {
+	// Đăng nhập thành công với tài khoản admin
+	header('Location: admin.php');
+	exit;}
+	else{
+
+
 $sql="SELECT * FROM quanlykhachhang WHERE tendangnhap='$email'";
 $query= mysqli_query($conn,$sql);
 $data = mysqli_fetch_assoc($query);
@@ -24,10 +31,13 @@ if($checkemail ==1){
 		$_SESSION['user'] = $data;
 		header('location: index.php');
 	}
-    else echo "Sai mật khẩu!";
+    else $err['matkhau']='Sai mật khẩu';
 }
-else echo "email không tồn tại";
+else $err['email']='Email không tồn tại';
 }
+}
+
+ 
 
 ?>
 
@@ -82,10 +92,14 @@ else echo "email không tồn tại";
 						<label for="email" class="icon-field"><i class="icon-login icon-envelope "></i></label>
 						<input required="" type="email" value="" name="email" id="email" placeholder="Vui lòng nhập email của bạn" class="text">
 					</div>
-					
+					<div class="has-error">
+						<span> <?php echo(isset($err['email']))?$err['email']:'' ?></span>
 					<div class="clearfix large_form large_form-mrb">
 						<label for="password" class="icon-field"><i class="icon-login icon-shield"></i></label>
 						<input required="" type="password" value="" name="matkhau" id="password" placeholder="Vui lòng nhập mật khẩu" class="text" size="16">      
+					</div>
+					<div class="has-error">
+						<span> <?php echo(isset($err['matkhau']))?$err['matkhau']:'' ?></span>
 					</div>
 					<div class="clearfix large_form sitebox-recaptcha ">
 						This site is protected by reCAPTCHA and the Google
