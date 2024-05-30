@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!--------------------- header --------------------->
     <header>
       <div class="header-top-wrapper">
@@ -9,13 +12,18 @@
             <a href="#">Chăm sóc khách hàng</a>
           </div>
           <div class="header-top-login">
-              <a href="dangnhap.php"
+           <?php if(isset($_SESSION['user'])): ?>
+              <a href="dangxuat.php"
+              >Đăng xuất
+              <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
+              <?php else: ?>
+                <a href="dangnhap.php"
               >Đăng nhập
               <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
-            <a href="dangxuat.php"
-              >Đăng xuất
-              <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i>
-            </a>
+            <a href="dangky.php"
+              >Đăng ký
+              <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
+              <?php endif; ?>
           </div>
         </div>
       </div>
