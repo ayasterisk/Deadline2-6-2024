@@ -10,7 +10,7 @@
     <body>
         <div class="wrapper">
             <?php
-	        include('Module/Header.php');   
+	        include('Module/Header.php');
 	        include('Module/Content.php');
 	        include('Module/Footer.php');
             ?>
