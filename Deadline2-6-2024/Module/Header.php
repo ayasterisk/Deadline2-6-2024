@@ -14,7 +14,7 @@ session_start();
           <div class="header-top-login">
            <?php if(isset($_SESSION['user'])): ?>
            <?php $user=$_SESSION['user'];?>
-              <a href="trangthongtinkhachhang.php"><?php echo $user['ten_kh']?>
+              <a href="profile.php"><?php echo $user['ten_kh']?>
               </a>
               <a href="dangxuat.php"
               >Đăng xuất
