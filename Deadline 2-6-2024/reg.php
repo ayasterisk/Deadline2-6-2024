@@ -2,7 +2,7 @@
 require 'connect.php';
 
 if(isset($_POST['btn-req'])){
-$fullname=$_POST['tenkhaachhang'];
+$fullname=$_POST['ten_kh'];
 $gender=$_POST['gioitinh'];
 $birthday=$_POST['ngaysinh'];
 $email=$_POST['email'];
@@ -18,7 +18,7 @@ $invite=$_POST['magioithieu'];
 
 if(!empty($fullname)&&!empty($gender)&&!empty($birthday) && !empty($email) && !empty($password) && !empty($address)){
 $password= password_hash($password,PASSWORD_DEFAULT);
-$sql= "INSERT INTO `quanlykhachhang` ( `tenkhaachhang`, `tendangnhap`, `matkhau`, `ngaysinh`, `gioitinh`, `diachi`, `sodienthoai`, `thetindung`, `theghino`, `taikhoannganhang`, `ngaydangkythanhvien`, `magioithieu`) VALUE ('$fullname','$email','$password','$birthday','$gender','$address','$numberphone','$credit','$debitcard','$bank','$registration_time','$invite')";
+$sql= "INSERT INTO `quanlykhachhang` ( `ten_kh`, `tendangnhap`, `matkhau`, `ngaysinh`, `gioitinh`, `diachi`, `sodienthoai`, `thetindung`, `theghino`, `taikhoannganhang`, `ngaydangkythanhvien`, `magioithieu`) VALUE ('$fullname','$email','$password','$birthday','$gender','$address','$numberphone','$credit','$debitcard','$bank','$registration_time','$invite')";
 if($conn->query(($sql))===TRUE){
     echo "Lưu dữ liệu thành công";
 

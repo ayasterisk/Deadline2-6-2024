@@ -42,7 +42,7 @@ include "Module/Header.php";
 
 				<div id="field-fullname" class="clearfix large_form">
 					<label for="full_name" class="label icon-field"><i class="icon-login icon-user "></i></label>
-					<input required="" type="text" value="" name="tenkhaachhang" placeholder="Họ và Tên" id="fullname" class="text" size="30">
+					<input required="" type="text" value="" name="ten_kh" placeholder="Họ và Tên" id="fullname" class="text" size="30">
 				</div>
 				<div id="field-gender" class="clearfix large_form">
 					<input id="radio1" type="radio" value="0" name="gioitinh"> 

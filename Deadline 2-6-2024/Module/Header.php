@@ -14,8 +14,8 @@ session_start();
           <div class="header-top-login">
            <?php if(isset($_SESSION['user'])): ?>
            <?php $user=$_SESSION['user'];?>
-              <a href="trangthongtinkhachhang.php"><?php echo $user['tenkhaachhang']?>
-              <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
+              <a href="trangthongtinkhachhang.php"><?php echo $user['ten_kh']?>
+              </a>
               <a href="dangxuat.php"
               >Đăng xuất
               <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
