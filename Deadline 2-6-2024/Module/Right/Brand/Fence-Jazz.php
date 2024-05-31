@@ -1,154 +1,53 @@
-
-<div class="head-right"><h3>Fence-Jazz</h3></div>
-    <div class="right-content-sanpham">
-        <div class="sanpham-one">
-            <img src="Image/tu-trung-bay-go-tu-nhien-ktb68127-01.jpg" alt="anh" width="267px" height="250px"/>
-            <h1>Tủ trang trí gỗ</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">4.950.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
+<?php
+$sosanpham = !empty($_GET['perpage']) ? ($_GET['perpage']) : 12;
+$trangso = !empty($_GET['page']) ? ($_GET['page']) : 1;
+$offset = ($trangso - 1) * $sosanpham;
+$mysql = "SELECT *FROM chitietsanpham  WHERE tenhang in('Jazz','Fence')  LIMIT $sosanpham OFFSET $offset";
+$result = mysqli_query($conn, $mysql);
+$total = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE tenhang in('Jazz','Fence')  ");
+$numrow = mysqli_num_rows($total);
+$sotrang = ceil($numrow / $sosanpham);
+?>
+<div class="head-right">
+    <h3>Frence-Jazz</h3>
+    <form action="" method="post">
+        <div class="right-content-sanpham">
+            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <div class="sanpham-one">
+                    <img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" />
+                    <h1><?= $row['ten_sp'] ?></h1>
+                    <div class="pri-sanpham">
+                        <div class="cost-sanpham"><?= $row['gia'] ?><sup>đ</sup></div>
+                    </div>
+                    <div class="buy-sanpham">
+                        <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
+                        <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
-        <div class="sanpham-one">
-            <img src="Image/tu-giay-go-tu-nhien-KG68064-01a.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Tủ giày kết hợp kệ trang trí gỗ</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">3.780.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">4.200.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/tu-giay-go-cao-su-2-cua-2-ngan-keo-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Tủ để giày gỗ cao su</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">2.950.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/ke-sach-go-cao-su-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Kệ sách đứng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">2.322.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">2.580.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/ke-sach-6-tang-go-cao-su-0.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Kệ sách 6 tầng</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">1.960.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">2.450.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/ghe-an-boc-nem-chan-sat-cao-cap-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Ghế ăn bọc nệm Si chân sắt sỡn tĩnh điện GAK135</h1>
-            <div class="pri-sanpham">
-            <div class="cost-sanpham">1.650.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/giuong-tang-go-khung-sat-GT011-03.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Giường tầng 140x200cm gỗ cao su khung sắt GT011</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">10.972.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">11.550.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/ke-nha-bep-da-nang-khung-sat-go-cao-su-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Kệ bếp đa năng 60x40x115cm gỗ cao su KB68048</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">1.800.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">2.000.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/ke-tu-dat-goc-tuong-chan-sat-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Tủ kệ góc tường gỗ cao su</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">3.825.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">4.250.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/gia-treo-do-phong-tam-sat-son-tinh-dien-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Kệ để đồ phòng tắm</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">2.600.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/ghe-xoay-van-phong-chan-sat-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Ghế xoay lưng thấp nệm bọc da HOGVP162</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">738.000<sup>đ</sup></div>
-                <div class="reduce-sanpham">820.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
-        <div class="sanpham-one">
-            <img src="Image/gia-treo-do-khung-sat-co-gio-de-do-ban-1.jpg" alt="anh" width="267px" height="250px" />
-            <h1>Giá để đồ phòng tắm khung sắt</h1>
-            <div class="pri-sanpham">
-                <div class="cost-sanpham">1.850.000<sup>đ</sup></div>
-            </div>
-            <div class="buy-sanpham">
-                <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                <div class="wm-sanpham"><a href="#">Chi tiết</a></div>
-            </div>
-        </div>
+    </form>
+</div>
+<div class="sanpham">
+    <div class="pagination">
+        <?php if ($trangso > 2) { ?>
+            <a href="index.php?xem=Fence-Jazz&perpage=<?= $sosanpham ?>&page=<?= 1 ?>">FIRST</a> <?php } ?>
+        <?php if ($trangso < $sotrang + 1) { ?>
+            <?php $nextpage = $trangso - 1; ?>
+            <a href="index.php?xem=Fence-Jazz&perpage=<?= $sosanpham ?>&page=<?= $nextpage ?>">PREV</a> <?php } ?>
+        <?php for ($num = 1; $num <= $sotrang; $num++) { ?>
+            <?php if ($num != $trangso) { ?>
+                <?php if ($num > $trangso - 2 and $num < $trangso + 2) { ?>
+                    <a href="index.php?xem=Fence-Jazz&perpage=<?= $sosanpham ?>&page=<?= $num ?>"><?= $num ?></a>
+                <?php } ?>
+            <?php } else { ?>
+                <strong style="background-color: black; color:white;padding:20px;"><?= $num ?></strong>
+            <?php } ?>
+        <?php } ?>
+        <?php if ($trangso < $sotrang) { ?>
+            <?php $nextpage = $trangso + 1; ?>
+            <a href="index.php?xem=Fence-Jazz&perpage=<?= $sosanpham ?>&page=<?= $nextpage ?>">NEXT</a> <?php } ?>
+        <?php if ($trangso < $sotrang - 1) { ?>
+            <a href="index.php?xem=Fence-Jazz&perpage=<?= $sosanpham ?>&page=<?= 1 ?>">LAST</a> <?php } ?>
     </div>
-    <div class="sanpham">
-        <div class="pagination">
-          <a href="index.php?xem=Fence-Jazz&id=1">&laquo;</a>
-          <a href="index.php?xem=Fence-Jazz&id=1" class="active">1</a>
-          <a href="index.php?xem=Fence-Jazz&id=2">2</a>
-          <a href="index.php?xem=Fence-Jazz&id=3">3</a>
-          <a href="index.php?xem=Fence-Jazz&id=4">4</a>
-          <a href="index.php?xem=Fence-Jazz&id=5">5</a>
-          <a href="index.php?xem=Fence-Jazz&id=2">&raquo;</a>
-        </div>
-      </div>
+</div>
