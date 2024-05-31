@@ -2,9 +2,9 @@
 $sosanpham = !empty($_GET['perpage']) ? ($_GET['perpage']) : 12;
 $trangso = !empty($_GET['page']) ? ($_GET['page']) : 1;
 $offset = ($trangso - 1) * $sosanpham;
-$mysql = "SELECT *FROM chitietsanpham WHERE loai_sp like 'Sofa' LIMIT $sosanpham OFFSET $offset";
+$mysql = "SELECT *FROM chitietsanpham WHERE loaisp like 'Sofa' LIMIT $sosanpham OFFSET $offset";
 $result = mysqli_query($conn, $mysql);
-$total = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE loai_sp like 'Sofa' ");
+$total = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE loaisp like 'Sofa' ");
 $numrow = mysqli_num_rows($total);
 $sotrang = ceil($numrow / $sosanpham);
 ?>
