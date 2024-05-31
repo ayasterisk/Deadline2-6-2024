@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <?php
 require 'connect.php';
 $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 8");
