@@ -1,10 +1,7 @@
-<?php session_start(); ?>
 <?php
 require 'connect.php';
-$result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia DESC LIMIT 8");
-?>
-<?php
-include("Module/Header.php");
+$sql = "SELECT * FROM quanlysanpham";
+$query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html class="htmlgiohang">
@@ -14,216 +11,221 @@ include("Module/Header.php");
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="tranggiohang1.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <?php include('scriptcart.php') ?>
-    <div class="content__cart">
-        <?php
-        if (!empty($errol)) { ?>
-            <div class="" style="height:600px;">
-                <?= $errol ?> <a href="javascript:history.back()">Quay Lại</a>
+    <div class="content">
+        <div class="content__icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Giỏ Hàng</span>
+        </div>
+        <div class="content__notegiamgia">
+            <i class="fa-solid fa-tag"></i>
+            <span>Nhấn vào mục Mã giảm giá ở cuối trang để được miễn phí vận chuyển nhé!</span>
+        </div>
+        <div class="content_table">
+            <form action="tranggiohang1.php"></form>
+            <table class='content_tablegiohang' border="0" style="border-color: darkgray;">
+                <thead>
+                    <tr class="content_tr1">
+                        <th>Sản phẩm</th>
+                        <th>Loại sản phẩm</th>
+                        <th>Giảm giá</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Số tiền</th>
+                        <th>Thao tác</th>
+                        <th>Chọn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $i = 1;
+                    while ($row = mysqli_fetch_array($query)) { ?>
+                        <tr class="content_tr2">
+                            <td><?php echo $row['ma_sp'] ?></td>
+                            <td><?php echo $row['tonkho'] ?></td>
+                            <td>#</td>
+                            <td>#</td>
+                            <td><input type="submit" value="-"><input type="text" value="<?php echo "1" ?>" size="1" class="soluong"><input type="submit" value="+"></td>
+                            <td>#</td>
+                            <td><input type="submit" name="" id="" value="Xóa"><span><i class="fa-regular fa-trash-can"></i></span></td>
+                            <td><input type="checkbox" name="" id=""></td>
+                        </tr>
+                    <?php }  ?>
+                    <tr class="content__tr4" style="background-color: darkgray; color:#f9f9f9f9">
+                        <td>Tổng tiền</td>
+                        <td colspan="7" align="right">1000000<sup>đ</sup></td>
+                    </tr>
+                    <tr class="content__tr5">
+                        <td colspan="6"></td>
+                        <td align="center" colspan="2">
+                            <div class="content_them">
+                                <button>Thêm<i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="content__voucher">
+                <i class="fa-solid fa-window-maximize"></i>
+                <span>Xem tất cả voucher hiện có</span>
+                <a href="/">Xem thêm voucher</a>
             </div>
-        <?php } else { ?>
-            <div class="content__icon">
-                <h2> GIỎ HÀNG </h2>
-            </div>
-            <div class="content__notegiamgia">
+            <div class="content__giamgia">
                 <i class="fa-solid fa-tag"></i>
-                <span>Nhấn vào mục Mã giảm giá ở cuối trang để được miễn phí vận chuyển nhé!</span>
+                <span><?php  ?></span>
+                <a href="/">Tìm hiểu thêm về voucher</a>
             </div>
-            <div class="content_table">
-                <form action="tranggiohang1.php?action=submit" method="post">
-                    <table class='content_tablegiohang' border="0" style="border-color: darkgray;border-collapse:collapse;">
-                        <thead>
-                            <tr class="content_tr1">
-                                <th><input type="checkbox" name="" id="" value="chon"></th>
-                                <th colspan="2">Sản phẩm</th>
-                                <th>Loại sản phẩm</th>
-                                <th>Giảm giá</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Số tiền</th>
-                                <th>Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if (!empty($product)) {
-                                $total = 0;
-                                $dem = 0; ?>
-                                <?php while ($row = mysqli_fetch_array($product)) { ?>
-                                    <tr class="content_tr2">
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="90px" height="90px" /></td>
-                                        <td align="left">
-                                            <?= $row['ten_sp'] ?>
-
-                                        </td>
-                                        <td><?= $row['loai_sp'] ?></td>
-                                        <td><?= $row['giakhuyenmai'] ?></td>
-                                        <td><?= $row['gia'] ?></td>
-                                        <td><input type="text" name="quantity[<?= $row['ID'] ?>]" id="" size="3" value="<?= $_SESSION['cart'][$row['ID']] ?>" style="text-align:center"></td>
-                                        <td><?= $row['gia'] * $_SESSION['cart'][$row['ID']] ?></td>
-                                        <td><a href="tranggiohang1.php?action=delete&id=<?= $row['ID'] ?>">Xóa</a></td>
-                                    </tr>
-                                    <?php $dem++; ?>
-                                <?php $total += $row['gia'] * $_SESSION['cart'][$row['ID']];
-                                } ?>
-                                <tr class="content__tr4" style="background-color: darkgray; color:#f9f9f9f9">
-                                    <td colspan="2">Tổng tiền</td>
-                                    <td colspan="7" align="right"><?= $total ?><sup>đ</sup></td>
-                                </tr>
-                            <?php } ?>
-                            <tr class="content__tr5">
-                                <td colspan="6"></td>
-                                <td align="center" colspan="3">
-                                    <div class="content_them">
-                                        <input type="submit" name="update_click" id="" value="Cập nhật" />
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="content__voucher">
-                        <i class="fa-solid fa-window-maximize"></i>
-                        <span>Xem tất cả voucher hiện có</span>
-                        <a href="#main__voucher">Xem thêm voucher</a>
-                        <div class="main__voucher" id="main__voucher">
-                            <div class="voucher__reduce">
-                                <div class="scroll__voucher">
-                                    <a href="#" class="close-giamgia">&times;</a>
-                                    <div class="" style="font-size: 30px;">
-                                        <h3>VOUCHER</h3>
-                                    </div>
-                                    <label for="">Nhập mã voucher</label><input type="text" name="" id="" value=""><input type="submit" name="" id="" value="Tìm">
-                                    <table border="1" style="border-collapse:collapse;margin-top:20px; margin-left:20px;">
-                                        <tr class="tr__voucher">
-                                            <td><img src="https://down-vn.img.susercontent.com/file/db5515d14d95d605ffca8aa0fe91a5f0" alt="voucher" width="120px" height="100px"></td>
-                                            <td style="padding-left:5px ;">Giảm <input type="text" name="" id="" value="" readonly><br>
-                                                Đơn tối thiểu <input type="text" name="" id="" value="" readonly><br>
-                                                HSD <input type="datetime" name="" id="" value="" readonly></td>
-                                            <td><input type="submit" name="" id="" value="Chọn"></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+            <div class="content__dathangtong">
+                <input type="checkbox" name="" id="" value="">
+                <input type="submit" name="" id="" value="Chọn tất cả(<?php ?>)" class="content_input_chonall">
+                <input type="submit" name="" id="" value="Xóa" class="content_input_chonall">
+                <input type="submit" name="" id="" value="Bỏ sản phẩm không hoạt động" class="content_input_spkohoatdong">
+                <div class="main__tooltip">
+                    <input type="submit" name="" id="" value="Tổng thanh toán(<?php ?>):" class="tongthanhtoan">
+                    <div class="content__tooltip">
+                        <div class=""><h1>Chi tiết khuyến mãi<h1></div>
+                        <div class="tooltip_tongtien">
+                            <div class=""><label for=""><h3>Tổng tiền hàng</h3></label></div>
+                            <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
+                        </div>
+                        <div class="tooltip_tongtien">
+                            <div class=""><label for=""><h3>voucher giảm giá</h3></label></div>
+                            <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
+                        </div>
+                        <div class="tooltip_tongtien">
+                            <div class=""><label for=""><h3>Giảm giá sản phẩm</h3></label></div>
+                            <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
+                        </div>
+                        <div class="tooltip_tongtien">
+                            <div class=""><label for=""><h3>Tổng số tiền</h3></label></div>
+                            <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
                         </div>
                     </div>
-                    <div class="content__giamgia">
-                        <i class="fa-solid fa-tag"></i>
-                        <span><?php  ?></span>
-                        <a href="#content__giamgia_voucher">Tìm hiểu thêm về voucher</a>
-                        <div class="content__giamgiavoucher" id="content__giamgia_voucher">
-                            <div class="main__giamgia">
-                                <a href="#" class="close-giamgia">&times;</a>
-                                <div>Khuyến mãi vận chuyển</div>
-                                <table>
-                                    <thead>
-                                        <th>Đơn hàng tối thiểu</th>
-                                        <th>Khuyến mãi</th>
-                                        <th>Phương thức vận chuyển</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content_thongtinkhachhang">
-                        <div class=""><label for="">Người nhận</label><input type="text" name="name" placeholder="Nhập họ và tên" class="content_tthoten" size="40"><br></div>
-                        <div class=""><label for="">Số điện thoại</label><input type="text" name="phone" id="" placeholder="Nhập số diện thoại" class="content_ttsdt" size="40"><br></div>
-                        <div class=""><label for="">Địa chỉ</label><input type="text" name="add" id="" placeholder="Nhập địa chỉ" class="content_ttdc" size="40"><br></div>
-                        <div class=""><label for="">Ghi chú</label><textarea name="note" id="" class="content_ttghichu"></textarea></div>
-                    </div>
-                    <div class="content__dathangtong">
-                        <input type="checkbox" name="" id="" value="">
-                        <input type="submit" name="" id="" value="Chọn tất cả(<?php ?>)" class="content_input_chonall">
-                        <a href="tranggiohang1.php?action=deleteall" class="content_input_chonall1">Xóa</a>
-                        <input type="submit" name="" id="" value="Bỏ sản phẩm không hoạt động" class="content_input_spkohoatdong">
-                        <div class="main__tooltip">
-                            <?php if (!empty($dem)) { ?>
-                                <input type="submit" name="" id="" value="Tổng thanh toán(<?= $dem ?>):" class="tongthanhtoan">
-                            <?php } ?>
-                            <div class="content__tooltip">
-                                <div class="">
-                                    <h1>Chi tiết khuyến mãi<h1>
-                                </div>
-                                <div class="tooltip_tongtien">
-                                    <div class=""><label for="">
-                                            <h3>Tổng tiền hàng</h3>
-                                        </label></div>
-                                    <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
-                                </div>
-                                <div class="tooltip_tongtien">
-                                    <div class=""><label for="">
-                                            <h3>voucher giảm giá</h3>
-                                        </label></div>
-                                    <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
-                                </div>
-                                <div class="tooltip_tongtien">
-                                    <div class=""><label for="">
-                                            <h3>Giảm giá sản phẩm</h3>
-                                        </label></div>
-                                    <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
-                                </div>
-                                <div class="tooltip_tongtien">
-                                    <div class=""><label for="">
-                                            <h3>Tổng số tiền</h3>
-                                        </label></div>
-                                    <div class=""><input type="text" name="" id="" value="<?= $total ?>đ" readonly></div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php if (!empty($total)) { ?>
-                            <input type="text" name="" id="" value="<?= $total ?>đ" readonly class="tongtien" />
-                        <?php } ?>
-                        <div class="div_buttondathang"><a href="#"><input name="order_click" type="submit" value="Đặt hàng" class="buttondathang"></input></a></div>
-                    </div>
-                    <div class="content_cothethich">
-                        <div class="content_title">
-                            <h2 style="color: chocolate;">CÓ THỂ BẠN CŨNG THÍCH</h2>
-                            <h3><a href="#" style="color: darkcyan">Xem tất cả ></a></h3>
-                        </div>
-                        <div class="content_title_main">
-                            <?php while ($row = mysqli_fetch_array($result)) { ?>
-                                <div class="sanpham1">
-                                    <form action="">
-                                        <div class="nhan_giamgia"><?= ($row['giakhuyenmai']/$row['gia'])*100 ?> %</div>
-                                        <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" /></a>
-                                        <a href="Module/product-details.php?id=<?= $row['ID'] ?>">
-                                            <h3><?= $row['ten_sp'] ?></h3>
-                                        </a>
-                                        <div class="main_sanpham">
-                                            <div class="giasanpham"><?= $row['giakhuyenmai'] ?><sup>đ</sup></div>
-                                            <div class="giagiamsanpham"><?= $row['gia']  ?><sup>đ</sup></div>
-                                        </div>
-                                        <div class="sanpham1-mua">
-                                            <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
-                                            <div class="chitiet-sanpham"><a href="Module/product-details.php?id=<?= $row['ID'] ?>">Chi tiết</a></div>
-                                        </div>
-                                    </form>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </form>
+                </div>
+                <input type="text" name="" id="" value="<?php ?>" readonly class="tongtien">
+                <div><a href="/thanhtoannhom4/thanhtoannhom4.php"><button name="buttondathang" value="Đặt hàng" class="buttondathang">Đặt hàng</button></a></div>
             </div>
-        <?php } ?>
-    </div>
+            <div class="content_cothethich">
+                <div class="content_title">
+                    <h2 style="color: chocolate;">CÓ THỂ BẠN CŨNG THÍCH</h2>
+                    <h3><a href="#" style="color: darkcyan">Xem tất cả ></a></h3>
+                </div>
+                <div class="content_title_main">
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/1a_6c1ac53636f846418e2f718244ac97c2_master.webp" alt="anh" />
+                            <h3>Ghế sofa</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/blue1.jpg" alt="anh" />
+                            <h3>Ghế sofa gỗ cao cấp hiện đại Ghế đôi sofa 115cm tiện ích sang trọng GSF001</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/blue2.jpg" alt="anh" />
+                            <h3>Ghế sofa</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/blue3.jpg" alt="anh" />
+                            <h3>Ghế sofa</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/blue4.jpg" alt="anh" />
+                            <h3>Ghế sofa</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/blue5.jpg" alt="anh" />
+                            <h3>Ghế sofa</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/blue6.jpg" alt="anh" />
+                            <h3>Ghế sofa</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sanpham1">
+                        <form action="">
+                            <img src="img/blue7.jpg" alt="anh" />
+                            <h3>Ghế sofa</h3>
+                            <div class="main_sanpham">
+                                <div class="giasanpham">19000<sup>đ</sup></div>
+                                <div class="giagiamsanpham">20000<sup>đ</sup></div>
+                            </div>
+                            <div class="sanpham1-mua">
+                                <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
+                                <div class="chitiet-sanpham"><a href="#">Chi tiết</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
-<?php
-include("Module/Footer.php");
-?>
-
 </html>
