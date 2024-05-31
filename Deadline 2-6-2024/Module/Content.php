@@ -32,7 +32,10 @@
                 }
             if ($tam=='Gray'){
                 include('Module/Right/Color/Gray.php');
-                    } 
+                }
+            if ($tam=='Black'){
+                    include('Module/Right/Color/Black.php');
+                }  
             if ($tam=='Brown'){
                 include('Module/Right/Color/Brown.php');
                 }
@@ -66,7 +69,7 @@
             if ($tam=='dangky'){
                 include('dangky.php');
                 }
-            if ($tam=='tatcasanpham'){
+            if ($tam==''){
                 include('Module/Right/tatcasanpham.php');
                 }
         ?>

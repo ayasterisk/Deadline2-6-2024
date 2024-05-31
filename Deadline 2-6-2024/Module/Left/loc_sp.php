@@ -31,7 +31,10 @@
             <a href="index.php?xem=White&id=1"><div class="filter"><strong>Trắng</strong></div></a>
         </li>
         <li>
-            <a href="index.php?xem=Gray&id=1"><div class="filter"><strong>Đen</strong></div></a>
+            <a href="index.php?xem=Gray&id=1"><div class="filter"><strong>Xám</strong></div></a>
+        </li>
+        <li>
+            <a href="index.php?xem=Black&id=1"><div class="filter"><strong>Đen</strong></div></a>
         </li>
         <li>
             <a href="index.php?xem=Brown&id=1"><div class="filter"><strong>Nâu</strong></div></a>
@@ -61,9 +64,6 @@
         </li>
         <li>
             <a href="index.php?xem=Chair&id=1"><div class="filter"><strong>Ghế</strong></div></a>
-        </li>
-        <li>
-            <a href="index.php?xem=ArmChair&id=1"><div class="filter"><strong>Arm Chair</strong></div></a>
         </li>
         <li>
             <a href="index.php?xem=AnotherType&id=1"><div class="filter"><strong>Các loại khác</strong></div></a>

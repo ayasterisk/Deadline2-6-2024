@@ -48,6 +48,6 @@ $sotrang = ceil($numrow / $sosanpham);
             <?php $nextpage = $trangso + 1; ?>
             <a href="index.php?xem=HomeOff&perpage=<?= $sosanpham ?>&page=<?= $nextpage ?>">NEXT</a> <?php } ?>
         <?php if ($trangso < $sotrang - 1) { ?>
-            <a href="index.php?xem=HomeOff&perpage=<?= $sosanpham ?>&page=<?= 1 ?>">LAST</a> <?php } ?>
+            <a href="index.php?xem=HomeOff&perpage=<?= $sosanpham ?>&page=<?= $sotrang ?>">LAST</a> <?php } ?>
     </div>
 </div>

@@ -2,14 +2,14 @@
 $sosanpham = !empty($_GET['perpage']) ? ($_GET['perpage']) : 12;
 $trangso = !empty($_GET['page']) ? ($_GET['page']) : 1;
 $offset = ($trangso - 1) * $sosanpham;
-$mysql = "SELECT *FROM chitietsanpham ORDER BY gia DESC LIMIT $sosanpham OFFSET $offset";
+$mysql = "SELECT *FROM chitietsanpham  WHERE mausac not in ('Đen','Xanh','Nâu','Xám','Trắng') LIMIT $sosanpham OFFSET $offset";
 $result = mysqli_query($conn, $mysql);
-$total = mysqli_query($conn, "SELECT *FROM chitietsanpham ");
+$total = mysqli_query($conn, "SELECT *FROM chitietsanpham  WHERE mausac not in ('Đen','Xanh','Nâu','Xám','Trắng')");
 $numrow = mysqli_num_rows($total);
 $sotrang = ceil($numrow / $sosanpham);
 ?>
 <div class="head-right">
-    <h3>ANOTHERCOLOR</h3>
+    <h3>ANOTHER COLOR</h3>
     <form action="" method="post">
         <div class="right-content-sanpham">
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>

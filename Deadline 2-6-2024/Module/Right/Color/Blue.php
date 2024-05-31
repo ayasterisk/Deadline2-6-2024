@@ -4,7 +4,7 @@ $trangso = !empty($_GET['page']) ? ($_GET['page']) : 1;
 $offset = ($trangso - 1) * $sosanpham;
 $mysql = "SELECT *FROM chitietsanpham  WHERE mausac like 'Xanh' LIMIT $sosanpham OFFSET $offset";
 $result = mysqli_query($conn, $mysql);
-$total = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE mausac like 'xanh'");
+$total = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE mausac like 'Xanh'");
 $numrow = mysqli_num_rows($total);
 $sotrang = ceil($numrow / $sosanpham);
 ?>
@@ -48,6 +48,6 @@ $sotrang = ceil($numrow / $sosanpham);
             <?php $nextpage = $trangso + 1; ?>
             <a href="index.php?xem=Blue&perpage=<?= $sosanpham ?>&page=<?= $nextpage ?>">NEXT</a> <?php } ?>
         <?php if ($trangso < $sotrang - 1) { ?>
-            <a href="index.php?xem=Blue&perpage=<?= $sosanpham ?>&page=<?= 1 ?>">LAST</a> <?php } ?>
+            <a href="index.php?xem=Blue&perpage=<?= $sosanpham ?>&page=<?= $sotrang ?>">LAST</a> <?php } ?>
     </div>
 </div>
