@@ -61,10 +61,10 @@ include("Module/Header.php");
 
                                         </td>
                                         <td><?= $row['loaisp'] ?></td>
-                                        <td><?= $row['giakhuyenmai'] ?></td>
-                                        <td><?= $row['gia'] ?></td>
+                                        <td><?= ceil(($row['giakhuyenmai']/$row['gia'])*100) ?><sup>%</sup></td>
+                                        <td><?= $row['gia'] ?><sup>đ</sup></td>
                                         <td><input type="text" name="quantity[<?= $row['ID'] ?>]" id="" size="3" value="<?= $_SESSION['cart'][$row['ID']] ?>" style="text-align:center"></td>
-                                        <td><?= $row['gia'] * $_SESSION['cart'][$row['ID']] ?></td>
+                                        <td><?= $row['gia'] * $_SESSION['cart'][$row['ID']] ?><sup>đ</sup></td>
                                         <td><a href="tranggiohang1.php?action=delete&id=<?= $row['ID'] ?>">Xóa</a></td>
                                     </tr>
                                     <?php $dem++; ?>
@@ -216,7 +216,7 @@ include("Module/Header.php");
                                             <div class=""></div>
                                         <?php }else { ?>
                                             <div class="giagiamsanpham"><?= $row['giakhuyenmai']  ?><sup>đ</sup></div>
-                                        <?php } ?>
+                                        <?php }?>
                                         </div>
                                         <div class="sanpham1-mua">
                                             <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
