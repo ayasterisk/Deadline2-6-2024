@@ -1,0 +1,137 @@
+<?php
+ob_start();
+include "Module/Header.php";
+?>
+<?php
+include "connect.php";
+if (isset($_SESSION['user'])){
+	header('location:index.php');
+}
+
+if(isset($_POST['email']))
+{
+$email=$_POST['email'];
+$password=$_POST['matkhau'];
+
+// Kiểm tra tài khoản admin
+if ($email === 'admin@gmail.com' && $password === '113') {
+	// Đăng nhập thành công với tài khoản admin
+	header('Location: admin.php');
+	exit;}
+	else{
+
+
+$sql="SELECT * FROM quanlykhachhang WHERE tendangnhap='$email'";
+$query= mysqli_query($conn,$sql);
+$data = mysqli_fetch_assoc($query);
+$checkemail= mysqli_num_rows($query);
+if($checkemail ==1){
+	$checkPass=password_verify($password, $data['matkhau']);
+	if($checkPass){
+		$_SESSION['user'] = $data;
+		$_SESSION['I-ID'] = $data['magioithieu']
+		$_SESSION['username'] = $data['tendangnhap'];
+        $_SESSION['fullname'] = $data['ten_kh'];
+        $_SESSION['phone'] = $data['sodienthoai'];
+        $_SESSION['gender'] = $data['gioitinh'];
+        $_SESSION['address'] = $data['diachi'];
+        $_SESSION['account_creation_date'] = $data['ngaydangkythanhvien'];
+        $_SESSION['last_login_date'] = date('Y-m-d');
+        $update_query = "UPDATE users SET last_login_date = '". $_SESSION['last_login_date'] ."' WHERE username = '". $username . "'";
+
+		header('location: index.php');
+	}
+    else $err['matkhau']='Sai mật khẩu';
+}
+else $err['email']='Email không tồn tại';
+}
+}
+
+ 
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+       <title></title>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    </head>
+    <body>
+        <div class="container">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<link rel="preload stylesheet" href="style-themes.css" as="style">
+		<title>
+			Tài khoản 
+		</title>
+		<link rel="canonical" href="dangnhap.php">
+		<link rel="alternate" href="dangnhap.php" hreflang="vi-vn">	
+		<meta name="keywords" content="future furniture">
+    <style>
+	 :root {
+		--shop-color-hover: #c31425; 
+		--shop-color-button: #c31425;	    
+	 } 
+    </style>
+
+			<meta property="og:type" content="website">
+			<main class="wrapperMain_content">	<div class="layout-account">
+	<div class="containers">
+		<div class="wrapbox-content-account">
+			<div id="customer-login" class="customers_accountForm customer_login">
+				<div class="tab-form-account d-flex align-items-center justify-content-center">
+					<h4 class="active">
+						<a href="dangnhap.php">Đăng nhập</a>
+					</h4>
+					<h4>
+						<a href="dangky.php">Đăng ký</a>
+					</h4>
+				</div>
+				<div id="login">
+					<div class="accounttype">
+						<h2 class="title"></h2>
+					</div>
+                </div>
+				<form accept-charset="UTF-8" action="" id="customer_login" method="post">
+
+				
+					<div class="clearfix large_form">
+						<label for="email" class="icon-field"><i class="icon-login icon-envelope "></i></label>
+						<input required="" type="email" value="" name="email" id="email" placeholder="Vui lòng nhập email của bạn" class="text">
+					</div>
+					<div class="has-error">
+						<span> <?php echo(isset($err['email']))?$err['email']:'' ?></span>
+					<div class="clearfix large_form large_form-mrb">
+						<label for="password" class="icon-field"><i class="icon-login icon-shield"></i></label>
+						<input required="" type="password" value="" name="matkhau" id="password" placeholder="Vui lòng nhập mật khẩu" class="text" size="16">      
+					</div>
+					<div class="has-error">
+						<span> <?php echo(isset($err['matkhau']))?$err['matkhau']:'' ?></span>
+					</div>
+					<div class="clearfix large_form sitebox-recaptcha ">
+						This site is protected by reCAPTCHA and the Google
+						<a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a> 
+						and <a href="https://policies.google.com/terms" target="_blank" rel="noreferrer">Terms of Service</a> apply.
+					</div>	
+					<div class="clearfix custommer_account_action">
+						<div class="action_bottom button">
+							<input class="btn btn-signin" type="submit" value="Đăng nhập">
+						</div>
+						<div class="req_pass">
+							<p>Bạn chưa có tài khoản?<a href="dangky.php" onclick="showRecoverPasswordForm();return false;" title="Đăng ký"> Đăng ký</a></p>
+							<p>Bạn quên mật khẩu?<a href="trang đăng nhập.html" title="Quên mật khẩu"> Quên mật khẩu?</a></p>
+						</div>			
+					</div>  
+	            </form>
+			</div>
+		</div>
+	</div>					        
+ </body>
+
+</html>
+<?php
+include "Module/Footer.php";
+?>
