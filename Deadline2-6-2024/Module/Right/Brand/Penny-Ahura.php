@@ -13,16 +13,16 @@ $sotrang = ceil($numrow / $sosanpham);
     <form action="" method="post">
         <div class="right-content-sanpham">
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <a href="Module/product-details.php?id=<?= $row['ID'] ?>">
                 <div class="sanpham-one">
                     <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
                     <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><h1><?= $row['ten_sp'] ?></h1></a>
                     <div class="pri-sanpham">
                         <div class="cost-sanpham"><?= $row['gia'] ?><sup>đ</sup></div>
                     </div>
-                    <div class="buy-sanpham">
-                        <div class="add-to-cart"><a href="#">Thêm vào giỏ</a></div>
-                        <div class="wm-sanpham"><a href="Module/product-details.php?id=<?= $row['ID'] ?>">Chi tiết</a></div>
-                    </div>
+            </a>
+                
+                    
                 </div>
             <?php } ?>
         </div>

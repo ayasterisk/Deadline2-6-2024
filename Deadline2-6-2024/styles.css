@@ -315,12 +315,12 @@ flex-wrap: wrap;
 
 }
 .sanpham-one {
-width: 267px;
+width: 220px;
 text-align: center;
-border: 10px;
+margin: 20px;
 }
 .sanpham-one img {
-width: 267px;
+width: 220px;
 }
 .sanpham-one h1 {
 font-size: 15px;
@@ -328,7 +328,7 @@ color: #333;
 margin-top: 6px;
 }
 .sanpham-one .cost-sanpham {
-font-size: 18px;
+font-size: 15px;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
@@ -339,33 +339,17 @@ margin-left: 6px;
 text-decoration: line-through;
 margin-left: 5px;
 }
+.sanpham-one:hover{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  
+}
 .pri-sanpham{
   display:flex;
   justify-content: center;
   align-items: center;
 }
 
-.buy-sanpham{
-  margin: 10px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-.buy-sanpham a{
-  padding: 5px 10px;
-  text-decoration: none;
-  color: black;
-  border: 2px solid black;
-  margin: auto 10px;
-  background-color: ghostwhite;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-.buy-sanpham a:hover{
-  background-color: black;
-  color: white;
-  transition: 0.5s ease;
-}
-/* San Pham CSS */
+
 
 
 /* Phan Trang */
