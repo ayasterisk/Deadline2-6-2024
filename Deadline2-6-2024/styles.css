@@ -12,7 +12,7 @@ header{
 .header-top-customer {
   display: flex;
   align-items: center;
-  width: 1220px;
+  width: 1020px;
 }
 .header-top-customer a {
   text-decoration: none;
@@ -46,7 +46,8 @@ header{
   font-weight: bold;
 }
 .header-top-login {
-  width: 200px;
+  width: 400px;
+  text-align: right;
 }
 
 .header-top-login a:hover {

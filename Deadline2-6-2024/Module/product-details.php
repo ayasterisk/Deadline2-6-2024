@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles.css"/>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <title>Trang chi tiết sản phẩm</title>
@@ -39,16 +40,14 @@
           <p><?= $product_result['ma_sp'] ?></p>
         </div>
         <div class="product-content-right-price">
-          <span class="original-price"><?= $product_result['gia'] ?><sup>đ</sup></span>
-          <span class="discounted-price"><?= $product_result['giakhuyenmai'] ?><sup>đ</sup></span>
+          <span class="original-price"><?= number_format($product_result['gia'],0,"",",") ?><sup>đ</sup></span>
+          <span class="discounted-price"><?= number_format($product_result['giakhuyenmai'],0,"",",") ?><sup>đ</sup></span>
         </div>
         <div class="product-content-right-color">
           <p>
             <span style="font-weight: bold">Màu sắc:</span><?= $product_result['mausac'] ?><span></span>
           </p>
-          <div class="product-content-right-color-image">
-            <img src="./maunau.png" alt="" />
-          </div>
+          
         </div>
         <div class="product-content-right-size">
           <span style="font-weight: bold">Kích thước:</span><span class="size"><?= $product_result['kichthuoc'] ?></span>
@@ -75,8 +74,8 @@
           <img src="<?= $row['linkanhchitiet'] ?>" alt="" />
           <h1><?= $row['ten_sp'] ?></h1>
           <div class="pri-bottom">
-            <div class="pri-cost"><?= $row['giakhuyenmai'] ?><sup>đ</sup></div>
-            <div class="pri-reduce-price"><?= $row['gia'] ?><sup>đ</sup></div>
+            <div class="pri-cost"><?= number_format($row['giakhuyenmai'],0,"",",") ?><sup>đ</sup></div>
+            <div class="pri-reduce-price"><?= number_format($row['gia'],0,"",",") ?><sup>đ</sup></div>
           </div>
         </div>
       <?php } ?>

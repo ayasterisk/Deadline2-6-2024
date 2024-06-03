@@ -8,7 +8,6 @@ session_start();
           <div class="header-top-customer">
             <p><i class="fa-solid fa-phone-volume"></i> Hotline: 0123456</p>
             <a href="#">Giới thiệu</a>
-            <a href="#">Khuyến mãi</a>
             <a href="#">Chăm sóc khách hàng</a>
           </div>
           <div class="header-top-login">
@@ -39,7 +38,7 @@ session_start();
             ></a>
           </div>
           <div class="header-bottom-logo">
-            <a href="#"><img src="./img/Future furniture.png" alt=""/></a>
+            <a href="#"><img src="../Image/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
             <ul>
