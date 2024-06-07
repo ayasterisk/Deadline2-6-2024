@@ -38,7 +38,7 @@ session_start();
             ></a>
           </div>
           <div class="header-bottom-logo">
-            <a href="#"><img src="Future furniture.png" alt=""/></a>
+            <a href="#"><img src="Image/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
             <ul>

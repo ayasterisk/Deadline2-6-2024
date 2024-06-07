@@ -1,10 +1,10 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'roboto',sans-serif;
+  font-family: "roboto", sans-serif;
 }
 /* header */
-header{
+header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -137,7 +137,6 @@ header{
 }
 /* header */
 
-
 /* footer */
 .footer-wrapper {
   margin: auto;
@@ -227,133 +226,109 @@ footer {
 }
 /* footer */
 
-
 /* Left */
-a{
+a {
   text-decoration: none;
 }
-ul li{
+ul li {
   list-style: none;
 }
-li a:hover{
-  color: aqua;
+li a:hover {
   transition: 0.3s;
 }
 .content {
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
   max-width: 1420px;
   margin: 0 auto;
 }
-.Left{
-	width:350px;
-	float: left;
-	background-color:#FFF;
-  border-right:1px solid darkgrey;
+.Left {
+  width: 350px;
+  height: fit-content;
+  padding-bottom: 20px;
+  float: left;
+  background-color: #f3f3f3;
 }
-.Left p{
-	padding:4px;
-	background-color:#a17945;
-	color:#FFF;
-	border-radius:0px 25px 25px 0px ;
+.Left p {
+  padding: 4px;
+  color: black;
+  border-radius: 0px 25px 25px 0px;
   width: 90%;
   margin-top: 10px;
   margin-bottom: 5px;
 }
-.filter{
-  text-align: center;
-  margin-left: -10%;
+.filter strong {
+  color: #333;
+  font-size: large;
+  font-weight: 100;
 }
-.content__locsp{
-  width: 350px;
-  margin-top:15px;
-  margin-bottom: 15px;
+.head-filter strong {
+  font-size: large;
+  font-weight: bold;
 }
-.content__locsp ul{
-  margin-right: 20px;
+.content_locsp {
+  margin-left: 10px;
 }
-.content__locsp ul li{
-  list-style: none;
-  margin-bottom: 10px;
-}
-.content__locsp :hover{
-  color: aqua;
-  padding-left: 5px;
-  transition: 0.3s;
-}
-.content__locsp a{
-  color: black;
-  text-align: center;
-}
-.filter-sp {
-  font-size: 20px;
-  color: red;
-}
-.head-filter strong{
-  margin-left: 5%;
-}
+
 /* Left */
 
-
 /* San Pham CSS */
-.Right{
+.Right {
   max-width: 1070px;
-
 }
 .head-right h3 {
-font-size: 30px;
-font-weight: bold;
-color: #333;
-text-align: center;
-margin-top: 15px;
-margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 .right-content-sanpham {
-display: flex;
-justify-content: space-around;
-flex-wrap: wrap;
-
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .sanpham-one {
-width: 220px;
-text-align: center;
-margin: 20px;
+  width: 220px;
+  margin: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .sanpham-one img {
-width: 220px;
+  width: 220px;
 }
 .sanpham-one h1 {
-font-size: 15px;
-color: #333;
-margin-top: 6px;
+  font-size: 15px;
+  color: #333;
+  margin-top: 6px;
 }
 .sanpham-one .cost-sanpham {
-font-size: 15px;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
+  font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pri-sanpham {
+  float: left;
 }
 .sanpham-one .reduce-sanpham {
-font-size: 15px;
-margin-left: 6px;
-text-decoration: line-through;
-margin-left: 5px;
+  font-size: 15px;
+  margin-left: 6px;
+  text-decoration: line-through;
+  margin-left: 5px;
 }
-.sanpham-one:hover{
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  
+.sanpham-one:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* Shadow-box tinh chỉnh */
+  transform: scale(1.1);
 }
-.pri-sanpham{
-  display:flex;
+.pri-sanpham {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-
-
 /* Phan Trang */
-.sanpham{
+.sanpham {
   margin-top: 30px;
   display: flex;
   justify-content: center;

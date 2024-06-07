@@ -18,9 +18,9 @@ $sotrang = ceil($numrow / $sosanpham);
                     <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
                     <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><h1><?= $row['ten_sp'] ?></h1></a>
                     <div class="pri-sanpham">
-                        <div class="cost-sanpham"><?= $row['gia'] ?><sup>đ</sup></div>
+                        <div class="cost-sanpham"><?= number_format($row['gia'],0,"",",") ?><sup>đ</sup></div>
                     </div>
-            </a>
+                </a>
                 
                     
                 </div>
