@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="footer-qr">
-            <img src="../Image/qr.png" alt="" />
+            <img src="Image/qr.png" alt="" />
           </div>
         </div>
         <hr />

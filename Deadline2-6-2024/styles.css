@@ -310,13 +310,9 @@ li a:hover {
 }
 .pri-sanpham {
   float: left;
-}
-.sanpham-one .reduce-sanpham {
-  font-size: 15px;
-  margin-left: 6px;
-  text-decoration: line-through;
   margin-left: 5px;
 }
+
 .sanpham-one:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* Shadow-box tinh chỉnh */
   transform: scale(1.1);

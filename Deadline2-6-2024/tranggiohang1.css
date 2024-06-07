@@ -94,30 +94,30 @@ input {
 .content__giamgia a {
   margin-left: 1120px;
 }
-.content_thongtinkhachhang{
+.content_thongtinkhachhang {
   margin-top: 20px;
   margin-left: 10px;
   font-size: 20px;
 }
-.content_thongtinkhachhang div{
+.content_thongtinkhachhang div {
   margin-top: 15px;
 }
-.content_thongtinkhachhang input{
+.content_thongtinkhachhang input {
   padding: 5px;
 }
-.content_tthoten{
+.content_tthoten {
   margin-left: 50px;
 }
-.content_ttsdt{
+.content_ttsdt {
   margin-left: 37px;
 }
-.content_ttdc{
+.content_ttdc {
   margin-left: 91px;
 }
-.content_ttghichu{
+.content_ttghichu {
   margin-left: 85px;
-  width:310px;
-   height:80px;
+  width: 310px;
+  height: 80px;
 }
 .content__xoa input {
   border: none;
@@ -144,7 +144,7 @@ input {
 .content__tr4 {
   background-color: #f9f9f9;
 }
-.div_buttondathang{
+.div_buttondathang {
   margin-left: 148px;
 }
 .content_input_chonall,
@@ -156,14 +156,14 @@ input {
   border: none;
   margin-top: 20px;
 }
-.content_input_chonall1{
+.content_input_chonall1 {
   text-align: center;
   margin-top: 32px;
   width: 170px;
   font-size: 23px;
-  height: 50px ;
+  height: 50px;
 }
-.tongtien{
+.tongtien {
   text-align: right;
 }
 .content_input_spkohoatdong {
@@ -192,47 +192,47 @@ input {
 }
 /*------XEM VOUCHER-------------------*/
 
-.main__voucher{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+.main__voucher {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
-.main__voucher:target{
-    display: flex;
+.main__voucher:target {
+  display: flex;
 }
-.main__voucher input{
-    padding: 5px;
+.main__voucher input {
+  padding: 5px;
 }
-.tr__voucher input{
+.tr__voucher input {
   border: none;
-  margin: 5px
+  margin: 5px;
 }
-.voucher__reduce{
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 500px;
-    height: 300px;
-    text-align: center;
-    position: relative;
-    overflow: auto;
+.voucher__reduce {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  height: 300px;
+  text-align: center;
+  position: relative;
+  overflow: auto;
 }
-.scroll__voucher{
-    height: 2000px;
+.scroll__voucher {
+  height: 2000px;
 }
 /*------TÌM HIỂU VỀ VOUCHER----------*/
 .content__giamgiavoucher {
   display: none;
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
@@ -240,28 +240,28 @@ input {
   justify-content: center;
   z-index: 1000;
 }
-.content__giamgiavoucher:target{
-    display: flex;
+.content__giamgiavoucher:target {
+  display: flex;
 }
 .main__giamgia {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 500px;
-    text-align: center;
-    position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  text-align: center;
+  position: relative;
 }
-.main__giamgia input{
-    border: none;
+.main__giamgia input {
+  border: none;
 }
 .close-giamgia {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    text-decoration: none;
-    font-size: 24px;
-    line-height: 24px;
-    color: #000;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  font-size: 24px;
+  line-height: 24px;
+  color: #000;
 }
 /*-----------TỔNG TIỀN------------*/
 .main__tooltip {
@@ -284,10 +284,10 @@ input {
   z-index: 1;
   white-space: nowrap;
 }
-.content__tooltip input{
-    border: none;
-    font-size: 20px;
-    text-align: right;
+.content__tooltip input {
+  border: none;
+  font-size: 20px;
+  text-align: right;
 }
 .content__tooltip::after {
   content: "";
@@ -325,7 +325,6 @@ input {
 .content_title_main .sanpham1:hover {
   box-shadow: 0px 4px 8px rgba(255, 165, 0, 1);
   border-color: darkorange;
-  
 }
 .sanpham1 {
   width: 330px;
@@ -372,13 +371,13 @@ input {
   color: white;
   transition: 0.3s;
 }
-.sanpham1 .nhan_giamgia{
+.sanpham1 .nhan_giamgia {
   background-color: red;
   color: white;
   width: 70px;
   height: 23px;
-  border-top-right-radius: 6px ;
-  border-bottom-right-radius: 6px ;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   position: relative;
   top: 10;
