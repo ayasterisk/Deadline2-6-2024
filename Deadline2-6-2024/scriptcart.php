@@ -1,3 +1,4 @@
+<?php ob_start()?>
 <?php
     $errol = false;
     if (!isset($_SESSION['cart'])) {
@@ -55,11 +56,10 @@
                             $orderProducts[] = $row;
                             $total += $row['gia'] * $_SESSION['cart'][$row['ID']];
                         }
-                        $insert = mysqli_query($conn, "INSERT INTO `order`(`id`, `name`, `phone`, `address`, `note`, `total`, 
-                        `created_time`, `last_update`) VALUES (NULL,'" . $_POST['name'] . "','" . $_POST['phone'] . "','" . $_POST['add'] . "','" . $_POST['note'] . "','" . $total . "','" . time() . "','" . time() . "')");
+                        $insert = mysqli_query($conn, "INSERT INTO `quanlybanhang` (`ma_dh`, `ma_kh`, `thoidiemmuahang`, `diachigiaohang`, `ghichukhachhang`, `tonggiatridonhang`
+                         ) VALUES (NULL,'" . $_SESSION['user']['ma_kh' ]. "','" .time() . "','" . $_POST['add'] . "','" . $_POST['note'] . "','" . $total . "')");
                         $order_id = $conn->insert_id;
                         $insertString = "";
-
                         foreach ($orderProducts as $key => $product) {
                             $insertString .= "(NULL, '" . $order_id . "', '" . $product['ID'] . "', '" . $_POST['quantity'][$product['ID']] . "', '" . $product['gia'] . "', '" . time() . "', '" . time() . "')";
                             if ($key != count($orderProducts) - 1) {
@@ -67,7 +67,6 @@
                             }
                         }
                         $insertOrder = mysqli_query($conn, "INSERT INTO `order_detail` (`id`, `order_id`, `produc_id`, `quantity`, `price`, `created_time`, `last_updated`) VALUES " . $insertString . ";");
-                        header('location:thanhtoannhom4.php');
                     }
                 }
                 break;
