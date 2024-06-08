@@ -85,7 +85,7 @@ if (!isset($_SESSION['username'])) {
             </div>
           </header>
         <div id ="container">
-            <div class = "Edit" ><a href=""><i class="fa fa-user" aria-hidden="true"></i>Sửa thông tin tài khoản</a></div>
+            <div class = "Edit" ><a href="suahoso.php"><i class="fa fa-user" aria-hidden="true"></i>Sửa thông tin tài khoản</a></div>
             <p id="title">
                 Thông tin tài khoản
             </p>
@@ -108,7 +108,17 @@ if (!isset($_SESSION['username'])) {
                     <li><?php echo ($_SESSION['fullname']); ?></li>
                     <li><?php echo ($_SESSION['username']); ?></li>
                     <li><?php echo ($_SESSION['phone']); ?></li>
-                    <li><?php echo ($_SESSION['gender']); ?></li>
+                    <li><?php
+                            $gender = isset($_SESSION['gender']) ? $_SESSION['gender'] : '';
+                            $text = '';
+                            if ($gender === '001') {
+                            $text = 'Nam';
+                            } else if ($gender === '002') {
+                            $text = 'Nữ';
+                            } else {
+                            $text = 'Không xác định';
+                            }
+                            echo $text; ?></li>
                     <li><?php echo ($_SESSION['address']); ?></li>
                     <li><?php echo ($_SESSION['account_creation_date']); ?></li>
                     <li><?php echo ($_SESSION['last_login_date']); ?></li>
