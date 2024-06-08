@@ -145,9 +145,8 @@ input {
   background-color: #f9f9f9;
 }
 .div_buttondathang {
-  margin-left: 148px;
+  margin-left: 260px;
 }
-.content_input_chonall,
 .tongthanhtoan,
 .tongtien {
   width: 170px;
@@ -159,8 +158,8 @@ input {
 .content_input_chonall1 {
   text-align: center;
   margin-top: 32px;
-  width: 170px;
-  font-size: 23px;
+  width: 250px;
+  font-size: 20px;
   height: 50px;
 }
 .tongtien {
@@ -263,6 +262,10 @@ input {
   line-height: 24px;
   color: #000;
 }
+.main_luotban{
+  text-align: left;
+  opacity: 0.5;
+}
 /*-----------TỔNG TIỀN------------*/
 .main__tooltip {
   position: relative;
@@ -327,12 +330,12 @@ input {
   border-color: darkorange;
 }
 .sanpham1 {
-  width: 330px;
+  width: 220px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 .content_title_main img {
-  width: 200px;
+  width: 220px;
   height: 180px;
 }
 .main_sanpham {
