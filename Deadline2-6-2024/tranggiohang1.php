@@ -1,14 +1,11 @@
-
 <?php
 require 'connect.php';
 $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 8");
 ?>
-<?php
-include("Module/Header.php");
-?>
+
 <!DOCTYPE html>
 <html class="htmlgiohang">
-
+<?php require('Module/Header.php') ?>
 <head>
     <meta charset="utf-8">
     <title>Giỏ hàng</title>
@@ -18,7 +15,7 @@ include("Module/Header.php");
 </head>
 
 <body>
-    <?php include('scriptcart.php') ?>
+    <?php require('scriptcart.php') ?>
     <div class="content__cart">
         <?php
         if (!empty($errol)) { ?>
@@ -198,7 +195,7 @@ include("Module/Header.php");
                         <div class="content_title_main">
                             <?php while ($row = mysqli_fetch_array($result)) { ?>
                                 <div class="sanpham1">
-                                    <form action="">
+                                    <form action="" method="post">
                                         <?php
                                         $discount=ceil(($row['giakhuyenmai']/$row['gia'])*100);
                                          if($discount==0){ ?>
@@ -208,7 +205,7 @@ include("Module/Header.php");
                                         <?php } ?>
                                         <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" /></a>
                                         <a href="Module/product-details.php?id=<?= $row['ID'] ?>">
-                                            <h3><?= $row['ten_sp'] ?></h3>
+                                            <h3 style="text-align:left"><?= $row['ten_sp'] ?></h3>
                                         </a>
                                         <div class="main_sanpham">
                                             <div class="giasanpham"><?= $row['gia'] ?><sup>đ</sup></div>
@@ -217,10 +214,6 @@ include("Module/Header.php");
                                         <?php }else { ?>
                                             <div class="giagiamsanpham"><?= $row['giakhuyenmai']  ?><sup>đ</sup></div>
                                         <?php }?>
-                                        </div>
-                                        <div class="sanpham1-mua">
-                                            <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
-                                            <div class="chitiet-sanpham"><a href="Module/product-details.php?id=<?= $row['ID'] ?>">Chi tiết</a></div>
                                         </div>
                                     </form>
                                 </div>

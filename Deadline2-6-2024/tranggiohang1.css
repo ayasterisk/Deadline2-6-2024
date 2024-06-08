@@ -341,7 +341,7 @@ input {
 }
 .main_sanpham .giasanpham {
   font-size: 20px;
-  margin-left: 80px;
+  text-align: left;
 }
 .giagiamsanpham {
   margin-right: 80px;
@@ -357,14 +357,6 @@ input {
   background-color: white;
   color: black;
   font-size: 20px;
-}
-.add_giohang {
-  margin-left: 60px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-}
-.chitiet-sanpham {
-  margin-right: 60px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 .sanpham1-mua a:hover {
   background-color: black;
