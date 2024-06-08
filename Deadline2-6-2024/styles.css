@@ -250,7 +250,6 @@ li a:hover {
   transition: 0.3s;
 }
 .content {
-  justify-content: space-between;
   display: flex;
   max-width: 1420px;
   margin: 0 auto;
@@ -287,7 +286,7 @@ li a:hover {
 
 /* San Pham CSS */
 .Right {
-  max-width: 1070px;
+  width: 100%;
 }
 .head-right h3 {
   font-size: 30px;
@@ -299,7 +298,7 @@ li a:hover {
 }
 .right-content-sanpham {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .sanpham-one {
@@ -320,6 +319,21 @@ li a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.sanpham-one .nhan_giamgia {
+  background-color: red;
+  color: white;
+  width: 70px;
+  height: 23px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 10;
+}
+.main_sanpham .giasanpham {
+  font-size: 15px;
+  text-align: left;
 }
 .pri-sanpham {
   float: left;

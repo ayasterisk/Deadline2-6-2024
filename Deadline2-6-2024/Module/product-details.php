@@ -71,15 +71,27 @@
     <div class="related-products-content">
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="product-related-item">
-        <a href="product-details.php?id=<?= $row['ID'] ?>">
+          <a href="product-details.php?id=<?= $row['ID'] ?>">
           <div class="sanpham-one">
+            <?php
+            $discount=ceil(($row['giakhuyenmai']/$row['gia'])*100);
+            if($discount==0){ ?>
+              <div class=""></div>
+            <?php } else{ ?>
+              <div class="nhan_giamgia"><?= $discount ?> %</div>
+            <?php } ?>
             <a href="product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
             <a href="product-details.php?id=<?= $row['ID'] ?>"><h1><?= $row['ten_sp'] ?></h1></a>
-              <div class="pri-sanpham">
-                <div class="cost-sanpham"><?= number_format($row['gia'],0,"",",") ?><sup>đ</sup></div>
-              </div>
+            <div class="main_sanpham">
+            <div class="giasanpham"><?= $row['gia'] ?><sup>đ</sup></div>
+            <?php if($discount==0){ ?>
+              <div class=""></div>
+              <?php }else { ?>
+              <div class="giagiamsanpham"><?= $row['giakhuyenmai']  ?><sup>đ</sup></div>
+            <?php }?>
+            </div>
           </div>
-        </a>
+          </a>
         </div>
       <?php } ?>
     </div>
