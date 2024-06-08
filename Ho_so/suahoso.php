@@ -103,11 +103,11 @@ session_start();
                 <form accept-charset="UTF-8" action="xulysuahoso.php" id="create_customer" method="post" onsubmit="return confirmChange()">
                 <div class="container_content_right">
                     <ul>
-                    <li><input type="text" value=<?php echo ($_SESSION['fullname']); ?> name="Hoten"></li>
-                    <li><input type="text" value=<?php echo ($_SESSION['phone']); ?> name = "Sodienthoai"></li>
+                    <li><input type="text" value=" <?php echo ($_SESSION['fullname']); ?>" name="Hoten"></li>
+                    <li><input type="text" value= "<?php echo ($_SESSION['phone']); ?>" name = "Sodienthoai"></li>
                     <li><input type="radio" name="gioitinh" value="001" id ="male"> Nam
                         <input type="radio" name="gioitinh" value="002" id ="female"> Nữ</li>
-                    <li><input type="text" value=<?php echo ($_SESSION['address']); ?> name = "Quequan"></li>
+                    <li><input type="text" value= "<?php echo ($_SESSION['address']); ?>" name = "Quequan"></li>
                     <li><button type="submit"> Đồng ý thay đổi</button></li>
                     </ul>
                 </div>
