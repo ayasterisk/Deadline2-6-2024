@@ -17,7 +17,7 @@ header {
   position: fixed;
   top: -100px; /* Ẩn header cố định ban đầu */
   height: 68.81px;
-  transition: top 0.3s;
+  transition: top 0.8s;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -30,11 +30,11 @@ header {
 .header-top-customer a {
   text-decoration: none;
   margin-left: 30px;
-  color: ghostwhite;
+  color: white;
   font-size: 14px;
 }
 .header-top-customer a:hover {
-  color: black;
+  color: chartreuse;
 }
 .header-top-customer p {
   color: black;
@@ -54,7 +54,7 @@ header {
 }
 .header-top-login a {
   text-decoration: none;
-  color: rgb(72, 72, 72);
+  color: black;
   font-size: 16px;
   font-weight: bold;
 }
@@ -64,7 +64,7 @@ header {
 }
 
 .header-top-login a:hover {
-  color: white;
+  color: chartreuse;
 }
 .header-bottom-wrapper {
   background-color: #f9f9f9;

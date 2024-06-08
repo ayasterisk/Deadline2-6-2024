@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+<link rel="stylesheet" href="styles.css">
 <!--------------------- header --------------------->
     <header id="initial-header">
       <div class="header-top-wrapper">
@@ -13,18 +14,14 @@ session_start();
           <div class="header-top-login">
            <?php if(isset($_SESSION['user'])): ?>
            <?php $user=$_SESSION['user'];?>
-              <a href="profile.php"><?php echo $user['ten_kh']?>
+              <a 
+                href="profile.php"><?php echo $user['ten_kh']?>
               </a>
-              <a href="dangxuat.php"
-              >Đăng xuất
-              <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
+              <a href="dangxuat.php">Đăng xuất</a>
               <?php else: ?>
-                <a href="dangnhap.php"
-              >Đăng nhập
-              <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
-            <a href="dangky.php"
-              >Đăng ký
-              <i class="fa-solid fa-user" style="color: rgb(72, 72, 72)"></i></a>
+                <a href="dangnhap.php">Đăng nhập</a>
+                |
+                <a href="dangky.php">Đăng ký</a>
               <?php endif; ?>
           </div>
         </div>
@@ -94,20 +91,7 @@ session_start();
         </div>
       </div>
 
-      <script>
-      window.onscroll = function() {
-    var initialHeader = document.getElementById("initial-header");
-    var stickyHeader = document.getElementById("sticky-header");
-    var stickyPoint = initialHeader.offsetHeight;
-
-    if (window.pageYOffset > stickyPoint) {
-        stickyHeader.style.top = "0";
-    } else {
-        stickyHeader.style.top = "-100px";
-    }
-};
-
-    </script>
+      
     </header>
 
 
@@ -176,7 +160,10 @@ session_start();
           </div>
         </div>
       </div>
-      <script>
+      
+      
+    </header>
+    <script>
       window.onscroll = function() {
     var initialHeader = document.getElementById("initial-header");
     var stickyHeader = document.getElementById("sticky-header");
@@ -190,7 +177,4 @@ session_start();
 };
 
     </script>
-      
-    </header>
-    
     <!--------------------  Header ---------------------->
