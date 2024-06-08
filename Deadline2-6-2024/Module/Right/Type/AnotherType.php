@@ -9,7 +9,7 @@ $numrow = mysqli_num_rows($total);
 $sotrang = ceil($numrow / $sosanpham);
 ?>
 <div class="head-right">
-    <h3>ANOTHERT-TYPES</h3>
+    <h3>ANOTHER - TYPES</h3>
     <form action="" method="post">
         <div class="right-content-sanpham">
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>

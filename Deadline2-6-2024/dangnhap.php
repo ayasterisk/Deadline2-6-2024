@@ -55,6 +55,7 @@ else $err['email']='Email không tồn tại';
         <div class="container">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		<link rel="preload stylesheet" href="style-themes.css" as="style">
+		<link rel="stylesheet" href="styles.css">
 		<title>
 			Tài khoản 
 		</title>
