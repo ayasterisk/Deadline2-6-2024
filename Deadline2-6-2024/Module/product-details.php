@@ -71,12 +71,15 @@
     <div class="related-products-content">
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="product-related-item">
-          <img src="<?= $row['linkanhchitiet'] ?>" alt="" />
-          <h1><?= $row['ten_sp'] ?></h1>
-          <div class="pri-bottom">
-            <div class="pri-cost"><?= number_format($row['giakhuyenmai'],0,"",",") ?><sup>đ</sup></div>
-            <div class="pri-reduce-price"><?= number_format($row['gia'],0,"",",") ?><sup>đ</sup></div>
+        <a href="product-details.php?id=<?= $row['ID'] ?>">
+          <div class="sanpham-one">
+            <a href="product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
+            <a href="product-details.php?id=<?= $row['ID'] ?>"><h1><?= $row['ten_sp'] ?></h1></a>
+              <div class="pri-sanpham">
+                <div class="cost-sanpham"><?= number_format($row['gia'],0,"",",") ?><sup>đ</sup></div>
+              </div>
           </div>
+        </a>
         </div>
       <?php } ?>
     </div>
