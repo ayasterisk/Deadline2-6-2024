@@ -16,6 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Thực thi câu lệnh SQL
     if ($conn->query($sql) === TRUE) {
+        $sql="SELECT * FROM quanlykhachhang WHERE tendangnhap='$tendangnhap'";
+        $query= mysqli_query($conn,$sql);
+        $data = mysqli_fetch_assoc($query);
+        $_SESSION['fullname'] = $data['ten_kh'];
+        $_SESSION['phone'] = $data['sodienthoai'];
+        $_SESSION['gender'] = $data['gioitinh'];
+        $_SESSION['address'] = $data['diachi'];
         echo "Dữ liệu đã được cập nhật thành công";
     } else {
         echo "Lỗi khi cập nhật dữ liệu: " . $conn->error;
