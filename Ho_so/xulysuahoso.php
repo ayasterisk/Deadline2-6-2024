@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Câu lệnh SQL để cập nhật thông tin khách hàng
-    $sql = "UPDATE quanlykhachhang SET diachi = '$quequan' , ten_kh ='$hoten', gioitinh ='$gioitinh', sodienthoai ='$sodienthoai'
+    $sql = "UPDATE quanlykhachhangfff SET diachi = '$quequan' , ten_kh ='$hoten', gioitinh ='$gioitinh', sodienthoai ='$sodienthoai'
     WHERE tendangnhap = '$tendangnhap'"; // 
 
     // Thực thi câu lệnh SQL
