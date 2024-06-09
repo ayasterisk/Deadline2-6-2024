@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<link rel="stylesheet" href="styles.css">
+
 <!--------------------- header --------------------->
     <header id="initial-header">
       <div class="header-top-wrapper">
@@ -35,13 +35,13 @@ session_start();
             ></a>
           </div>
           <div class="header-bottom-logo">
-            <a href="#"><img src="Image/Future furniture.png" alt=""/></a>
+            <a href="index.php"><img src="Image/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
             <ul>
               <li>
-                <a href="#"
-                  >SOFA
+                <a href="/FutureFurniture/San_pham/index.php"
+                  >SẢN PHẨM
                   
                 </a>
               </li>
