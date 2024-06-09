@@ -211,7 +211,7 @@ input {
 }
 .tr__voucher input {
   border: none;
-  margin: 5px;
+  margin: 2px;
 }
 .voucher__reduce {
   background-color: #fff;

@@ -60,7 +60,6 @@ if (isset($_GET['action'])) {
                 update_cart();
                 header('Location:tranggiohang1.php');
             } elseif (isset($_POST['order_click'])) {
-
                 if (empty($_POST['name'])) {
                     $errol = "Bạn chưa nhập tên người nhận!";
                 } elseif (empty($_POST['phone'])) {
