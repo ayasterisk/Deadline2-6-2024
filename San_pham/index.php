@@ -3,17 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="../vendors/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
         <title>Trang chi tiết sản phẩm</title>
     </head>
     <body>
         <div class="wrapper">
+    
             <?php
             include('connect.php');
-	        include('Module/Header.php');
+	        include('../Layout/Header.php');
 	        include('Module/Content.php');
-	        include('Module/Footer.php');
+	        include('../Layout/Footer.php');
             ?>
         </div>
     </body>
