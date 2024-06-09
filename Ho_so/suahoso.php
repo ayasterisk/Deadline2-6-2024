@@ -1,9 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: dangnhap.php"); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +7,13 @@ if (!isset($_SESSION['username'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Ho_so.css" />
-   <title> Hồ sơ khách hàng</title>
+   <title> Sửa thông tin hồ sơ khách hàng</title>
+   <script>
+        function confirmChange() {
+            var result = confirm("Bạn có chắc chắn muốn thay đổi quê quán không?");
+            return result;
+        }
+    </script>
    <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -92,38 +94,38 @@ if (!isset($_SESSION['username'])) {
             <div class="container_content">
                 <div class="container_content_left">
                     <ul>
-                        <li>Mã giới thiệu: </li>
                         <li>Tên tài khoản: </li>
-                        <li>Tên đăng nhập: </li>
                         <li>Số điện thoại: </li>
                         <li>Giới tính: </li>
                         <li>Địa chỉ: </li>
-                        <li>Ngày tạo tài khoản: </li>
-                        <li>Ngày đăng nhập gần nhất: </li>
                     </ul>
                 </div>
+                <form accept-charset="UTF-8" action="xulysuahoso.php" id="create_customer" method="post" onsubmit="return confirmChange()">
                 <div class="container_content_right">
                     <ul>
-                    <li><?php echo ($_SESSION['I-ID']); ?></li>
-                    <li><?php echo ($_SESSION['fullname']); ?></li>
-                    <li><?php echo ($_SESSION['username']); ?></li>
-                    <li><?php echo ($_SESSION['phone']); ?></li>
-                    <li><?php
-                            $gender = isset($_SESSION['gender']) ? $_SESSION['gender'] : '';
-                            $text = '';
-                            if ($gender === '001') {
-                            $text = 'Nam';
-                            } else if ($gender === '002') {
-                            $text = 'Nữ';
-                            } else {
-                            $text = 'Không xác định';
-                            }
-                            echo $text; ?></li>
-                    <li><?php echo ($_SESSION['address']); ?></li>
-                    <li><?php echo ($_SESSION['account_creation_date']); ?></li>
-                    <li><?php echo ($_SESSION['last_login_date']); ?></li>
+                    <li><input type="text" value=" <?php echo ($_SESSION['fullname']); ?>" name="Hoten"></li>
+                    <li><input type="text" value= "<?php echo ($_SESSION['phone']); ?>" name = "Sodienthoai"></li>
+                    <li><input type="radio" name="gioitinh" value="001" id ="male"> Nam
+                        <input type="radio" name="gioitinh" value="002" id ="female"> Nữ</li>
+                    <li><input type="text" value= "<?php echo ($_SESSION['address']); ?>" name = "Quequan"></li>
+                    <li><button type="submit"> Đồng ý thay đổi</button></li>
                     </ul>
                 </div>
+                <script>
+                  window.onload = function thayDoiGioiTinh() {
+                  var gender = <?php echo json_encode($_SESSION['gender']); ?>;
+            // Kiểm tra giá trị số và chọn radio button tương ứng
+            if (gender === '001') { 
+                document.getElementById("male").checked = true;
+            } 
+            else if (gender === '002') {
+                document.getElementById("female").checked = true;
+            }
+                  }
+        ;
+    </script>
+                </form>
+                
             </div>
 
         </div>

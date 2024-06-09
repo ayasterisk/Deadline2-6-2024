@@ -1,13 +1,12 @@
-
 <?php
+session_start();
 require 'connect.php';
-$result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 8");
+$result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 12");
 ?>
-<?php
-include("Module/Header.php");
-?>
+
 <!DOCTYPE html>
 <html class="htmlgiohang">
+<?php require('C:\Máy tính\baitapHOCWEBCHUAN\thanhtoannhom4\Deadline2-6-2024\NOITHATFF\Module\Header.php') ?>
 
 <head>
     <meta charset="utf-8">
@@ -16,9 +15,55 @@ include("Module/Header.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
 </head>
+<style>
+    /* Include the CSS from Step 1 here */
+    #loading-spinner {
+        display: none;
+        /* Ẩn spinner lúc đầu */
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+    }
+
+    .spinner {
+        border: 8px solid #f3f3f3;
+        /* Light grey */
+        border-top: 8px solid #3498db;
+        /* Blue */
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 
 <body>
-    <?php include('scriptcart.php') ?>
+    <?php require('scriptcart.php') ?>
     <div class="content__cart">
         <?php
         if (!empty($errol)) { ?>
@@ -29,6 +74,7 @@ include("Module/Header.php");
             <div class="content__icon">
                 <h2> GIỎ HÀNG </h2>
             </div>
+            <div class="" style="text-align:center;"><a href="">Trang chủ</a>><a href="./Module/Right/tatcasanpham.php">Sản phẩm</a></div>
             <div class="content__notegiamgia">
                 <i class="fa-solid fa-tag"></i>
                 <span>Nhấn vào mục Mã giảm giá ở cuối trang để được miễn phí vận chuyển nhé!</span>
@@ -38,7 +84,6 @@ include("Module/Header.php");
                     <table class='content_tablegiohang' border="0" style="border-color: darkgray;border-collapse:collapse;">
                         <thead>
                             <tr class="content_tr1">
-                                <th><input type="checkbox" name="" id="" value="chon"></th>
                                 <th colspan="2">Sản phẩm</th>
                                 <th>Loại sản phẩm</th>
                                 <th>Giảm giá</th>
@@ -54,16 +99,37 @@ include("Module/Header.php");
                                 $dem = 0; ?>
                                 <?php while ($row = mysqli_fetch_array($product)) { ?>
                                     <tr class="content_tr2">
-                                        <td><input type="checkbox" name="" id=""></td>
                                         <td><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="90px" height="90px" /></td>
                                         <td align="left">
                                             <?= $row['ten_sp'] ?>
 
                                         </td>
                                         <td><?= $row['loaisp'] ?></td>
-                                        <td><?= ceil(($row['giakhuyenmai']/$row['gia'])*100) ?><sup>%</sup></td>
+                                        <td><?= ceil(($row['giakhuyenmai'] / $row['gia']) * 100) ?><sup>%</sup></td>
                                         <td><?= $row['gia'] ?><sup>đ</sup></td>
-                                        <td><input type="text" name="quantity[<?= $row['ID'] ?>]" id="" size="3" value="<?= $_SESSION['cart'][$row['ID']] ?>" style="text-align:center"></td>
+                                        <td>
+                                            <div id="overlay" style="display:none;"></div>
+                                            <div id="loading-spinner">
+                                                <div class="spinner"></div>
+                                            </div>
+                                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                                <input type="submit" name="reduce" id="" value="-" style="padding:0px 8px 0px 8px;border: 1px solid darkgrey;">
+                                                <input type="text" name="quantity[<?= $row['ID'] ?>]" id="" size="3" value="<?= $_SESSION['cart'][$row['ID']] ?>" style="text-align:center">
+                                                <input type="submit" name="increase" id="" value="+" style="padding:0px 8px 0px 8px;border: 1px solid darkgrey;">
+                                            </form>
+                                            <script>
+                                                // Include the JavaScript from Step 2 here
+                                                document.addEventListener("DOMContentLoaded", function() {
+                                                var forms = document.querySelectorAll("form");
+                                                forms.forEach(function(form) {
+                                                    form.addEventListener("submit", function() {
+                                                        document.getElementById("overlay").style.display = "block";
+                                                        document.getElementById("loading-spinner").style.display = "block";
+                                                    });
+                                                });
+                                                });
+                                            </script>
+                                        </td>
                                         <td><?= $row['gia'] * $_SESSION['cart'][$row['ID']] ?><sup>đ</sup></td>
                                         <td><a href="tranggiohang1.php?action=delete&id=<?= $row['ID'] ?>">Xóa</a></td>
                                     </tr>
@@ -75,14 +141,6 @@ include("Module/Header.php");
                                     <td colspan="7" align="right"><?= $total ?><sup>đ</sup></td>
                                 </tr>
                             <?php } ?>
-                            <tr class="content__tr5">
-                                <td colspan="6"></td>
-                                <td align="center" colspan="3">
-                                    <div class="content_them">
-                                        <input type="submit" name="update_click" id="" value="Cập nhật" />
-                                    </div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <div class="content__voucher">
@@ -147,13 +205,17 @@ include("Module/Header.php");
                         <div class=""><label for="">Ghi chú</label><textarea name="note" id="" class="content_ttghichu"></textarea></div>
                     </div>
                     <div class="content__dathangtong">
-                        <input type="checkbox" name="" id="" value="">
-                        <input type="submit" name="" id="" value="Chọn tất cả(<?php ?>)" class="content_input_chonall">
-                        <a href="tranggiohang1.php?action=deleteall" class="content_input_chonall1">Xóa</a>
+                        <?php if (!empty($dem)) { ?>
+                            <a href="tranggiohang1.php?action=deleteall" class="content_input_chonall1">Xóa (<?= $dem ?>) sản phẩm</a>
+                        <?php } else { ?>
+                            <a href="tranggiohang1.php?action=deleteall" class="content_input_chonall1">Xóa tất cả sản phẩm</a>
+                        <?php } ?>
                         <input type="submit" name="" id="" value="Bỏ sản phẩm không hoạt động" class="content_input_spkohoatdong">
                         <div class="main__tooltip">
                             <?php if (!empty($dem)) { ?>
                                 <input type="submit" name="" id="" value="Tổng thanh toán(<?= $dem ?>):" class="tongthanhtoan">
+                            <?php }else{ ?>
+                                <input type="submit" name="" id="" value="Tổng thanh toán(0):" class="tongthanhtoan"><input type="text" name="" id="" value="0đ" readonly class="tongtien" />
                             <?php } ?>
                             <div class="content__tooltip">
                                 <div class="">
@@ -181,7 +243,11 @@ include("Module/Header.php");
                                     <div class=""><label for="">
                                             <h3>Tổng số tiền</h3>
                                         </label></div>
+                                    <?php if(!empty($total)){?>
                                     <div class=""><input type="text" name="" id="" value="<?= $total ?>đ" readonly></div>
+                                    <?php }else{?>
+                                        <div class=""><input type="text" name="" id="" value="0đ" readonly></div>
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>
@@ -198,30 +264,27 @@ include("Module/Header.php");
                         <div class="content_title_main">
                             <?php while ($row = mysqli_fetch_array($result)) { ?>
                                 <div class="sanpham1">
-                                    <form action="">
+                                    <form action="" method="post">
                                         <?php
-                                        $discount=ceil(($row['giakhuyenmai']/$row['gia'])*100);
-                                         if($discount==0){ ?>
+                                        $discount = ceil(($row['giakhuyenmai'] / $row['gia']) * 100);
+                                        if ($discount == 0) { ?>
                                             <div class=""></div>
-                                        <?php } else{ ?>
+                                        <?php } else { ?>
                                             <div class="nhan_giamgia"><?= $discount ?> %</div>
                                         <?php } ?>
                                         <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" /></a>
                                         <a href="Module/product-details.php?id=<?= $row['ID'] ?>">
-                                            <h3><?= $row['ten_sp'] ?></h3>
+                                            <h3 style="text-align:left"><?= $row['ten_sp'] ?></h3>
                                         </a>
                                         <div class="main_sanpham">
                                             <div class="giasanpham"><?= $row['gia'] ?><sup>đ</sup></div>
-                                        <?php if($discount==0){ ?>
-                                            <div class=""></div>
-                                        <?php }else { ?>
-                                            <div class="giagiamsanpham"><?= $row['giakhuyenmai']  ?><sup>đ</sup></div>
-                                        <?php }?>
+                                            <?php if ($discount == 0) { ?>
+                                                <div class=""></div>
+                                            <?php } else { ?>
+                                                <div class="giagiamsanpham"><?= $row['giakhuyenmai']  ?><sup>đ</sup></div>
+                                            <?php } ?>
                                         </div>
-                                        <div class="sanpham1-mua">
-                                            <div class="add_giohang"><a href="#">Thêm vào giỏ</a></div>
-                                            <div class="chitiet-sanpham"><a href="Module/product-details.php?id=<?= $row['ID'] ?>">Chi tiết</a></div>
-                                        </div>
+                                        <div class="main_luotban">Đã bán:<?php $dem_daban ?></div>
                                     </form>
                                 </div>
                             <?php } ?>
