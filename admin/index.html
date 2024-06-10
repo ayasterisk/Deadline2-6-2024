@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <title>Trang Admin</title>
+  </head>
+  <body>
+    <header>
+      <h1>FUTURE FURNITURE <span>ADMIN</span></h1>
+    </header>
+
+    <section class="admin-content">
+      <div class="admin-content-left">
+        <ul>
+          <li><a href="#">Trang chủ quản trị</a></li>
+          <li class="menu-item">
+            <a href="#">Quản lý danh mục</a>
+            <ul class="submenu">
+              <li><a href="">Thêm danh mục</a></li>
+              <li><a href="">Danh sách danh mục</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#">Quản lý loại sản phẩm</a>
+            <ul class="submenu">
+              <li><a href="">Thêm loại sản phẩm</a></li>
+              <li><a href="">Danh sách loại sản phẩm</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#">Quản lý sản phẩm</a>
+            <ul class="submenu">
+              <li><a href="">Thêm sản phẩm</a></li>
+              <li><a href="">Danh sách sản phẩm </a></li>
+            </ul>
+          </li>
+          <li><a href="#">Quản lý người dùng</a></li>
+          <li><a href="#">Quản lý khách hàng</a></li>
+          <li><a href="#">Quản lý đơn hàng</a></li>
+        </ul>
+        <button>Đăng xuất</button>
+      </div>
+
+      <div class="admin-content-right">
+        <div class="admin-content-right-home">
+          <h1>Trang chủ quản trị</h1>
+          <div class="admin-home1">
+            <ul>
+              <li>
+                <span>Tổng số đơn hàng</span>
+                <p>10</p>
+              </li>
+              <li>
+                <span>Tổng sản phẩm</span>
+                <p>100</p>
+              </li>
+              <li>
+                <span>Khách hàng đã đăng ký</span>
+                <p>20</p>
+              </li>
+            </ul>
+          </div>
+          <div class="admin-home2">
+            <ul>
+              <li>
+                <span>Doanh thu hôm nay</span>
+                <p>10000</p>
+              </li>
+              <li>
+                <span>Doanh thu tuần này</span>
+                <p>50000</p>
+              </li>
+              <li>
+                <span>Doanh thu tháng này</span>
+                <p>90000</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- tạo ẩn hiện con các danh mục -->
+    <script>
+      document.querySelectorAll(".menu-item > a").forEach((menuLink) => {
+        menuLink.addEventListener("click", function (event) {
+          event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a
+
+          const parentItem = this.parentElement;
+
+          // Toggle trạng thái active cho menu hiện tại
+          parentItem.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>
