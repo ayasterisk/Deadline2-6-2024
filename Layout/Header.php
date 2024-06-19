@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 <!--------------------- header --------------------->
     <header id="initial-header">
