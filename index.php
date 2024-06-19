@@ -412,5 +412,5 @@
 </body>
 </html>
 <?php
-    include "./Layout_out/Footer.php"
+    include "./Layout/Footer.php";
 ?>

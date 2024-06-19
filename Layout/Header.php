@@ -35,12 +35,12 @@ session_start();
             ></a>
           </div>
           <div class="header-bottom-logo">
-            <a href="index.php"><img src="Image/Future furniture.png" alt=""/></a>
+            <a href="/Deadline2-6-2024/index.php"><img src="/Deadline2-6-2024/Image/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
             <ul>
               <li>
-                <a href="/FutureFurniture/San_pham/index.php"
+                <a href="/Deadline2-6-2024/San_pham/index.php"
                   >SẢN PHẨM
                   
                 </a>
@@ -105,13 +105,13 @@ session_start();
             ></a>
           </div>
           <div class="header-bottom-logo">
-            <a href="#"><img src="Image/Future furniture.png" alt=""/></a>
+            <a href="/Deadline2-6-2024/index.php"><img src="/Deadline2-6-2024/Image/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
             <ul>
               <li>
-                <a href="#"
-                  >SOFA
+                <a href="/Deadline2-6-2024/San_pham/index.php"
+                  >SẢN PHẨM
                   
                 </a>
               </li>

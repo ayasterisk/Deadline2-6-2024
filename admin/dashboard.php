@@ -1,6 +1,7 @@
 <?php
     include "header.php";
     include "slider.php";
+    session_start();
 ?>
 
 
@@ -15,7 +16,16 @@
               </li>
               <li>
                 <span>Tổng sản phẩm</span>
-                <p>100</p>
+                <p>
+                  <?php 
+                  if (isset($_SESSION['last_i'])) {
+                    $last_i = $_SESSION['last_i'];
+                    echo "" . $last_i;
+                    } else {
+                    echo "0";
+                  }
+                  ?>
+                </p>
               </li>
               <li>
                 <span>Khách hàng đã đăng ký</span>

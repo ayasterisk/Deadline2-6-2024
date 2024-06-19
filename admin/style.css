@@ -98,9 +98,7 @@ ul ul {
   width: 30%;
   height: 20vh;
   font-size: larger;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .admin-content-right-home ul li p {
   display: flex;
@@ -116,6 +114,7 @@ ul ul {
 .admin-content-right-home ul li span {
   font-size: larger;
   font-weight: 600;
+  color: white;
 }
 .admin-content-right table {
   width: 100%;
@@ -132,7 +131,7 @@ td {
   word-wrap: break-word;
 }
 .admin-home1 ul li:first-child {
-  background: linear-gradient(-45deg, #ff7e5f, #feb47b, #ffcc70, #fdbb2d);
+  background: linear-gradient(-45deg, #ff0000, #ff7512, #ffbc3f, #969b00);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;
@@ -153,7 +152,7 @@ td {
 }
 
 .admin-home1 ul li:nth-child(2) {
-  background: linear-gradient(-45deg, #6a11cb, #2575fc, #009ffd, #2a2a72);
+  background: linear-gradient(-45deg, #73d7d1, #ff95b5, #68c5f0, #35baf8);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;
@@ -174,7 +173,7 @@ td {
 }
 
 .admin-home1 ul li:last-child {
-  background: linear-gradient(-45deg, #43cea2, #185a9d, #6dd5ed, #2193b0);
+  background: linear-gradient(-45deg, #2d9272, #044586, #3c8393, #207e96);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;
@@ -197,7 +196,7 @@ td {
   margin-top: 100px;
 }
 .admin-home2 ul li:first-child {
-  background: linear-gradient(-45deg, #11998e, #38ef7d, #56ab2f, #a8e063);
+  background: linear-gradient(-45deg, #c322bb, #fdbb2d, #ff7e5f, #6a11cb);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;
@@ -218,7 +217,7 @@ td {
 }
 
 .admin-home2 ul li:nth-child(2) {
-  background: linear-gradient(-45deg, #89d4cf, #fec8d8, #ace0f9, #4fc3f7);
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #009ffd, #2a2a72);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;
@@ -239,7 +238,7 @@ td {
 }
 
 .admin-home2 ul li:last-child {
-  background: linear-gradient(-45deg, #22c1c3, #fdbb2d, #ff7e5f, #6a11cb);
+  background: linear-gradient(-45deg, #11998e, #38ef7d, #56ab2f, #a8e063);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;

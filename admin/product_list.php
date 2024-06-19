@@ -2,6 +2,7 @@
     include "header.php";
     include "slider.php";
     include "class/product_class.php";
+    session_start();
 ?>
 
 
@@ -14,7 +15,7 @@
         <div class="admin-content-right-cartegory_list">
           <h1>Danh sách sản phẩm</h1>
           <table>
-            <tr>
+            <tr style="background-color: orange; color: white">
               <th>Stt</th>
               <th>Mã sản phẩm</th>
               <th>Tên sản phẩm</th>
@@ -56,6 +57,7 @@
             </tr>
             <?php
             }
+            $_SESSION['last_i'] = $i;
           }
             ?>
           </table>

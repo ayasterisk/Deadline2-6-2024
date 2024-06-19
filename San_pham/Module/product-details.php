@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href=".../vendors/styles.css">
+  <link rel="stylesheet" href="/Deadline2-6-2024/vendors/styles.css">
+  <link rel="stylesheet" href="/Deadline2-6-2024/San_pham/Module/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <title>Trang chi tiết sản phẩm</title>
 </head>
@@ -12,7 +12,7 @@
 <body>
   <?php
   require "../connect.php";
-  include('Layout/Header.php');
+  include '../../Layout/Header.php';
   $mysql = "SELECT *From chitietsanpham ORDER By gia desc LIMIT 8";
   $result = mysqli_query($conn, $mysql);
   $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID =" . $_GET['id']);
@@ -95,6 +95,6 @@
       <?php } ?>
     </div>
   </section>
-  <?php include('Footer.php'); ?>
+  <?php  include '../../Layout/Footer.php' ?>
   <!-- related products -->
   <!--------------------  Content ---------------------->

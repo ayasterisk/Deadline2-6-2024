@@ -6,12 +6,12 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
 
 <!DOCTYPE html>
 <html class="htmlgiohang">
-<?php require('C:\Máy tính\baitapHOCWEBCHUAN\thanhtoannhom4\Deadline2-6-2024\NOITHATFF\Module\Header.php') ?>
 
 <head>
     <meta charset="utf-8">
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="tranggiohang1.css" />
+    <link rel="stylesheet" href="/Deadline2-6-2024/vendors/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -63,7 +63,8 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
 </style>
 
 <body>
-    <?php require('scriptcart.php') ?>
+    <?php require('scriptcart.php');
+         require('../Layout/Header.php') ?>
     <div class="content__cart">
         <?php
         if (!empty($errol)) { ?>
@@ -311,8 +312,6 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
         <?php } ?>
     </div>
 </body>
-<?php
-include("Module/Footer.php");
-?>
+<?php require('../Layout/Footer.php') ?>
 
 </html>
