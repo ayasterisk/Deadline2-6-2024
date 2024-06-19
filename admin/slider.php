@@ -24,7 +24,7 @@
             </ul>
           </li>
           <li><a href="#">Quản lý người dùng</a></li>
-          <li><a href="#">Quản lý khách hàng</a></li>
+          <li><a href="customer_list.php">Quản lý khách hàng</a></li>
           <li><a href="order_list.php">Quản lý đơn hàng</a></li>
         </ul>
         <button>Đăng xuất</button>

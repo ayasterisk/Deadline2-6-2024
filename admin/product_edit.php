@@ -103,7 +103,7 @@
             <label for=""
               >Mô tả sản phẩm<span style="color: red">*</span></label
             > <br>
-            <textarea name="product_desc" id="" cols="30" rows="10" value="<?php echo $resultA['Mota'] ?>"></textarea> <br>
+            <textarea value="<?php echo $resultA['Mota'] ?>" name="product_desc" id="" cols="30" rows="10" ></textarea> <br>
             
             <button type="submit">Sửa</button>
           </form>
