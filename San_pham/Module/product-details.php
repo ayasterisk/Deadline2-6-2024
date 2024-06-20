@@ -11,7 +11,7 @@
 
 <body>
   <?php
-  require "../connect.php";
+  require "../../connect.php";
   include '../../Layout/Header.php';
   $mysql = "SELECT *From chitietsanpham ORDER By gia desc LIMIT 8";
   $result = mysqli_query($conn, $mysql);
