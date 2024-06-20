@@ -4,7 +4,7 @@ ob_start();
 include "Layout/Header.php";
 ?>
 <?php
-include "San_pham/connect.php";
+include "connect.php";
 if (isset($_SESSION['user'])){
 	header('location:index.php');
 }

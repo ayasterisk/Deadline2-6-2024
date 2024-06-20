@@ -1,5 +1,5 @@
 <?php
-require 'San_pham/connect.php';
+require 'connect.php';
 session_start();
 $user = $_SESSION['user'];
 
