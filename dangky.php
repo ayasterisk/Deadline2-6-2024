@@ -15,6 +15,7 @@ include "Layout/Header.php";
         
 		<div class="container">
 		  <link rel="preload stylesheet" href="style-themes.css" as="style">
+		  <link rel="stylesheet" href="vendors/styles.css">
 		  <meta property="og:type" content="website">
 		  <style>
 			:root {

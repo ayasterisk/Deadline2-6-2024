@@ -1,7 +1,7 @@
 
 <?php
 ob_start();
-include "Layout/Header.php";
+include "./Layout/Header.php";
 ?>
 <?php
 include "connect.php";
@@ -17,7 +17,7 @@ $password=$_POST['matkhau'];
 // Kiểm tra tài khoản admin
 if ($email === 'admin@gmail.com' && $password === '113') {
 	// Đăng nhập thành công với tài khoản admin
-	header('Location: admin.php');
+	header('Location:C:/xampp/htdocs/Deadline2-6-2024/admin/index.html');
 	exit;}
 	else{
 
@@ -30,7 +30,7 @@ if($checkemail ==1){
 	$checkPass=password_verify($password, $data['matkhau']);
 	if($checkPass){
 		$_SESSION['user'] = $data;
-		header('location:San_pham/index.php');
+		header('location:index.php');
 	}
     else $err['matkhau']='Sai mật khẩu';
 }
@@ -41,6 +41,7 @@ else $err['email']='Email không tồn tại';
  
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -55,7 +56,7 @@ else $err['email']='Email không tồn tại';
         <div class="container">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 		<link rel="preload stylesheet" href="style-themes.css" as="style">
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="vendors/styles.css">
 		<title>
 			Tài khoản 
 		</title>
