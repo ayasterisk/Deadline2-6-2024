@@ -2,7 +2,7 @@
 <!-- Bạn có nhìn thấy dòng này ko? -->
 <?php
 session_start();
-require 'connect.php';
+require '../connect.php';
 require('scriptcart.php');
 require('../Layout/Header.php');
 

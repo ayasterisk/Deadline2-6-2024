@@ -11,7 +11,7 @@
         <div class="wrapper">
     
             <?php
-            include('connect.php');
+            include('../connect.php');
 	        include('../Layout/Header.php');
 	        include('Module/Content.php');
 	        include('../Layout/Footer.php');
