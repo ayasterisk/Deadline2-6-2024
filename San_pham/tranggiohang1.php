@@ -15,7 +15,7 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
     <meta charset="utf-8">
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="tranggiohang1.css" />
-    <link rel="stylesheet" href="/Deadline2-6-2024/vendors/styles.css">
+    <link rel="stylesheet" href="../vendors/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
 </head>
