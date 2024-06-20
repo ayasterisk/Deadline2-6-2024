@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="footer-qr">
-            <img src="./Image/qr.png" alt="" />
+            <img src="/Deadline2-6-2024/Image/qr.png" alt="" />
           </div>
         </div>
         <hr />

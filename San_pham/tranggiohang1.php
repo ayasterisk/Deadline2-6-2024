@@ -1,3 +1,5 @@
+<!-- Đây là comment của Trình 20/6 vào lúc 6:43 ok! -->
+<!-- Bạn có nhìn thấy dòng này ko? -->
 <?php
 session_start();
 require 'connect.php';
