@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require 'San_pham/connect.php';
 
 if(isset($_POST['btn-req'])){
 $fullname=$_POST['ten_kh'];

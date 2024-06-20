@@ -1,10 +1,10 @@
 
 <?php
 ob_start();
-include "Module/Header.php";
+include "Layout/Header.php";
 ?>
 <?php
-include "connect.php";
+include "San_pham/connect.php";
 if (isset($_SESSION['user'])){
 	header('location:index.php');
 }
@@ -30,7 +30,7 @@ if($checkemail ==1){
 	$checkPass=password_verify($password, $data['matkhau']);
 	if($checkPass){
 		$_SESSION['user'] = $data;
-		header('location: index.php');
+		header('location:San_pham/index.php');
 	}
     else $err['matkhau']='Sai mật khẩu';
 }
@@ -125,5 +125,5 @@ else $err['email']='Email không tồn tại';
 
 </html>
 <?php
-include "Module/Footer.php";
+include "Layout/Footer.php";
 ?>

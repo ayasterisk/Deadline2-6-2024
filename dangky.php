@@ -1,5 +1,5 @@
 <?php
-include "Module/Header.php";
+include "Layout/Header.php";
 ?>
 
 <!DOCTYPE html>
@@ -158,5 +158,5 @@ if (isset($_POST['ngaydangkythanhvien'])) {
 ?>
 
 <?php
-include "Module/Footer.php";
+include "Layout/Footer.php";
 ?>

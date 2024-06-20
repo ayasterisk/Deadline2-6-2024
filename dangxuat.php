@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "connect.php";
+include "San_pham/connect.php";
 if (isset( $_SESSION['user'])){
 unset($_SESSION['user']);
 unset($_SESSION['cart']);}
