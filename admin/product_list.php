@@ -2,7 +2,6 @@
     include "header.php";
     include "slider.php";
     include "class/product_class.php";
-    session_start();
 ?>
 
 
@@ -57,7 +56,6 @@
             </tr>
             <?php
             }
-            $_SESSION['last_i'] = $i;
           }
             ?>
           </table>

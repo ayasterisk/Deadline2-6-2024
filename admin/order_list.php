@@ -34,7 +34,7 @@
               <td><?php echo $result['ma_voucher']?></td>
               <td><?php echo $result['ma_sp']?></td>
               <td><?php echo $result['so_luong']?></td>
-              <td><a href="order_edit.php?order_id=<?php echo $result['ma_kh'] ?>">Sửa</a>|<a href="order_delete.php?ma_dh=<?php echo $result['ma_kh'] ?>">Xóa</a></td>
+              <td><a href="order_edit.php?order_id=<?php echo $result['ma_dh'] ?>"><i style="color:red" class="fa-solid fa-pen-to-square"></i></a>|<a href="order_delete.php?ma_dh=<?php echo $result['ma_dh'] ?>"><i style="color:red" class="fa-solid fa-trash-can"></i></a></td>
             </tr>
             <?php
             }

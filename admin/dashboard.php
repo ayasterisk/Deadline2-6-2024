@@ -1,10 +1,14 @@
 <?php
     include "header.php";
     include "slider.php";
-    session_start();
+    include "class/dashboard_class.php";
 ?>
 
-
+<?php
+    $dashboard = new dashboard();
+    $show_total_products = $dashboard->show_total_products();
+    $show_total_customers = $dashboard->show_total_custumers();
+?>
 <div class="admin-content-right">
         <div class="admin-content-right-home">
           <h1>Trang chủ quản trị</h1>
@@ -18,18 +22,17 @@
                 <span>Tổng sản phẩm</span>
                 <p>
                   <?php 
-                  if (isset($_SESSION['last_i'])) {
-                    $last_i = $_SESSION['last_i'];
-                    echo "" . $last_i;
-                    } else {
-                    echo "0";
-                  }
+                  echo $show_total_products;
                   ?>
                 </p>
               </li>
               <li>
                 <span>Khách hàng đã đăng ký</span>
-                <p>20</p>
+                <p>
+                  <?php
+                  echo $show_total_customers;
+                  ?>
+                </p>
               </li>
             </ul>
           </div>

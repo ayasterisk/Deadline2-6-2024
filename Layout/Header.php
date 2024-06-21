@@ -15,13 +15,13 @@ session_start();
            <?php if(isset($_SESSION['user'])): ?>
            <?php $user=$_SESSION['user'];?>
               <a 
-                href="http://localhost/Deadline2-6-2024/profile.php"><?php echo $user['ten_kh']?>
+                href="/Deadline2-6-2024/profile.php"><?php echo $user['ten_kh']?>
               </a>
-              <a href="http://localhost/Deadline2-6-2024/dangxuat.php">Đăng xuất</a>
+              <a href="/Deadline2-6-2024/dangxuat.php">Đăng xuất</a>
               <?php else: ?>
-                <a href="http://localhost/Deadline2-6-2024/dangnhap.php">Đăng nhập</a>
+                <a href="/Deadline2-6-2024/dangnhap.php">Đăng nhập</a>
                 |
-                <a href="http://localhost/Deadline2-6-2024/dangky.php">Đăng ký</a>
+                <a href="/Deadline2-6-2024/dangky.php">Đăng ký</a>
               <?php endif; ?>
           </div>
         </div>
