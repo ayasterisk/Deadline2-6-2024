@@ -1,5 +1,5 @@
 <?php
-include "Module/Header.php";
+include "Layout/Header.php";
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ include "Module/Header.php";
         
 		<div class="container">
 		  <link rel="preload stylesheet" href="style-themes.css" as="style">
+		  <link rel="stylesheet" href="vendors/styles.css">
 		  <meta property="og:type" content="website">
 		  <style>
 			:root {
@@ -158,5 +159,5 @@ if (isset($_POST['ngaydangkythanhvien'])) {
 ?>
 
 <?php
-include "Module/Footer.php";
+include "Layout/Footer.php";
 ?>

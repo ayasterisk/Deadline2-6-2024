@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 <!--------------------- header --------------------->
     <header id="initial-header">
@@ -13,13 +15,13 @@
            <?php if(isset($_SESSION['user'])): ?>
            <?php $user=$_SESSION['user'];?>
               <a 
-                href="profile.php"><?php echo $user['ten_kh']?>
+                href="http://localhost/Deadline2-6-2024/profile.php"><?php echo $user['ten_kh']?>
               </a>
-              <a href="dangxuat.php">Đăng xuất</a>
+              <a href="http://localhost/Deadline2-6-2024/dangxuat.php">Đăng xuất</a>
               <?php else: ?>
-                <a href="dangnhap.php">Đăng nhập</a>
+                <a href="http://localhost/Deadline2-6-2024/dangnhap.php">Đăng nhập</a>
                 |
-                <a href="dangky.php">Đăng ký</a>
+                <a href="http://localhost/Deadline2-6-2024/dangky.php">Đăng ký</a>
               <?php endif; ?>
           </div>
         </div>
