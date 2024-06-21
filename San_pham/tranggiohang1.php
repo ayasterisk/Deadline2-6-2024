@@ -1,10 +1,11 @@
 <!-- Đây là comment của Trình 20/6 vào lúc 6:43 ok! -->
 <!-- Bạn có nhìn thấy dòng này ko? -->
 <?php
-session_start();
+ob_start();
+require('../Layout/Header.php');
 require '../connect.php';
 require('scriptcart.php');
-require('../Layout/Header.php');
+
 
 $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 12");
 ?>

@@ -25,7 +25,7 @@
                 return $row['total_custumers'];
             } else {
                 return 0; // Nếu không có kết quả, trả về 0
-            }
+            }   
         }
     }
       

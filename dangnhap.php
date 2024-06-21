@@ -17,7 +17,7 @@ $password=$_POST['matkhau'];
 // Kiểm tra tài khoản admin
 if ($email === 'admin@gmail.com' && $password === '113') {
 	// Đăng nhập thành công với tài khoản admin
-	header('Location:admin/index.php');
+	header('Location:/Deadline2-6-2024/admin/index.php');
 	exit;}
 	else{
 

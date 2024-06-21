@@ -2,7 +2,7 @@
 session_start();
 ?>
 <?php
-require '../connect.php';
+require '../../connect.php';
 require '../../Layout/Header.php';
 //------------
 require_once '../phpmailler/Exception.php';
