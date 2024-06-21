@@ -30,7 +30,12 @@
         public function update_customer($customer_id,$customer_name,$user_name,$password,$birthday,$gender,$address,$phonenumber,$credit,$debit_card,$bank_account,$registration_date,$referral_code){
             $query = "UPDATE quanlykhachhang SET ma_kh = '$customer_id', ten_kh = '$customer_name', tendangnhap = '$user_name',matkhau = '$password',ngaysinh = '$birthday',gioitinh = '$gender',diachi = '$address',sodienthoai = '$phonenumber',thetindung = '$credit',theghino = '$debit_card',taikhoannganhang = '$bank_account',ngaydangkythanhvien = '$registration_date',magioithieu = '$referral_code' WHERE ma_kh = '$customer_id' ";
             $result = $this -> db -> update($query);
-            header('Location:customer_list.php');
+            if ($result) {
+                header('Location:customer_list.php');
+                exit();
+            } else {
+                echo "Update failed. Query: " . $query;
+            }
             return $result;
         }
         public function show_brand_ajax($cartegory_id){

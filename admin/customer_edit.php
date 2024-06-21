@@ -28,6 +28,11 @@
         $registration_date= $_POST['registration_date'];
         $referral_code= $_POST['referral_code'];
         $update_customer = $customer -> update_customer($customer_id,$customer_name,$user_name,$password,$birthday,$gender,$address,$phonenumber,$credit,$debit_card,$bank_account,$registration_date,$referral_code);
+        if ($update_customer) {
+          echo "Update successful";
+      } else {
+          echo "Update failed";
+      }
     }
 ?>
 <style>

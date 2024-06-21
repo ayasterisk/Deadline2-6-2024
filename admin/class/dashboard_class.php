@@ -27,5 +27,22 @@
                 return 0; // Nếu không có kết quả, trả về 0
             }   
         }
+
+        public function show_revenue_today() {
+            // Lấy ngày hôm nay theo định dạng Y-m-d
+            $today = date('Y-m-d');
+    
+            // Câu truy vấn để tính tổng thu nhập trong ngày hôm nay, sử dụng IFNULL hoặc COALESCE để xử lý null
+            $query = "SELECT IFNULL(SUM(tonggiatridonhang), 0) as total_revenue FROM quanlybanhang WHERE DATE(thoidiemmuahang) = '$today'";
+            // Hoặc: $query = "SELECT COALESCE(SUM(amount), 0) as total_revenue FROM revenues WHERE DATE(thoidiemmuahang) = '$today'";
+            
+            $result = $this->db->select($query);
+            if ($result) {
+                $row = $result->fetch_assoc();
+                return (float)$row['total_revenue'];
+            } else {
+                return 0.0; // Nếu không có kết quả, trả về 0.0
+            }
+        }
     }
       

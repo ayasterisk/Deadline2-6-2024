@@ -95,7 +95,8 @@
             <span style="color:red"><?php if(isset($insert_product)){
               echo ($insert_product);
             } ?></span> <br>
-            <input name="product_img" type="file" value="<?php echo $resultA['ten_fileanh'] ?>" required/> <br>
+            <?php $file_name = $resultA['ten_fileanh'] ?>
+            <input name="product_img" type="file" value="" required/> <br>
             <label for=""
               >Nhập số lượng <span style="color: red">*</span></label
             > <br>
@@ -103,7 +104,7 @@
             <label for=""
               >Mô tả sản phẩm<span style="color: red">*</span></label
             > <br>
-            <textarea value="<?php echo $resultA['Mota'] ?>" name="product_desc" id="" cols="30" rows="10" ></textarea> <br>
+            <textarea name="product_desc" id="" cols="30" rows="10" ><?php echo $resultA['Mota'] ?></textarea> <br>
             
             <button type="submit">Sửa</button>
           </form>

@@ -47,6 +47,7 @@
 .product-content-right {
   width: 50%;
   padding-left: 60px;
+  padding-top: 5vh;
 }
 .product-content-right-name h1 {
   font-size: 30px;
@@ -86,10 +87,45 @@
 .product-content-right-material {
   margin-top: 30px;
 }
-.product-content-right-quantity {
-  background-color: white;
-  margin-top: 30px;
+
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  width: fit-content;
 }
+.quantity-button {
+  border: none;
+  background-color: #f9f9f9;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.quantity-button:hover {
+  background-color: #e9e9e9;
+}
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+}
+input[type="submit"] {
+  cursor: pointer;
+  padding: 13px 40px;
+  border: none;
+  color: white;
+  background-color: #f5a623;
+  transition: 0.3s ease-in-out;
+}
+input[type="submit"]:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid #f5a623;
+}
+
 /* related products */
 .related-products {
   margin-bottom: 50px;

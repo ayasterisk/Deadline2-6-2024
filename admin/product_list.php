@@ -4,7 +4,14 @@
     include "class/product_class.php";
 ?>
 
-
+<style>
+  .description-cell {
+    max-height: 100px; /* Đặt giới hạn chiều cao của ô */
+    overflow: hidden; /* Ẩn nội dung vượt quá chiều cao đã đặt */
+    text-overflow: ellipsis; /* Hiển thị dấu chấm (...) nếu nội dung bị cắt */
+    white-space: nowrap; /* Ngăn cách chuyển dòng tự động */
+  }
+</style>
 <?php
     $product = new product();
     $show_product = $product->show_product();
@@ -51,7 +58,7 @@
               <td><?php echo $result['giakhuyenmai']?></td>
               <td><?php echo $result['ten_fileanh']?></td>
               <td><?php echo $result['soluong']?></td>
-              <td><?php echo $result['Mota']?></td>
+              <td class="description-cell"><?php echo $result['Mota']?></td>
               <td><a href="product_edit.php?ma_sp=<?php echo $result['ma_sp'] ?>"><i style="color:red" class="fa-solid fa-pen-to-square"></i></a>|<a href="product_delete.php?ma_sp=<?php echo $result['ma_sp'] ?>"><i style="color:red" class="fa-solid fa-trash-can"></i></a></td>
             </tr>
             <?php

@@ -25,6 +25,7 @@
             $cost = $_POST['cost'];
             $cost_sale = $_POST['cost_sale'];
             $product_img = $_FILES['product_img']['name'];
+            move_uploaded_file($_FILES['product_img']['tmp_name'],"../Image/".$_FILES['product_img']['name']);
             $amount = $_POST['amount'];
             $product_desc = $_POST['product_desc'];
 

@@ -8,6 +8,7 @@
     $dashboard = new dashboard();
     $show_total_products = $dashboard->show_total_products();
     $show_total_customers = $dashboard->show_total_custumers();
+    $show_revenue_today = $dashboard->show_revenue_today();
 ?>
 <div class="admin-content-right">
         <div class="admin-content-right-home">
@@ -40,7 +41,11 @@
             <ul>
               <li>
                 <span>Doanh thu hôm nay</span>
-                <p>10000</p>
+                <p>
+                  <?php
+                    echo $show_revenue_today; 
+                  ?>
+                </p>
               </li>
               <li>
                 <span>Doanh thu tuần này</span>

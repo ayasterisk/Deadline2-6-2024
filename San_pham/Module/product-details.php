@@ -44,7 +44,7 @@
         </div>
         <div class="product-content-right-color">
           <p>
-            <span style="font-weight: bold">Màu sắc:</span><?= $product_result['mausac'] ?><span></span>
+            <span style="font-weight: bold">Màu sắc: </span><?= $product_result['mausac'] ?><span></span>
           </p>
           
         </div>
@@ -54,12 +54,35 @@
         <div class="product-content-right-material">
           <span style="font-weight: bold">Vật liệu:</span><span class="material">Chân kim loại - Da công nghiệp</span>
         </div>
-        <form class="product-content-right-quantity" action="../tranggiohang1.php?action=add" method="post">
-          <input type="text"  id="" value="1" name="quantity[<?= $product_result['ID'] ?>]" size="5" style="padding: 5px;" /><br>
-          <input type="submit" name="" id="" value="MUA HÀNG" style="padding: 5px;" />
+        <form class="product-content-right-quantity" action="../tranggiohang1.php?action=add" method="post"> 
+        <br>
+        <div class="quantity-wrapper">
+            <div class="quantity-button" id="decrease">-</div>
+            <input type="text" id="quantity-input" value="1" name="quantity[<?= $product_result['ID'] ?>]" class="quantity-input" />
+            <div class="quantity-button" id="increase">+</div>
+        </div>
+        <br>
+          <input type="submit" name="" id="" value="THÊM VÀO GIỎ" /> 
         </form>
+        <div class="product-content-right-describe">
+          <p style="font-weight: bold; margin-top: 20px;">Mô tả:</p>
+          <p class="describe" style="margin-top: 10px"><?= $product_result['Mota'] ?></p>
+        </div>
       </div>
     </div>
+    <script>
+        document.getElementById('increase').addEventListener('click', function() {
+            var input = document.getElementById('quantity-input');
+            input.value = parseInt(input.value) + 1;
+        });
+
+        document.getElementById('decrease').addEventListener('click', function() {
+            var input = document.getElementById('quantity-input');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        });
+    </script>
   </section>
   <!--  end product content -->
 
@@ -82,11 +105,11 @@
             <a href="product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
             <a href="product-details.php?id=<?= $row['ID'] ?>"><h1><?= $row['ten_sp'] ?></h1></a>
             <div class="main_sanpham">
-            <div class="giasanpham"><?= $row['gia'] ?><sup>đ</sup></div>
+            <div class="giasanpham"><?= number_format($row['gia'],0,"",",") ?><sup>đ</sup></div>
             <?php if($discount==0){ ?>
               <div class=""></div>
               <?php }else { ?>
-              <div class="giagiamsanpham"><?= $row['giakhuyenmai']  ?><sup>đ</sup></div>
+              <div class="giagiamsanpham"><?= number_format($row['giakhuyenmai'],0,"",",")   ?><sup>đ</sup></div>
             <?php }?>
             </div>
           </div>
@@ -98,3 +121,4 @@
   <?php  include '../../Layout/Footer.php' ?>
   <!-- related products -->
   <!--------------------  Content ---------------------->
+  
