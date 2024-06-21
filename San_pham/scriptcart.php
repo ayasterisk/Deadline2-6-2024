@@ -77,8 +77,8 @@ if (isset($_GET['action'])) {
                         $orderProducts[] = $row;
                         $total += $row['gia'] * $_SESSION['cart'][$row['ID']];
                     }
-                    $insert = mysqli_query($conn, "INSERT INTO `quanlybanhang` (`ma_dh`, `ma_kh`, `thoidiemmuahang`, `diachigiaohang`, `ghichukhachhang`, `tonggiatridonhang`
-                         ) VALUES (NULL,'" . $_SESSION['user']['ma_kh'] . "','" . time() . "','" . $_POST['add'] . "','" . $_POST['note'] . "','" . $total . "')");
+                    $insert = mysqli_query($conn, "INSERT INTO `order` (`id`,`name`, `phone`, `address`, `note`, `total`, `created_time`,`last_update`,`trangthai`
+                         ) VALUES (NULL,'".$_POST['name']."','" . $_POST['phone']. "','" . $_POST['add'] . "','" . $_POST['note'] . "','" .$total. "','" . time(). "','".time()."','0')");
                     $order_id = $conn->insert_id;
                     $insertString = "";
                     // foreach ($orderProducts as $key => $product) {
@@ -88,10 +88,13 @@ if (isset($_GET['action'])) {
                     //     }
                     // }
                     //$insertOrder = mysqli_query($conn, "INSERT INTO `order_detail` (`id`, `order_id`, `produc_id`, `quantity`, `price`, `created_time`, `last_updated`) VALUES " . $insertString . ";");
+                    header('Location:./thanhtoan/thanhtoan.php');
                 }
+
             }
             break;
     }
+    
 }
 if (!empty($_SESSION['cart'])) {
     $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
