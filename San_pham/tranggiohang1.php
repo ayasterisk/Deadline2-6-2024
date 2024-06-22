@@ -150,11 +150,19 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                         <td><a href="tranggiohang1.php?action=delete&id=<?= $row['ID'] ?>">Xóa</a></td>
                                     </tr>
                                     <?php $dem++; ?>
-                                <?php $total += $row['gia'] * $_SESSION['cart'][$row['ID']];
+                                <?php
+                                 if (isset($_SESSION['selected_voucher'])){
+                                 $tienvoucher= (int)($_SESSION['selected_voucher']);}
+                                 $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
                                 } ?>
                                 <tr class="content__tr4" style="background-color: darkgray; color:#f9f9f9f9">
+                                    <?php if(isset($tienvoucher)){ ?>
                                     <td colspan="2">Tổng tiền</td>
+                                    <td colspan="7" align="right"> <?= number_format($total-$tienvoucher, 0, "", ",") ?> <sup>đ</sup></td>
+                                    <?php }else{ ?>
+                                        <td colspan="2">Tổng tiền</td>
                                     <td colspan="7" align="right"> <?= number_format($total, 0, "", ",") ?> <sup>đ</sup></td>
+                                    <?php } ?>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -172,18 +180,21 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                     </div>
                                     <table border="1" style="border-collapse:collapse;margin-top:20px; margin-left:20px;border:none;">
                                         <?php $select_voucher = mysqli_query($conn, "SELECT*FROM quanlyvoucher") ?>
-                                        <?php while ($row = mysqli_fetch_array($select_voucher)) { ?>
+                                        <?php while ($row = mysqli_fetch_array($select_voucher)) { 
+                                            if ($total>= $row['dontoithieu']){?>
                                             <tr class="tr__voucher">
                                                 <form action="" method="post">
                                                     <td><img src="https://down-vn.img.susercontent.com/file/db5515d14d95d605ffca8aa0fe91a5f0" alt="voucher" width="120px" height="100px"></td>
-                                                    <td style="text-align:left;">Giảm <input type="text" name="" id="" value="<?= number_format($row['giavoucher'], 0, "", ",") ?>" readonly><br>
+                                                    <td style="text-align:left;">
+                                                        <input type="text" name="ten_voucher" id="" value="<?= $row['ten_voucher']?>" size="40px"><br>
+                                                        Giảm <input type="text" name="voucher_gia" id="" value="<?=$row['giavoucher'] ?>" readonly><br>
                                                         Đơn tối thiểu <input type="text" name="" id="" value="<?= number_format($row['dontoithieu'], 0, "", ",") ?>" readonly><br>
                                                         HSD <input type="text" name="" id="" value="<?= $row['hansudung'] ?>" readonly></td>
-                                                    <td><input type="submit" name="" id="" value="Chọn"></td>
+                                                    <td><input type="submit" name="select_voucher" id="" value="Chọn"></td>
 
                                                 </form>
                                             </tr>
-                                        <?php } ?>
+                                        <?php }} ?>
                                     </table>
                                 </div>
                             </div>
