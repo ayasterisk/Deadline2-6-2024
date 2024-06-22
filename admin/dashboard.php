@@ -9,6 +9,8 @@
     $show_total_products = $dashboard->show_total_products();
     $show_total_customers = $dashboard->show_total_custumers();
     $show_revenue_today = $dashboard->show_revenue_today();
+    $show_total_revenue = $dashboard->show_total_revenue();
+    $show_total_orders = $dashboard->show_total_orders();
 ?>
 <div class="admin-content-right">
         <div class="admin-content-right-home">
@@ -17,7 +19,11 @@
             <ul>
               <li>
                 <span>Tổng số đơn hàng</span>
-                <p>10</p>
+                <p>
+                  <?php
+                    echo $show_total_orders;
+                  ?>
+                </p>
               </li>
               <li>
                 <span>Tổng sản phẩm</span>
@@ -52,8 +58,12 @@
                 <p>50000</p>
               </li>
               <li>
-                <span>Doanh thu tháng này</span>
-                <p>90000</p>
+                <span>Tổng doanh thu</span>
+                <p>
+                  <?php
+                    echo $show_total_revenue;
+                  ?>
+                </p>
               </li>
             </ul>
           </div>
