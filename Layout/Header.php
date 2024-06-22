@@ -46,31 +46,31 @@ session_start();
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="index.php?xem=Livingroom&id=1"
                   >PHÒNG KHÁCH
                   
                 </a>
               </li>
 
               <li>
-                <a href="#"
+                <a href="index.php?xem=Kitchen&id=1"
                   >PHÒNG ĂN
                   
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="index.php?xem=Bedroom&id=1"
                   >PHÒNG NGỦ
                   
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="index.php?xem=Bathroom&id=1"
                   >PHÒNG TẮM
                   
                 </a>
               </li>
-              <li><a href="#">TRANG TRÍ</a></li>
+              <li><a href="index.php?xem=Decoration&id=1">TRANG TRÍ</a></li>
             </ul>
           </div>
           <div class="header-bottom-search">
