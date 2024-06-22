@@ -69,6 +69,21 @@
             if ($tam=='dangky'){
                 include('dangky.php');
                 }
+            if ($tam=='Bedroom'){
+                include('Module/Right/category/Bedroom.php');
+                }
+            if ($tam=='Livingroom'){
+                include('Module/Right/category/Livingroom.php');
+                }
+            if ($tam=='Bathroom'){
+                include('Module/Right/category/Bathroom.php');
+                }
+            if ($tam=='Kitchen'){
+                include('Module/Right/category/Kitchen.php');
+                }
+            if ($tam=='Decoration'){
+                include('Module/Right/category/Decoration.php');
+                }
             if ($tam==''){
                 include('Module/Right/tatcasanpham.php');
                 }
