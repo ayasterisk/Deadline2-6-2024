@@ -14,20 +14,26 @@ $sotrang = ceil($numrow / $sosanpham);
         <div class="right-content-sanpham">
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                 <a href="Module/product-details.php?id=<?= $row['ID'] ?>">
-                    <div class="sanpham-one">
-                        <?php
-                            $discount=ceil(($row['giakhuyenmai']/$row['gia'])*100);
-                            if($discount==0){ ?>
-                                <div class=""></div>
-                        <?php } else{ ?>
-                            <div class="nhan_giamgia" style="text-align: center;"><?= $discount ?> %</div>
-                            <?php } ?>
-                        <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
+                <div class="sanpham-one">
+                    <?php
+                        if($row['gia']!=0){
+                        $discount=ceil((($row['gia']-$row['giakhuyenmai'])/$row['gia'])*100);
+                        if($discount==100){ ?>
+                            <div class=""></div>
+                            <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
                         <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><h1><?= $row['ten_sp'] ?></h1></a>
                         <div class="pri-sanpham">
                             <div class="cost-sanpham"><?= number_format($row['gia'],0,"",",") ?><sup>đ</sup></div>
                         </div>
-                    </div>
+                    <?php } else{ ?>
+                        <div class="nhan_giamgia" style="text-align: center;"><?= $discount ?> %</div>
+                        <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="267px" height="250px" /></a>
+                        <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><h1><?= $row['ten_sp'] ?></h1></a>
+                        <div class="pri-sanpham">
+                            <div class="cost-sanpham"><?= number_format($row['giakhuyenmai'],0,"",",") ?><sup>đ</sup></div>
+                        </div>
+                        <?php }} ?>     
+                </div>
                 </a>
             <?php } ?>
         </div>

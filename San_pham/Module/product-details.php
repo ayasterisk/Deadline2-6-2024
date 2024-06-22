@@ -38,10 +38,19 @@
           <h1><?= $product_result['ten_sp'] ?></h1>
           <p><?= $product_result['ma_sp'] ?></p>
         </div>
-        <div class="product-content-right-price">
-          <span class="original-price"><?= number_format($product_result['gia'],0,"",",") ?><sup>đ</sup></span>
-          <span class="discounted-price"><?= number_format($product_result['giakhuyenmai'],0,"",",") ?><sup>đ</sup></span>
+        <?php
+          if($product_result['gia']!=0){
+          $discount=ceil((($product_result['gia']-$product_result['giakhuyenmai'])/$product_result['gia'])*100);
+          if($discount==100){ ?>
+              <div class="product-content-right-price">
+                <span class="discounted-price"><?= number_format($product_result['gia'],0,"",",") ?><sup>đ</sup></span>
+              </div>
+        <?php } else{ ?>
+          <div class="product-content-right-price">
+            <span class="original-price"><?= number_format($product_result['gia'],0,"",",") ?><sup>đ</sup></span>
+            <span class="discounted-price"><?= number_format($product_result['giakhuyenmai'],0,"",",") ?><sup>đ</sup></span>
         </div>
+        <?php }} ?>  
         <div class="product-content-right-color">
           <p>
             <span style="font-weight: bold">Màu sắc: </span><?= $product_result['mausac'] ?><span></span>
