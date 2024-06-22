@@ -115,7 +115,7 @@ else $err['email']='Email không tồn tại';
 						</div>
 						<div class="req_pass">
 							<p>Bạn chưa có tài khoản?<a href="dangky.php" onclick="showRecoverPasswordForm();return false;" title="Đăng ký"> Đăng ký</a></p>
-							<p>Bạn quên mật khẩu?<a href="trang đăng nhập.html" title="Quên mật khẩu"> Quên mật khẩu?</a></p>
+							<p>Bạn quên mật khẩu?<a href="./resetpass/forgot_password.php" title="Quên mật khẩu"> Quên mật khẩu?</a></p>
 						</div>			
 					</div>  
 	            </form>
