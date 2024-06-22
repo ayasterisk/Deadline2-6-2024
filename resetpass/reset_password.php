@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-      
+        header('location:/Deadline2-6-2024/index.php');
     } else {
         echo "Error updating password: " . $conn->error;
     }

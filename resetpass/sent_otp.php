@@ -61,4 +61,4 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 <br>
-<a href="verify_otp.php">Quay lại trang chủ</a>
+<a href="verify_otp.php">Tiếp theo</a>

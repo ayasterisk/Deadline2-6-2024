@@ -20,10 +20,10 @@ $credit=$_POST['thetindung'];
 $id=$user['ma_kh'];
 //echo $id;
 //echo $fullname,$gender,$birthday,$email,$password,$address,$numberphone,$bank,$debitcard,$credit;
-$sql = "SELECT * FROM quanlykhachhang WHERE tendangnhap='$email'";
+//$sql = "SELECT * FROM quanlykhachhang WHERE tendangnhap='$email'";
 
 $hash_password= password_hash($password,PASSWORD_DEFAULT); 
-$sql = "UPDATE quanlykhachhang SET ten_kh='$fullname', matkhau='$hash_password', ngaysinh='$birthday', gioitinh='$gender', diachi='$address', sodienthoai='$numberphone', thetindung='$credit', theghino='$debitcard', taikhoannganhang='$bank' WHERE ma_kh ='$id'";
+$sql = "UPDATE quanlykhachhang SET ten_kh='$fullname',tendangnhap='$email', matkhau='$hash_password', ngaysinh='$birthday', gioitinh='$gender', diachi='$address', sodienthoai='$numberphone', thetindung='$credit', theghino='$debitcard', taikhoannganhang='$bank' WHERE ma_kh ='$id'";
 
 
 if ($conn->query(($sql)) === TRUE) {
