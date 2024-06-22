@@ -7,6 +7,16 @@
         public function __construct(){
             $this -> db = new Database();
         }
+        public function show_total_orders() {
+            $query = "SELECT COUNT(*) as total_orders FROM quanlybanhang";
+            $result = $this->db->select($query);
+            if ($result) {
+                $row = $result->fetch_assoc();
+                return $row['total_orders'];
+            } else {
+                return 0; // Nếu không có kết quả, trả về 0
+            }
+        }
         public function show_total_products() {
             $query = "SELECT COUNT(*) as total_products FROM chitietsanpham";
             $result = $this->db->select($query);
@@ -43,6 +53,16 @@
             } else {
                 return 0.0; // Nếu không có kết quả, trả về 0.0
             }
+        }
+        public function show_total_revenue() {
+            $query = "SELECT SUM(tonggiatridonhang) as total_revenue FROM quanlybanhang";
+            $result = $this->db->select($query);
+            if ($result) {
+                $row = $result->fetch_assoc();
+                return $row['total_revenue'];
+            } else {
+                return 0; // Nếu không có kết quả, trả về 0
+            }   
         }
     }
       

@@ -1,9 +1,8 @@
+
 <?php
-session_start();
-?>
-<?php
-require '../../connect.php';
+ob_start();
 require '../../Layout/Header.php';
+require '../../connect.php';
 //------------
 require_once '../phpmailler/Exception.php';
 require_once '../phpmailler/PHPMailer.php';
@@ -42,8 +41,8 @@ if (!empty($_SESSION['cart'])) {
             <span>Địa Chỉ Nhận Hàng</span>
           </div>
           <div class="content__thongtinkhachhang">
-            <div class=""></div>
-            <div class=""></div>
+            <div class=""><?= $_SESSION['user']['ten_kh']?>  </div>
+            <div class=""><?= $_SESSION['user']['sdt'] ?></div>
             <div class=""></div>
           </div>
         </div>

@@ -59,7 +59,7 @@ ul ul {
 .menu-item.active > .submenu {
   display: block; /* Hiện các menu con khi mục cha có class 'active' */
 }
-.admin-content-left button {
+.admin-content-left >a {
   padding: 10px 15px;
   background-color: cadetblue;
   color: azure;
@@ -67,7 +67,7 @@ ul ul {
   border: none;
   transition: 0.3s ease-out;
 }
-.admin-content-left button:hover {
+.admin-content-left >a:hover {
   background-color: azure;
   cursor: pointer;
   color: cadetblue;

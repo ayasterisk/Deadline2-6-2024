@@ -25,6 +25,18 @@ if (isset($_POST['reduce'])) {
         exit();
     }
 }
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['select_voucher'])) {
+    if (isset($_POST['voucher_gia'])) {
+        $voucherValue =(int) $_POST['voucher_gia'];
+        // Lưu giá trị voucher vào session
+        $_SESSION['selected_voucher'] = $voucherValue;
+        // Chuyển hướng người dùng đến trang giỏ hàng hoặc trang khác
+        header('Location: tranggiohang1.php');
+        exit;
+    } else {
+        echo "Không tìm thấy giá trị voucher.";
+    }
+}
 if (isset($_GET['action'])) {
     function update_cart($add = false)
     {
@@ -48,6 +60,7 @@ if (isset($_GET['action'])) {
         case "delete":
             if (isset($_GET['id'])) {
                 unset($_SESSION['cart'][$_GET['id']]);
+                unset($_SESSION['selected_voucher']);
             }
             header('Location:tranggiohang1.php');
             break;
