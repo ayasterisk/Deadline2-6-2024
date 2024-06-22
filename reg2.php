@@ -1,5 +1,6 @@
 <?php
 require 'connect.php';
+
 session_start();
 $user = $_SESSION['user'];
 
@@ -15,8 +16,21 @@ $bank=$_POST['taikhoannganhang'];
 $debitcard=$_POST['theghino'];
 $credit=$_POST['thetindung'];
  
+
 $id=$user['ma_kh'];
-$password= password_hash($password,PASSWORD_DEFAULT);
-$sql="UPDATE `quanlykhachhang` SET `ten_kh`='$fullname',`tendangnhap`='$email',`matkhau`='$password',`ngaysinh`='$birthday',`gioitinh`='$gender',`diachi`='$address',`sodienthoai`='$numberphone',`thetindung`='$credit',`theghino`='$debitcard',`taikhoannganhang`='$bank' WHERE `ma_kh`='$id'";
-}
+//echo $id;
+//echo $fullname,$gender,$birthday,$email,$password,$address,$numberphone,$bank,$debitcard,$credit;
+$sql = "SELECT * FROM quanlykhachhang WHERE tendangnhap='$email'";
+
+$hash_password= password_hash($password,PASSWORD_DEFAULT); 
+$sql = "UPDATE quanlykhachhang SET ten_kh='$fullname', matkhau='$hash_password', ngaysinh='$birthday', gioitinh='$gender', diachi='$address', sodienthoai='$numberphone', thetindung='$credit', theghino='$debitcard', taikhoannganhang='$bank' WHERE ma_kh ='$id'";
+
+
+if ($conn->query(($sql)) === TRUE) {
+    echo "Đã cập nhật";
+} else {
+    echo "Error updating record: " . $conn->error;
+}}
 ?>
+
+<a href="index.php">Quay lại trang chủ</a>
