@@ -53,7 +53,7 @@ session_start();
               </li>
 
               <li>
-                <a href="index.php?xem=Kitchens&id=1"
+                <a href="index.php?xem=Kitchen&id=1"
                   >PHÒNG ĂN
                   
                 </a>
