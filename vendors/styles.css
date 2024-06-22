@@ -34,7 +34,7 @@ header {
   font-size: 14px;
 }
 .header-top-customer a:hover {
-  color: chartreuse;
+  color: hsla(0, 0%, 100%, 0.7);
 }
 .header-top-customer p {
   color: black;
@@ -64,7 +64,7 @@ header {
 }
 
 .header-top-login a:hover {
-  color: chartreuse;
+  color: hsla(0, 0%, 100%, 0.7);
 }
 .header-bottom-wrapper {
   background-color: #f9f9f9;
