@@ -112,4 +112,8 @@ if (isset($_GET['action'])) {
 if (!empty($_SESSION['cart'])) {
     $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
 }
+if (!empty($_SESSION['selected_voucher'])){
+    $selected_vouchers = explode(',', $_SESSION['selected_voucher']);
+    $product_voucher = mysqli_query($conn, "SELECT *FROM quanlyvoucher WHERE giavoucher IN  (" . implode(',', $selected_vouchers) . ")");
+}
 ?>

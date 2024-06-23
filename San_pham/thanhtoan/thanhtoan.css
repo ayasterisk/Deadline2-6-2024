@@ -7,6 +7,7 @@ a{
 }
 .html {
   font-family: 'roboto',sans-serif;
+  font-size: 20px;
 }
 .container__nhanhang {
   border-bottom: 1px solid darkgray;
@@ -22,16 +23,8 @@ a{
   border-left: 3px solid black;
   padding-left: 10px;
 }
-.content__thongtinkhachhang input {
-  border: none;
-  font-size: 18px;
-}
-.content__thongtinkhachhang div:not(:first-child) {
-  margin-left: 3px;
-}
-.content__thongtinkhachhang div:nth-child(4) {
-  color: red;
-  border: 1px solid red;
+.content__thongtinkhachhang li {
+  margin-left: 15px;
 }
 .container__inforsanpham {
   display: flex;

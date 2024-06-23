@@ -1,14 +1,6 @@
 <!-- Đây là comment của Trình 20/6 vào lúc 6:43 ok! -->
 <!-- Bạn có nhìn thấy dòng này ko? -->
-<?php
-ob_start();
-require('../Layout/Header.php');
-require '../connect.php';
-require('scriptcart.php');
 
-
-$result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 12");
-?>
 
 <!DOCTYPE html>
 <html class="htmlgiohang">
@@ -21,6 +13,13 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
 </head>
+<?php
+ob_start();
+require('../Layout/Header.php');
+require '../connect.php';
+require('scriptcart.php');
+$result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 12");
+?>
 <style>
     /* Include the CSS from Step 1 here */
     #loading-spinner {
@@ -82,8 +81,8 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                 var errorMessage = `<?= $errol ?>`;
                 if (errorMessage) {
                     document.querySelector('header').style.display = 'none';
-                    alert(errorMessage); 
-                    window.location.href = 'tranggiohang1.php'; // Thay đổi đường dẫn phù hợp với URL giỏ hàng của bạn
+                    alert(errorMessage);
+                    window.location.href = 'tranggiohang1.php';
                 }
             </script>
         <?php } else { ?>
@@ -133,35 +132,24 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                                 <input type="text" name="quantity[<?= $row['ID'] ?>]" id="" size="3" value="<?= $_SESSION['cart'][$row['ID']] ?>" style="text-align:center">
                                                 <input type="submit" name="increase" id="" value="+" style="padding:0px 8px 0px 8px;border: 1px solid darkgrey;">
                                             </form>
-                                            <script>
-                                                // Include the JavaScript from Step 2 here
-                                                document.addEventListener("DOMContentLoaded", function() {
-                                                    var forms = document.querySelectorAll("form");
-                                                    forms.forEach(function(form) {
-                                                        form.addEventListener("submit", function() {
-                                                            document.getElementById("overlay").style.display = "block";
-                                                            document.getElementById("loading-spinner").style.display = "block";
-                                                        });
-                                                    });
-                                                });
-                                            </script>
                                         </td>
                                         <td><?= number_format($row['gia'] * $_SESSION['cart'][$row['ID']], 0, "", ",") ?><sup>đ</sup></td>
                                         <td><a href="tranggiohang1.php?action=delete&id=<?= $row['ID'] ?>">Xóa</a></td>
                                     </tr>
                                     <?php $dem++; ?>
                                 <?php
-                                 if (isset($_SESSION['selected_voucher'])){
-                                 $tienvoucher= (int)($_SESSION['selected_voucher']);}
-                                 $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
+                                    if (isset($_SESSION['selected_voucher'])) {
+                                        $tienvoucher = (int)($_SESSION['selected_voucher']);
+                                    }
+                                    $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
                                 } ?>
                                 <tr class="content__tr4" style="background-color: darkgray; color:#f9f9f9f9">
-                                    <?php if(isset($tienvoucher)){ ?>
-                                    <td colspan="2">Tổng tiền</td>
-                                    <td colspan="7" align="right"> <?= number_format($total-$tienvoucher, 0, "", ",") ?> <sup>đ</sup></td>
-                                    <?php }else{ ?>
+                                    <?php if (isset($tienvoucher)) { ?>
                                         <td colspan="2">Tổng tiền</td>
-                                    <td colspan="7" align="right"> <?= number_format($total, 0, "", ",") ?> <sup>đ</sup></td>
+                                        <td colspan="7" align="right"> <?= number_format($total - $tienvoucher, 0, "", ",") ?> <sup>đ</sup></td>
+                                    <?php } else { ?>
+                                        <td colspan="2">Tổng tiền</td>
+                                        <td colspan="7" align="right"> <?= number_format($total, 0, "", ",") ?> <sup>đ</sup></td>
                                     <?php } ?>
                                 </tr>
                             <?php } ?>
@@ -174,27 +162,29 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                         <div class="main__voucher" id="main__voucher">
                             <div class="voucher__reduce">
                                 <div class="scroll__voucher">
-                                    <a href="#" class="close-giamgia">&times;</a>
+                                    <a href="tranggiohang1.php" class="close-giamgia">&times;</a>
                                     <div class="" style="font-size: 30px;">
                                         <h3>VOUCHER</h3>
                                     </div>
                                     <table border="1" style="border-collapse:collapse;margin-top:20px; margin-left:20px;border:none;">
                                         <?php $select_voucher = mysqli_query($conn, "SELECT*FROM quanlyvoucher") ?>
-                                        <?php while ($row = mysqli_fetch_array($select_voucher)) { 
-                                            if ($total>= $row['dontoithieu']){?>
-                                            <tr class="tr__voucher">
-                                                <form action="" method="post">
-                                                    <td><img src="https://down-vn.img.susercontent.com/file/db5515d14d95d605ffca8aa0fe91a5f0" alt="voucher" width="120px" height="100px"></td>
-                                                    <td style="text-align:left;">
-                                                        <input type="text" name="ten_voucher" id="" value="<?= $row['ten_voucher']?>" size="40px"><br>
-                                                        Giảm <input type="text" name="voucher_gia" id="" value="<?=$row['giavoucher'] ?>" readonly><br>
-                                                        Đơn tối thiểu <input type="text" name="" id="" value="<?= number_format($row['dontoithieu'], 0, "", ",") ?>" readonly><br>
-                                                        HSD <input type="text" name="" id="" value="<?= $row['hansudung'] ?>" readonly></td>
-                                                    <td><input type="submit" name="select_voucher" id="" value="Chọn"></td>
+                                        <?php while ($row = mysqli_fetch_array($select_voucher)) {
+                                            if ($total >= $row['dontoithieu']) { ?>
+                                                <tr class="tr__voucher">
+                                                    <form action="" method="post">
+                                                        <td><img src="https://down-vn.img.susercontent.com/file/db5515d14d95d605ffca8aa0fe91a5f0" alt="voucher" width="120px" height="100px"></td>
+                                                        <td style="text-align:left;">
+                                                            <input type="text" name="ten_voucher" id="" value="<?= $row['ten_voucher'] ?>" size="40px"><br>
+                                                            Giảm <input type="text" name="voucher_gia" id="" value="<?= $row['giavoucher'] ?>" readonly><br>
+                                                            Đơn tối thiểu <input type="text" name="" id="" value="<?= number_format($row['dontoithieu'], 0, "", ",") ?>" readonly><br>
+                                                            HSD <input type="text" name="" id="" value="<?= $row['hansudung'] ?>" readonly>
+                                                        </td>
+                                                        <td><input type="submit" name="select_voucher" id="" value="Chọn"></td>
 
-                                                </form>
-                                            </tr>
-                                        <?php }} ?>
+                                                    </form>
+                                                </tr>
+                                        <?php }
+                                        } ?>
                                     </table>
                                 </div>
                             </div>
@@ -202,12 +192,16 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                     </div>
                     <div class="content__giamgia">
                         <i class="fa-solid fa-tag"></i>
-                        <span><?php  ?></span>
+                        <?php if (isset($product_voucher)) { ?>
+                            <?php while ($row = mysqli_fetch_array($product_voucher)) { ?>
+                                <span><?= $row['ten_voucher'] ?></span>
+                        <?php }
+                        } ?>
                         <a href="#content__giamgia_voucher">Tìm hiểu thêm về voucher</a>
                         <div class="content__giamgiavoucher" id="content__giamgia_voucher">
                             <div class="main__giamgia">
-                                <a href="#" class="close-giamgia">&times;</a>
-                                <div>Khuyến mãi vận chuyển</div>
+                                <a href="tranggiohang1.php" class="close-giamgia">&times;</a>
+                                <div>Thông tin voucher</div>
                                 <table>
                                     <thead>
                                         <th>Đơn hàng tối thiểu</th>
@@ -215,24 +209,25 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                         <th>Phương thức vận chuyển</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                            <td><input type="text" name="" id="" value="" readonly></td>
-                                        </tr>
+                                        <?php if (!empty($product_voucher)) {
+                                            foreach ($product_voucher as $voucher) {
+                                                if (!empty($voucher)) { ?>
+                                                    <tr>
+                                                        <td><?= $voucher['ten_voucher'] ?></td>
+                                                        <td><?= $voucher['giavoucher'] ?></td>
+                                                        <td></td>
+                                                    </tr>
+                                        <?php }
+                                            }
+                                        } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                     <div class="content_thongtinkhachhang">
-                        <div class=""><label for="">Người nhận</label><input type="text" name="name" placeholder="Nhập họ và tên" class="content_tthoten" size="40"><br></div>
-                        <div class=""><label for="">Số điện thoại</label><input type="text" name="phone" id="" placeholder="Nhập số diện thoại" class="content_ttsdt" size="40"><br></div>
+                        <div class=""><label for="">Người nhận</label><input type="text" name="name" class="content_tthoten" size="40" value="<?= $_SESSION['user']['ten_kh'] ?>"><br></div>
+                        <div class=""><label for="">Số điện thoại</label><input type="text" name="phone" value="<?= $_SESSION['user']['sodienthoai'] ?>" class="content_ttsdt" size="40"><br></div>
                         <div class=""><label for="">Địa chỉ</label><input type="text" name="add" id="" placeholder="Nhập địa chỉ" class="content_ttdc" size="40"><br></div>
                         <div class=""><label for="">Ghi chú</label><textarea name="note" id="" class="content_ttghichu"></textarea></div>
                     </div>
@@ -257,13 +252,27 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                     <div class=""><label for="">
                                             <h3>Tổng tiền hàng</h3>
                                         </label></div>
-                                    <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
+                                    <?php if (!empty($total)) { ?>
+                                        <div class=""><input type="text" name="" id="" value="<?= $total ?>" readonly><sup>d</sup></div>
+                                    <?php } else { ?>
+                                        <div class=""><input type="text" name="" id="" value="" readonly></div>
+                                    <?php } ?>
                                 </div>
                                 <div class="tooltip_tongtien">
                                     <div class=""><label for="">
-                                            <h3>voucher giảm giá</h3>
+                                            <h3>Voucher giảm giá</h3>
                                         </label></div>
-                                    <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
+                                    <?php
+                                    if(!empty($product_voucher)){
+                                        foreach ($product_voucher as $voucher) {
+                                            if (!empty($voucher)) { ?>
+                                                <div class=""><?= $voucher['ten_voucher'] ?></div>
+                                            <?php }
+                                        }
+                                    }else{
+                                    ?>
+                                    <div class=""></div>
+                                    <?php } ?>
                                 </div>
                                 <div class="tooltip_tongtien">
                                     <div class=""><label for="">
@@ -275,16 +284,16 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                     <div class=""><label for="">
                                             <h3>Tổng số tiền</h3>
                                         </label></div>
-                                    <?php if (!empty($total)) { ?>
-                                        <div class=""><input type="text" name="" id="" value="<?= $total ?>đ" readonly></div>
+                                    <?php if (!empty($total) and !empty($tienvoucher)) { ?>
+                                        <div class=""><input type="text" name="" id="" value="<?= $total - $tienvoucher ?>" readonly><sup>d</sup></div>
                                     <?php } else { ?>
                                         <div class=""><input type="text" name="" id="" value="0đ" readonly></div>
                                     <?php } ?>
                                 </div>
                             </div>
                         </div>
-                        <?php if (!empty($total)) { ?>
-                            <input type="text" name="" id="" value="<?= number_format($total, 0, "", ",") ?>đ" readonly class="tongtien" />
+                        <?php if (!empty($total) and  !empty($tienvoucher)) { ?>
+                            <input type="text" name="" id="" value="<?= number_format($total - $tienvoucher, 0, "", ",") ?>đ" readonly class="tongtien" />
                         <?php } ?>
                         <div class="div_buttondathang"><a href="#"><input name="order_click" type="submit" value="Đặt hàng" class="buttondathang"></input></a></div>
                     </div>

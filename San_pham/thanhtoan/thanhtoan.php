@@ -1,4 +1,15 @@
 
+<!DOCTYPE html>
+<html class="html">
+
+<head>
+  <title>Thanh toán</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="thanhtoan.css" />
+  <link rel="stylesheet" href="../../vendors/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
 <?php
 ob_start();
 require '../../Layout/Header.php';
@@ -15,18 +26,6 @@ $sql = mysqli_query($conn, "SELECT * FROM `order` ORDER BY id DESC LIMIT 1  ");
 if (!empty($_SESSION['cart'])) {
   $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
 } ?>
-<!DOCTYPE html>
-<html class="html">
-
-<head>
-  <title>Thanh toán</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="thanhtoan.css" />
-  <link rel="stylesheet" href="../../vendors/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-
 <body>
   <form action="thanhtoan.php?action=submit" method="post">
     <div class="container">
@@ -41,9 +40,11 @@ if (!empty($_SESSION['cart'])) {
             <span>Địa Chỉ Nhận Hàng</span>
           </div>
           <div class="content__thongtinkhachhang">
-            <div class=""><?= $_SESSION['user']['ten_kh']?>  </div>
-            <div class=""><?= $_SESSION['user']['sdt'] ?></div>
-            <div class=""></div>
+            <ul>
+              <li><?= $_SESSION['user']['ten_kh'] ?></li>
+              <li><?= $_SESSION['user']['sodienthoai'] ?></li>
+              <li></li>
+            </ul>
           </div>
         </div>
       </div>
