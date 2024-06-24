@@ -1,0 +1,2 @@
+<h2>Sản phẩm bán buôn/bán sỉ trên FFShop</h2>
+<p><strong>Sản phẩm bán buôn/bán sỉ là những sản phẩm được bán với mức giá thấp hơn khi bạn mua với số lượng lớn. Những sản phẩm này có thể được đánh dấu với nhãn "Mua giá bán buôn/bán sỉ" bên dưới tên sản phẩm.</strong></p>
