@@ -415,7 +415,7 @@
           officia.
         </p>
         <br />
-        <a href="#">VỀ CHÚNG TÔI</a>
+        <a href="introduction.php">VỀ CHÚNG TÔI</a>
       </div>
       <div class="au-right">
         <img src="./Image/about-us.jpg" alt="" />

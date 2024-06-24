@@ -55,7 +55,7 @@
               </li>
               <li>
                 <span>Doanh thu tuần này</span>
-                <p>50000</p>
+                <p>0</p>
               </li>
               <li>
                 <span>Tổng doanh thu</span>
