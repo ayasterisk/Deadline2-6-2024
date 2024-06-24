@@ -99,17 +99,11 @@ a{
 .PTTT__thanhtoan {
   margin-top: 13px;
 }
-.thetindung:hover, .nhanhangthanhtoan:hover{
+.thetindung:hover, .nhanhangthanhtoan:hover,.bank:hover{
   transition: 0.5s;
   background-color:  rgb(224, 126, 73);
   color: white;
   border: none;
-}
-.container__PTTT select {
-  width: 200px;
-  height: 50px;
-  cursor: pointer;
-  font-size: 16px;
 }
 .luuy {
   display: flex;
