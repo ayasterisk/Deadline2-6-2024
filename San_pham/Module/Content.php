@@ -84,7 +84,7 @@
             if ($tam=='Decoration'){
                 include('Module/Right/category/Decoration.php');
                 }
-            if ($tam==''){
+            if ($tam=='allproduct'){
                 include('Module/Right/tatcasanpham.php');
                 }
         ?>

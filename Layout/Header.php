@@ -151,7 +151,7 @@ include "/xampp/htdocs/Deadline2-6-2024/connect.php";
           <div class="header-bottom-nvbar">
           <ul>
               <li>
-                <a href="/Deadline2-6-2024/San_pham/index.php"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=allproduct&id=1"
                   >SẢN PHẨM
                   
                 </a>
