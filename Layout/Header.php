@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "/Deadline2-6-2024/connect.php";
+include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
 ?>
 
 <!--------------------- header --------------------->
