@@ -1,5 +1,11 @@
 <?php
+    ob_start();
     include "./Layout/Header.php";
+    $order_success = false;
+    if (isset($_SESSION['order_success']) && $_SESSION['order_success']) {
+    $order_success = true;
+    unset($_SESSION['order_success']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +18,13 @@
     <title>Trang chu</title>
 </head>
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            <?php if ($order_success): ?>
+            alert('Bạn đã đặt hàng thành công!\n Hãy kiểm tra mail của bạn để biết thêm thông tin đơn hàng.');
+            <?php endif; ?>
+        });
+    </script>
     <!-- content -->
     <!-- start-section 1  -->
 

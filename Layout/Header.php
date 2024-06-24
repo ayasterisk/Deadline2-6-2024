@@ -82,7 +82,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
             <a href="#main-cart"
               ><i class="fa-solid fa-cart-shopping" style="color: black"></i>
               <span> 
-                <?php echo $_SESSION['glb_count']; ?>
+                <?php if(isset($_SESSION['glb_count'])){ 
+                 echo $_SESSION['glb_count'];}
+                 else{
+                  echo 0;
+                 } ?>
               </span>
             </a>
             <div class="main-cart" id="main-cart">
@@ -151,7 +155,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
                 </tbody>
               </table>
               <div style="text-align: right;" class="price-total">
+                <?php if(isset($total)){ ?>
                 <p style="font-weight: bold;">Tổng tiền:<span><?php echo $total;  ?></span><sup>đ</sup></p>
+                <?php } ?>
               </div>
             </form>
                 </div>

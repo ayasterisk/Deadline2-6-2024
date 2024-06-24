@@ -6,7 +6,7 @@ else{
     $tam='';
 }
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\SMTP;       
 use PHPMailer\PHPMailer\Exception;
 
 if (isset($_GET['action'])) {
@@ -55,9 +55,14 @@ if (isset($_GET['action'])) {
                 } catch (Exception $e) {
                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
+                // Đặt biến session để lưu trạng thái đặt hàng thành công
+                $_SESSION['order_success'] = true;
+
                 unset($_SESSION['cart']);
                 unset($_SESSION['selected_voucher']);
+                unset($_SESSION['glb_count']);
                 header('Location: /Deadline2-6-2024/index.php');
+                exit();
             }
     }
 }
