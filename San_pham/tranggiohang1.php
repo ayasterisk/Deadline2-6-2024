@@ -43,7 +43,7 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
             <div class="content__icon">
                 <h2> GIỎ HÀNG </h2>
             </div>
-            <div class="" style="text-align:center;"><a href="">Trang chủ</a>><a href="./Module/Right/tatcasanpham.php">Sản phẩm</a></div>
+            <div class="" style="text-align:center;"><a href="/Deadline2-6-2024/index.php">Trang chủ</a>><a href="/Deadline2-6-2024/San_pham/index.php">Sản phẩm</a></div>
             <div class="content__notegiamgia">
                 <i class="fa-solid fa-tag"></i>
                 <span>Nhấn vào mục Mã giảm giá ở cuối trang để được miễn phí vận chuyển nhé!</span>

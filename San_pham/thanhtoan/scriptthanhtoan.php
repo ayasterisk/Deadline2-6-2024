@@ -43,7 +43,7 @@ if (isset($_GET['action'])) {
                     //Content
                     $mail->isHTML(true);
                     $mail->Subject = 'FF';
-                    $order_link="index.php";
+                    $order_link="http://localhost/Deadline2-6-2024/San_pham/index.php";
                     $text= 'vào đây';
                     $donhang= mysqli_query($conn,"SELECT*FROM quanlybanhang ORDER BY ma_dh desc LIMIT 1");
                     while ($row= mysqli_fetch_array($donhang)){
@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
                 }
                 unset($_SESSION['cart']);
                 unset($_SESSION['selected_voucher']);
-                header('Location: /index.php');
+                header('Location: /Deadline2-6-2024/index.php');
             }
     }
 }

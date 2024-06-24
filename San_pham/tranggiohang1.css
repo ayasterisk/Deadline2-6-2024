@@ -127,7 +127,7 @@ input {
 .buttondathang {
   width: 170px;
   padding: 10px;
-  border: solid darkgrey;
+  border: 1px solid darkgrey;
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 20px;
@@ -135,9 +135,9 @@ input {
   cursor: pointer;
 }
 .buttondathang:hover {
-  background-color: aqua;
+  background-color: #f5a623;
   transition: 0.3s;
-  color: orangered;
+  color: red;
 }
 .content__tr4 {
   background-color: #f9f9f9;
@@ -215,14 +215,17 @@ input {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
-  width: 500px;
-  height: 300px;
+  width: 520px;
+  height: 400px;
   text-align: center;
   position: relative;
   overflow: auto;
 }
+.voucher__reduce::-webkit-scrollbar {
+  display: none;
+}
 .scroll__voucher {
-  height: 2000px;
+  height: auto;
 }
 /*------TÌM HIỂU VỀ VOUCHER----------*/
 .content__giamgiavoucher {
@@ -331,7 +334,7 @@ input {
   margin-bottom: 10px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-.sanpham1 a{
+.sanpham1 a {
   color: #333;
 }
 .content_title_main img {
@@ -376,7 +379,7 @@ input {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   position: absolute;
 }
-.giasanpham_discount{
+.giasanpham_discount {
   font-size: 20px;
   text-align: left;
 }

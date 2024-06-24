@@ -10,7 +10,7 @@ $sotrang = ceil($numrow / $sosanpham);
 ?>
 
 <div class="head-right">
-    <h3>TẤT CẢ SẢN PHẨM</h3>
+    <h3>Tất cả sản phẩm</h3>
     <form action="" method="post">
         <div class="right-content-sanpham">
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>

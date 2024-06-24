@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "/xampp/htdocs/Deadline2-6-2024/connect.php";
 ?>
 
 <!--------------------- header --------------------->
@@ -17,11 +18,11 @@ session_start();
               <a style="color:gold"
                 href="/Deadline2-6-2024/profile.php"><?php echo $user['ten_kh']?>
               </a>
-              <a href="/Deadline2-6-2024/dangxuat.php">Đăng xuất</a>
+              <a style="font-weight: 200; font-size: small" href="/Deadline2-6-2024/dangxuat.php">Đăng xuất</a>
               <?php else: ?>
-                <a href="/Deadline2-6-2024/dangnhap.php">Đăng nhập</a>
+                <a style="font-weight: 200; font-size: small" href="/Deadline2-6-2024/dangnhap.php">Đăng nhập</a>
                 |
-                <a href="/Deadline2-6-2024/dangky.php">Đăng ký</a>
+                <a style="font-weight: 200; font-size: small" href="/Deadline2-6-2024/dangky.php">Đăng ký</a>
               <?php endif; ?>
           </div>
         </div>
@@ -77,9 +78,63 @@ session_start();
           </div>
           
           <div class="header-bottom-cart">
-            <a href="#"
-              ><i class="fa-solid fa-cart-shopping" style="color: black"></i
-            ></a>
+            
+            <a href="#main-cart"
+              ><i class="fa-solid fa-cart-shopping" style="color: black"></i>
+              <span> 
+                0
+              </span>
+            </a>
+            <div class="main-cart" id="main-cart">
+              <div class="cart-wrapper">
+                <div class="scroll-cart">
+                <a href="#" class="close-cart">&times;</a>
+                <form action="">
+                <h2>CART</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>SL</th>
+                    <th>Chọn<nav></nav></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  if (!empty($_SESSION['cart'])) {
+                    $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
+                  }
+                  if(isset($product)){
+                  while ($row = mysqli_fetch_array($product)) {
+                  ?>
+                  <tr>
+                    <td style="display: flex; align-items: center;" ><img style="width: 70px" src="<?= $row['linkanhchitiet'] ?>" alt=""><?= $row['ten_sp'] ?></td>
+                    <td><p><span><?= $row['gia'] ?></span><sup>đ</sup></p></td>
+                    <td><input style="width: 30px; outline: none;" type="number" value="<?= $_SESSION['cart'][$row['ID']] ?>" min="1" max="100"></td>
+                    <td style="cursor: pointer;">Xóa</td>
+                  </tr>
+                  <?php
+                  }}
+                  else{?>
+                    <tr>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                    </tr>
+                    <?php
+                  }
+                  ?>
+                </tbody>
+              </table>
+              <div style="text-align: right;" class="price-total">
+                <p style="font-weight: bold;">Tổng tiền:<span>2,000,000</span><sup>đ</sup></p>
+              </div>
+            </form>
+                </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -139,8 +194,9 @@ session_start();
           
           <div class="header-bottom-cart">
             <a href="#"
-              ><i class="fa-solid fa-cart-shopping" style="color: black"></i
-            ></a>
+              ><i class="fa-solid fa-cart-shopping" style="color: black"></i>
+              <span>0</span>
+          </a>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@
           vì vậy chúng tôi hy vọng có thể xây dựng được cầu nối tin cậy với bạn.
         </p>
         <div class="bg-link">
-          <a href="#">MUA NGAY</a>
+          <a href="/Deadline2-6-2024/San_pham/index.php">MUA NGAY</a>
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@
                 <h3>Giường</h3>
                 <section><span>Furniture</span> / Design</section>
                 <div class="link">
-                  <a href="#"
+                  <a href=""
                     >MUA NGAY <i class="fas fa-long-arrow-alt-right"></i
                   ></a>
                 </div>
@@ -80,7 +80,7 @@
                 <h3>Sofa</h3>
                 <section><span>Furniture</span> / Design</section>
                 <div class="link">
-                  <a href="#"
+                  <a href=""
                     >MUA NGAY <i class="fas fa-long-arrow-alt-right"></i
                   ></a>
                 </div>
