@@ -23,7 +23,7 @@ session_start();
 </head>
 <body>
         <?php
-             include './Layout/Header.php';
+             include './Header.php';
          ?>
         <div id ="container">
             <div class = "Edit" ><a href="suahoso.php"><i class="fa fa-user" aria-hidden="true"></i>Sửa thông tin tài khoản</a></div>
@@ -69,7 +69,7 @@ session_start();
 
         </div>
         <?php
-         include './Layout/Footer.php';
+         include './Footer.php';
         ?>
     
 </body>
