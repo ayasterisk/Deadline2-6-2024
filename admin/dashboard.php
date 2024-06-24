@@ -61,7 +61,7 @@
                 <span>Tổng doanh thu</span>
                 <p>
                   <?php
-                    echo $show_total_revenue;
+                    echo number_format($show_total_revenue,0,"",",");
                   ?>
                 </p>
               </li>

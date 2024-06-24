@@ -43,7 +43,7 @@ if (!empty($_SESSION['cart'])) {
           <ul>
             <li><?= $_SESSION['user']['ten_kh'] ?></li>
             <li><?= $_SESSION['user']['sodienthoai'] ?></li>
-            <li></li>
+            <li><?= $_SESSION['user']['diachi'] ?></li>
           </ul>
         </div>
       </div>

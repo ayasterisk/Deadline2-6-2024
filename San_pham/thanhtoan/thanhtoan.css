@@ -150,42 +150,22 @@ a{
 .hoadontong0 {
   width: 60%;
 }
-.hoadontong1 {
-  width: 40%;
-  border: 1px solid darkgray;
-  margin-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 20px;
-}
-.hoadontong1__ip1 {
-  margin-left: 200px;
-  font-size: 20px;
-}
-.hoadontong1__ip2 {
-  margin-left: 196px;
-  font-size: 20px;
-}
-.hoadontong1__ip3 {
-  margin-left: 103px;
-  font-size: 20px;
-}
-.hoadontong1__ip4 {
-  margin-left: 246px;
-  font-size: 20px;
-}
-.hoadontong1__ip5 {
-  margin-left: 187px;
-  font-size: 20px;
-}
-.hoadontong1__ip6 {
-  margin-left: 227px;
-  font-size: 20px;
-}
-.hoadontong1 label,
-.hoadontong1 input {
-  margin-top: 20px;
+.hoadontong1{
+  width: 700px;
+  background-color: #efefef;
+  border: 1px solid gray;
+  padding: 10px;
+  
 }
 .hoadontong1 input{
+  float: right;
   border: none;
   text-align: right;
+  background-color: #efefef;
+  color: red;
 }
+
+
+
+
+

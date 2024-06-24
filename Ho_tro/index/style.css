@@ -10,7 +10,8 @@
 {
    display: flex;
    margin: 0 auto;
-   width: 100%;
+   max-width: 1420px;
+   margin: auto;
 
 }
 .content-menu 

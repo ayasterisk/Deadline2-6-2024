@@ -22,7 +22,7 @@ if (isset($_GET['action'])) {
                     $total += $row['gia'] * $_SESSION['cart'][$row['ID']];
                 }
                 $insert = mysqli_query($conn, "INSERT INTO `quanlybanhang` (`ma_dh`,`ma_kh`, `thoidiemmuahang`, `diachigiaohang`, `ghichukhachhang`, `tonggiatridonhang`, `trangthai`,`hinhthucthanhtoan`
-                             ) VALUES (NULL,'".$_SESSION['user']['ma_kh']."','" . time() . "','" . time() . "','" . $_POST['luuy']. "','".$total."','1','.$tam.')");
+                             ) VALUES (NULL,'".$_SESSION['user']['ma_kh']."','" . time() . "','" . time() . "','" . $_POST['luuy']. "','".$total."','1','".$tam."')");
                 $order_id = $conn->insert_id;
                 $insertString = "";
                 $mail = new PHPMailer(true);

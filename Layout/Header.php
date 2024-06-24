@@ -131,8 +131,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
                   ?>
                   <tr>
                     <td style="display: flex; align-items: center;" ><img style="width: 70px" src="<?= $row['linkanhchitiet'] ?>" alt=""><?= $row['ten_sp'] ?></td>
-                    <td><p><span><?= $row['gia'] ?></span><sup>đ</sup></p></td>
-                    <td><p><span><?= $row['giakhuyenmai'] ?></span><sup>đ</sup></p></td>
+                    <td><p><span><?= number_format($row['gia'],0,"",",") ?></span><sup>đ</sup></p></td>
+                    <td><p><span><?= number_format($row['giakhuyenmai'],0,"",",")?></span><sup>đ</sup></p></td>
                     <td><input style="width: 30px; outline: none;" type="number" value="<?= $_SESSION['cart'][$row['ID']] ?>" min="1" max="100"></td>
                     <td style="cursor: pointer;">Xóa</td>
                   </tr>
@@ -156,7 +156,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
               </table>
               <div style="text-align: right;" class="price-total">
                 <?php if(isset($total)){ ?>
-                <p style="font-weight: bold;">Tổng tiền:<span><?php echo $total;  ?></span><sup>đ</sup></p>
+                <p style="font-weight: bold;">Tổng tiền:<span><?php echo number_format($total,0,"",",");  ?></span><sup>đ</sup></p>
                 <?php } ?>
               </div>
             </form>

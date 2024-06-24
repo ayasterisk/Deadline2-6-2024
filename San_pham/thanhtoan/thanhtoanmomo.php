@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+include "../../connect.php";
 header('Content-type: text/html; charset=utf-8');
 
 

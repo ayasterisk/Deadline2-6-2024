@@ -1,5 +1,3 @@
-<!-- Đây là comment của Trình 20/6 vào lúc 6:43 ok! -->
-<!-- Bạn có nhìn thấy dòng này ko? -->
 
 
 <!DOCTYPE html>
@@ -155,7 +153,7 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                                             HSD <input type="text" name="" id="" value="<?= $row['hansudung'] ?>" readonly>
                                                         </td>
                                                         <td><input type="submit" name="select_voucher" id="applyVoucherBt" value="Chọn"></td>
-
+                                                    
                                                     </form>
                                                 </tr>
                                         <?php }
@@ -203,8 +201,8 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                     <div class="content_thongtinkhachhang">
                         <div class=""><label for="">Người nhận</label><input type="text" name="name" class="content_tthoten" size="40" value="<?= $_SESSION['user']['ten_kh'] ?>"><br></div>
                         <div class=""><label for="">Số điện thoại</label><input type="text" name="phone" value="<?= $_SESSION['user']['sodienthoai'] ?>" class="content_ttsdt" size="40"><br></div>
-                        <div class=""><label for="">Địa chỉ</label><input type="text" name="add" placeholder="Nhập địa chỉ" class="content_ttdc" size="40"><br></div>
-                        <div class=""><label for="">Ghi chú</label><textarea name="note" class="content_ttghichu"></textarea></div>
+                        <div class=""><label for="">Địa chỉ</label><input type="text" name="add" value="<?= $_SESSION['user']['diachi'] ?>" class="content_ttdc" size="40"><br></div>
+                        <div class=""><label for="">Ghi chú</label><textarea required name="note" class="content_ttghichu" ></textarea></div>
                     </div>
                     <div class="content__dathangtong">
                         <?php if (!empty($dem)) { ?>
