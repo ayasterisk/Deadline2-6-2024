@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="html">
 
@@ -20,18 +19,20 @@ require_once '../phpmailler/PHPMailer.php';
 require_once '../phpmailler/SMTP.php';
 //------------
 require 'scriptthanhtoan.php';
-$sql = mysqli_query($conn, "SELECT * FROM `order` ORDER BY id DESC LIMIT 1  ");
 ?>
 <?php
 if (!empty($_SESSION['cart'])) {
   $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
-} ?>
+}
+?>
+
 <body>
   <form action="thanhtoan.php?action=submit" method="post">
     <div class="container">
       <div class="content__one">
         <div class="SloganThanhToan">
           <h1>THANH TOÁN</h1>
+          <div class="" style="font-size: 18px;"><a href="/index.php">Trang chủ</a>><a href="../tranggiohang1.php">Giỏ hàng</a></div>
         </div>
         <!--------------------------------->
         <div class="container__nhanhang">
@@ -71,13 +72,41 @@ if (!empty($_SESSION['cart'])) {
               <td><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="90px" height="90px" /></td>
               <td align="left"> <?= $row['ten_sp'] ?></td>
               <td align="center"><?= $row['loaisp'] ?></td>
-              <td align="center"><?= ceil(($row['giakhuyenmai'] / $row['gia']) * 100) ?><sup>%</sup></td>
-              <td align="center"><?= $row['gia'] ?><sup>đ</sup></td>
+              <?php $giamgia = ceil((($row['gia'] - $row['giakhuyenmai']) / $row['gia']) * 100);
+                  if ($giamgia == 100) { ?>
+                <td align="center">0<sup> %</sup></td>
+              <?php } else { ?>
+                <td align="center"><?= $giamgia ?><sup> %</sup></td>
+              <?php } ?>
+              <!-- Đơn giá !-->
+              <!-- Đơn giá !-->
+              <?php $giamgia = ceil((($row['gia'] - $row['giakhuyenmai']) / $row['gia']) * 100); ?>
+              <td align="center">
+                <?php if ($giamgia == 100) { ?>
+                  <?= number_format($row['gia'], 0, "", ",") ?> <sup>đ</sup>
+                <?php } else { ?>
+                  <?= number_format($row['giakhuyenmai'], 0, "", ",") ?> <sup>đ</sup>
+                <?php } ?>
+              </td>
               <td align="center"><?= $_SESSION['cart'][$row['ID']] ?></td>
-              <td align="center"><?= $row['gia'] ?><sup>đ</sup></td>
+              <td align="center">
+                <?php if ($giamgia == 100) { ?>
+                  <?= number_format($row['gia'] * $_SESSION['cart'][$row['ID']], 0, "", ",") ?><sup>đ</sup>
+                <?php } else { ?>
+                  <?= number_format($row['giakhuyenmai'] * $_SESSION['cart'][$row['ID']], 0, "", ",") ?><sup>đ</sup>
+                <?php } ?>
+              </td>
             </tr>
             <?php $dem++; ?>
-          <?php $total += $row['gia'] * $_SESSION['cart'][$row['ID']];
+          <?php
+                  if (isset($_SESSION['selected_voucher'])) {
+                    $tienvoucher = (int)($_SESSION['selected_voucher']);
+                  }
+                  if ($giamgia == 100) {
+                    $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
+                  } else {
+                    $total += ($row['giakhuyenmai'] * $_SESSION['cart'][$row['ID']]);
+                  }
                 } ?>
         <?php } ?>
         </tr>
@@ -87,14 +116,12 @@ if (!empty($_SESSION['cart'])) {
         <div class="container__maintext">
           <div class="container__text">
             <label>Lời nhắn:</label>
-            <input type="text" placeholder="Lưu ý cho người bán..." class="textboxluuy" size="32">
+            <input type="text" placeholder="Lưu ý cho người bán..." class="textboxluuy" size="32" name="luuy">
           </div>
         </div>
         <!---------------------------->
         <div class="container__PTTT">
           <div class="PTTT__thanhtoan">Phương thức thanh toán:</div>
-          <div><input type="button" value="<?php ?>" readonly></div>
-          <div><input type="button" value="Ví FF"></div>
           <div class="bank">
             <select>
               <option value="Chọn Ngân hàng">Chọn Ngân hàng</option>
@@ -103,18 +130,62 @@ if (!empty($_SESSION['cart'])) {
               <option value="Option4">Option4</option>
             </select>
           </div>
-          <div class="TheTinDung"><input type="button" value="Thẻ tín dụng/Ghi nợ"></div>
-          <div class="nhanhangthanhtoan"><input type="button" value="Thanh toán khi nhận hàng"></div>
+          <div class="thetindung">
+            <a href="thanhtoan.php?click=thetindung">
+              <?php if ($tam == 'thetindung') { ?>
+                <div class="" style="background-color: rgb(224, 126, 73); color:white;padding:15px;">Thẻ tín dụng/Ghi nợ</div>
+              <?php } else { ?>
+                <div class="" style="border: 1px solid black;padding: 15px;">Thẻ tín dung/ Ghi nợ</div>
+              <?php } ?>
+            </a>
+          </div>
+          <div class="nhanhangthanhtoan">
+            <a href="thanhtoan.php?click=thanhtoankhinhanhang">
+              <?php if ($tam == 'thanhtoankhinhanhang') { ?>
+                <div class="" style="background-color: rgb(224, 126, 73); color:white;padding:15px;">Thanh toán khi nhận hàng</div>
+              <?php } else { ?>
+                <div class="" style="border: 1px solid black;padding: 15px;">Thanh toán khi nhận hàng</div>
+              <?php } ?>
+            </a>
+          </div>
+        </div>
+        <div class="">
+          <?php
+          if ($tam == 'thanhtoankhinhanhang') { ?>
+            <p>Thanh toán khi nhận hàng</p><br>
+            <p>Phí thu hộ: 0 <sup>đ</sup>. Ưu đãi về phí vận chuyển (nếu có) áp dụng với cả phí thu hộ.</p>
+          <?php } ?>
         </div>
         <div class="hoadontong">
           <div class="hoadontong0"> </div>
           <div class="hoadontong1">
-            <label for="">Tổng tiền hàng:</label><input type="text" name="" class="hoadontong1__ip1" value="<?= $total ?>" readonly><br>
-            <label for="">Phí vận chuyển:</label><input type="text" name="" class="hoadontong1__ip2" value="<?php ?>" readonly><br>
-            <label for="">Tổng voucher khuyến mãi:</label><input type="text" name="" class="hoadontong1__ip3" value="<?php ?>" readonly><br>
-            <label for="">Khuyến mãi:</label><input type="text" name="" class="hoadontong1__ip6" value="<?php ?>" readonly><br>
-            <label for="">Tổng đơn:</label><input type="text" name="" class="hoadontong1__ip4" value="<?php ?>" readonly><br>
-            <label for="">Tổng thanh toán:</label><input type="text" name="" class="hoadontong1__ip5" value="<?php ?>" readonly><br>
+            <label for="">Tổng tiền hàng:</label><input type="text" name="" class="hoadontong1__ip1" value="<?= number_format($total, 0, "", ",") ?>đ" readonly><br>
+            <label for="">Phí vận chuyển:</label><input type="text" name="" class="hoadontong1__ip2" value="<?= 0 ?>đ" readonly><br>
+            <?php if (isset($_SESSION['selected_voucher'])) { ?>
+              <label for="">Tổng voucher khuyến mãi:</label><input type="text" name="" class="hoadontong1__ip3" value="<?= $_SESSION['selected_voucher'] ?>đ" readonly><br>
+            <?php } else { ?>
+              <label for="">Tổng voucher khuyến mãi:</label><input type="text" name="" class="hoadontong1__ip3" value="0đ" readonly><br>
+            <?php } ?>
+            <?php
+            $tonggiamgia = 0;
+            $tonggiamgia1 = 0;
+            $count = 0;
+            foreach ($product as $phantramgiamgia) {
+              $tonggiamgia1 = ceil((($phantramgiamgia['gia'] - $phantramgiamgia['giakhuyenmai']) / $phantramgiamgia['gia']) * 100);
+              $tonggiamgia += $tonggiamgia1;
+              if ($tonggiamgia1 == 100) {
+                $count++;
+              }
+            }
+            ?>
+            <label for="">Khuyến mãi:</label><input type="text" name="" class="hoadontong1__ip6" value="<?= ceil(($tonggiamgia - (100 * $count)) / $dem) ?>%" readonly><br>
+            <?php if (isset($_SESSION['selected_voucher'])) { ?>
+              <label for="">Tổng đơn:</label><input type="text" name="" class="hoadontong1__ip4" value="<?= number_format($total-$_SESSION['selected_voucher'], 0, "", ",") ?>đ" readonly><br>
+              <label for="">Tổng thanh toán:</label><input type="text" name="" class="hoadontong1__ip5" value="<?= number_format($total-$_SESSION['selected_voucher'], 0, "", ",") ?>đ" readonly><br>
+            <?php } else { ?>
+              <label for="">Tổng đơn:</label><input type="text" name="" class="hoadontong1__ip4" value="<?= number_format($total, 0, "", ",") ?>đ" readonly><br>
+              <label for="">Tổng thanh toán:</label><input type="text" name="" class="hoadontong1__ip5" value="<?= number_format($total, 0, "", ",") ?>đ" readonly><br>
+            <?php } ?>
           </div>
         </div>
         <div class="luuy">

@@ -91,9 +91,7 @@ input {
   border-bottom: 1px solid darkgrey;
   background-color: #f9f9f9;
 }
-.content__giamgia a {
-  margin-left: 1120px;
-}
+
 .content_thongtinkhachhang {
   margin-top: 20px;
   margin-left: 10px;
@@ -321,15 +319,20 @@ input {
   border: 1px solid darkgray;
   background-color: #f9f9f9;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
-.content_title_main .sanpham1:hover {
-  box-shadow: 0px 4px 8px rgba(255, 165, 0, 1);
-  border-color: darkorange;
+.sanpham1:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: scale(1.1);
 }
 .sanpham1 {
   width: 220px;
   margin-top: 20px;
   margin-bottom: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.sanpham1 a{
+  color: #333;
 }
 .content_title_main img {
   width: 220px;
@@ -371,15 +374,9 @@ input {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-  position: relative;
-  top: 10;
+  position: absolute;
 }
-.quantity__wrapper {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  width: fit-content;
-}
-.quantity_giam, .quantity_tang{
-  cursor: pointer;
+.giasanpham_discount{
+  font-size: 20px;
+  text-align: left;
 }

@@ -1,5 +1,10 @@
 <?php
-
+if(isset($_GET['click'])){
+    $tam=$_GET['click'];
+}
+else{
+    $tam='';
+}
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -16,15 +21,15 @@ if (isset($_GET['action'])) {
                     $orderProducts[] = $row;
                     $total += $row['gia'] * $_SESSION['cart'][$row['ID']];
                 }
-                $insert = mysqli_query($conn, "INSERT INTO `quanlybanhang` (`ma_dh`,`ma_kh`, `thoidiemmuahang`, `diachigiaohang`, `ghichukhachhang`, `tonggiatridonhang`, `trangthai`
-                             ) VALUES (NULL,'1','" . time() . "','" . time() . "','1','1','1')");
+                $insert = mysqli_query($conn, "INSERT INTO `quanlybanhang` (`ma_dh`,`ma_kh`, `thoidiemmuahang`, `diachigiaohang`, `ghichukhachhang`, `tonggiatridonhang`, `trangthai`,`hinhthucthanhtoan`
+                             ) VALUES (NULL,'".$_SESSION['user']['ma_kh']."','" . time() . "','" . time() . "','" . $_POST['luuy']. "','".$total."','1','.$tam.')");
                 $order_id = $conn->insert_id;
                 $insertString = "";
                 $mail = new PHPMailer(true);
 
                 try {
                     //Server settings
-                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                    $mail->SMTPDebug = SMTP::DEBUG_OFF;
                     $mail->isSMTP();
                     $mail->Host       = 'smtp.gmail.com';
                     $mail->SMTPAuth   = true;
@@ -34,17 +39,25 @@ if (isset($_GET['action'])) {
                     $mail->Port       = 465;
                     //Recipients
                     $mail->setFrom('hanhatdoan7889@gmail.com', 'FF');
-                    $mail->addAddress('superdamedealler@gmail.com');
+                    $mail->addAddress($_SESSION['user']['tendangnhap']);
                     //Content
                     $mail->isHTML(true);
                     $mail->Subject = 'FF';
-                    $mail->Body    = 'Chúc mừng bạn đã đặt thành công đơn hàng có mã đơn hàng là 1 từ shop FF của chúng tôi';
-
+                    $order_link="index.php";
+                    $text= 'vào đây';
+                    $donhang= mysqli_query($conn,"SELECT*FROM quanlybanhang ORDER BY ma_dh desc LIMIT 1");
+                    while ($row= mysqli_fetch_array($donhang)){
+                    $mail->Body    = 'Chúc mừng quý khách đã đặt thành công đơn hàng có mã đơn hàng là ' .$row['ma_dh']. ' từ shop FF của chúng tôi.<br>
+                    Cảm ơn quý khách đã tin tưởng và mua hàng bên shop chúng tôi. <br>
+                    Xin mời quý khách click <a href="'.$order_link.'">'.$text.'</a> để tiếp tục mua hàng.';
+                    }
                     $mail->send();
-                    echo 'Gởi thành công';
                 } catch (Exception $e) {
                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
+                unset($_SESSION['cart']);
+                unset($_SESSION['selected_voucher']);
+                header('Location: /index.php');
             }
     }
 }

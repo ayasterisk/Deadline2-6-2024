@@ -4,6 +4,7 @@
 }
 a{
   text-decoration: none;
+  color: black;
 }
 .html {
   font-family: 'roboto',sans-serif;
@@ -85,11 +86,12 @@ a{
   padding: 10px;
   background-color: white;
 }
-.container__PTTT input:hover,
+
 .container__PTTT select:hover {
-  background-color: aqua;
   transition: 0.5s;
-  color: orangered;
+  background-color:  rgb(224, 126, 73);
+  color: white;
+  border: none;
 }
 .container__PTTT div:not(:first-child) {
   margin-left: 30px;
@@ -97,7 +99,12 @@ a{
 .PTTT__thanhtoan {
   margin-top: 13px;
 }
-.container__PTTT input,
+.thetindung:hover, .nhanhangthanhtoan:hover{
+  transition: 0.5s;
+  background-color:  rgb(224, 126, 73);
+  color: white;
+  border: none;
+}
 .container__PTTT select {
   width: 200px;
   height: 50px;
@@ -158,21 +165,27 @@ a{
 }
 .hoadontong1__ip1 {
   margin-left: 200px;
+  font-size: 20px;
 }
 .hoadontong1__ip2 {
   margin-left: 196px;
+  font-size: 20px;
 }
 .hoadontong1__ip3 {
   margin-left: 103px;
+  font-size: 20px;
 }
 .hoadontong1__ip4 {
   margin-left: 246px;
+  font-size: 20px;
 }
 .hoadontong1__ip5 {
   margin-left: 187px;
+  font-size: 20px;
 }
 .hoadontong1__ip6 {
   margin-left: 227px;
+  font-size: 20px;
 }
 .hoadontong1 label,
 .hoadontong1 input {

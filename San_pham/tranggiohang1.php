@@ -20,52 +20,6 @@ require '../connect.php';
 require('scriptcart.php');
 $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIMIT 12");
 ?>
-<style>
-    /* Include the CSS from Step 1 here */
-    #loading-spinner {
-        display: none;
-        /* Ẩn spinner lúc đầu */
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 3;
-    }
-
-    #overlay {
-        position: fixed;
-        display: none;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 2;
-    }
-
-    .spinner {
-        border: 8px solid #f3f3f3;
-        /* Light grey */
-        border-top: 8px solid #3498db;
-        /* Blue */
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: spin 10s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-</style>
 
 <body>
     <div class="content__cart">
@@ -114,26 +68,43 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                 $dem = 0; ?>
                                 <?php while ($row = mysqli_fetch_array($product)) { ?>
                                     <tr class="content_tr2">
+                                        <!-- ảnh !-->
                                         <td><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" width="90px" height="90px" /></td>
+                                        <!-- tên sản phẩm !-->
                                         <td align="left">
                                             <?= $row['ten_sp'] ?>
-
                                         </td>
+                                        <!-- loại sản phẩm !-->
                                         <td><?= $row['loaisp'] ?></td>
-                                        <td><?= ceil(($row['giakhuyenmai'] / $row['gia']) * 100) ?><sup>%</sup></td>
-                                        <td> <?= number_format($row['gia'], 0, "", ",") ?> <sup>đ</sup></td>
+                                        <!-- giảm giá !-->
+                                        <?php $giamgia = ceil((($row['gia'] - $row['giakhuyenmai']) / $row['gia']) * 100);
+                                        if ($giamgia == 100) { ?>
+                                            <td>0<sup> %</sup></td>
+                                        <?php } else { ?>
+                                            <td><?= $giamgia ?><sup> %</sup></td>
+                                        <?php } ?>
+                                        <!-- Đơn giá !-->
                                         <td>
-                                            <div id="overlay" style="display:none;"></div>
-                                            <div id="loading-spinner">
-                                                <div class="spinner"></div>
-                                            </div>
+                                            <?php if ($giamgia == 100) { ?>
+                                                <?= number_format($row['gia'], 0, "", ",") ?> <sup>đ</sup>
+                                            <?php } else { ?>
+                                                <?= number_format($row['giakhuyenmai'], 0, "", ",") ?> <sup>đ</sup>
+                                            <?php } ?>
+                                        </td>
+                                        <td>
                                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                                 <input type="submit" name="reduce" id="" value="-" style="padding:0px 8px 0px 8px;border: 1px solid darkgrey;">
                                                 <input type="text" name="quantity[<?= $row['ID'] ?>]" id="" size="3" value="<?= $_SESSION['cart'][$row['ID']] ?>" style="text-align:center">
                                                 <input type="submit" name="increase" id="" value="+" style="padding:0px 8px 0px 8px;border: 1px solid darkgrey;">
                                             </form>
                                         </td>
-                                        <td><?= number_format($row['gia'] * $_SESSION['cart'][$row['ID']], 0, "", ",") ?><sup>đ</sup></td>
+                                        <td>
+                                            <?php if ($giamgia == 100) { ?>
+                                                <?= number_format($row['gia'] * $_SESSION['cart'][$row['ID']], 0, "", ",") ?><sup>đ</sup>
+                                            <?php } else { ?>
+                                                <?= number_format($row['giakhuyenmai'] * $_SESSION['cart'][$row['ID']], 0, "", ",") ?><sup>đ</sup>
+                                            <?php } ?>
+                                        </td>
                                         <td><a href="tranggiohang1.php?action=delete&id=<?= $row['ID'] ?>">Xóa</a></td>
                                     </tr>
                                     <?php $dem++; ?>
@@ -141,7 +112,11 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                     if (isset($_SESSION['selected_voucher'])) {
                                         $tienvoucher = (int)($_SESSION['selected_voucher']);
                                     }
-                                    $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
+                                    if ($giamgia == 100) {
+                                        $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
+                                    } else {
+                                        $total += ($row['giakhuyenmai'] * $_SESSION['cart'][$row['ID']]);
+                                    }
                                 } ?>
                                 <tr class="content__tr4" style="background-color: darkgray; color:#f9f9f9f9">
                                     <?php if (isset($tienvoucher)) { ?>
@@ -179,7 +154,7 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                                             Đơn tối thiểu <input type="text" name="" id="" value="<?= number_format($row['dontoithieu'], 0, "", ",") ?>" readonly><br>
                                                             HSD <input type="text" name="" id="" value="<?= $row['hansudung'] ?>" readonly>
                                                         </td>
-                                                        <td><input type="submit" name="select_voucher" id="" value="Chọn"></td>
+                                                        <td><input type="submit" name="select_voucher" id="applyVoucherBt" value="Chọn"></td>
 
                                                     </form>
                                                 </tr>
@@ -214,8 +189,8 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                                 if (!empty($voucher)) { ?>
                                                     <tr>
                                                         <td><?= $voucher['ten_voucher'] ?></td>
-                                                        <td><?= $voucher['giavoucher'] ?></td>
-                                                        <td></td>
+                                                        <td><?= number_format($voucher['giavoucher'], 0, "", ",") ?><sup>đ</sup></td>
+                                                        <td>FF</td>
                                                     </tr>
                                         <?php }
                                             }
@@ -228,8 +203,8 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                     <div class="content_thongtinkhachhang">
                         <div class=""><label for="">Người nhận</label><input type="text" name="name" class="content_tthoten" size="40" value="<?= $_SESSION['user']['ten_kh'] ?>"><br></div>
                         <div class=""><label for="">Số điện thoại</label><input type="text" name="phone" value="<?= $_SESSION['user']['sodienthoai'] ?>" class="content_ttsdt" size="40"><br></div>
-                        <div class=""><label for="">Địa chỉ</label><input type="text" name="add" id="" placeholder="Nhập địa chỉ" class="content_ttdc" size="40"><br></div>
-                        <div class=""><label for="">Ghi chú</label><textarea name="note" id="" class="content_ttghichu"></textarea></div>
+                        <div class=""><label for="">Địa chỉ</label><input type="text" name="add" placeholder="Nhập địa chỉ" class="content_ttdc" size="40"><br></div>
+                        <div class=""><label for="">Ghi chú</label><textarea name="note" class="content_ttghichu"></textarea></div>
                     </div>
                     <div class="content__dathangtong">
                         <?php if (!empty($dem)) { ?>
@@ -253,9 +228,9 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                             <h3>Tổng tiền hàng</h3>
                                         </label></div>
                                     <?php if (!empty($total)) { ?>
-                                        <div class=""><input type="text" name="" id="" value="<?= $total ?>" readonly><sup>d</sup></div>
+                                        <div class=""><input type="text" value="<?= number_format($total, 0, "", ",") ?>" readonly><sup>d</sup></div>
                                     <?php } else { ?>
-                                        <div class=""><input type="text" name="" id="" value="" readonly></div>
+                                        <div class=""></div>
                                     <?php } ?>
                                 </div>
                                 <div class="tooltip_tongtien">
@@ -263,37 +238,50 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                             <h3>Voucher giảm giá</h3>
                                         </label></div>
                                     <?php
-                                    if(!empty($product_voucher)){
+                                    if (!empty($product_voucher)) {
                                         foreach ($product_voucher as $voucher) {
                                             if (!empty($voucher)) { ?>
                                                 <div class=""><?= $voucher['ten_voucher'] ?></div>
-                                            <?php }
+                                        <?php }
                                         }
-                                    }else{
-                                    ?>
-                                    <div class=""></div>
+                                    } else {
+                                        ?>
+                                        <div class=""></div>
                                     <?php } ?>
                                 </div>
                                 <div class="tooltip_tongtien">
                                     <div class=""><label for="">
                                             <h3>Giảm giá sản phẩm</h3>
                                         </label></div>
-                                    <div class=""><input type="text" name="" id="" value="<?php ?>" readonly></div>
+                                    <?php $tonggiamgia = 0;
+                                    $tonggiamgia1 = 0;
+                                    $count = 0;
+                                    foreach ($product as $phantramgiamgia) {
+                                        $tonggiamgia1 = ceil((($phantramgiamgia['gia'] - $phantramgiamgia['giakhuyenmai']) / $phantramgiamgia['gia']) * 100);
+                                        $tonggiamgia += $tonggiamgia1;
+                                        if ($tonggiamgia1 == 100) {
+                                            $count++;
+                                        }
+                                    }
+                                    ?>
+                                    <div class=""><input type="text" value="<?= ceil(($tonggiamgia - (100 * $count)) / $dem) ?>" readonly><sup>%</sup></div>
                                 </div>
                                 <div class="tooltip_tongtien">
                                     <div class=""><label for="">
                                             <h3>Tổng số tiền</h3>
                                         </label></div>
                                     <?php if (!empty($total) and !empty($tienvoucher)) { ?>
-                                        <div class=""><input type="text" name="" id="" value="<?= $total - $tienvoucher ?>" readonly><sup>d</sup></div>
+                                        <div class=""><input type="text" name="" id="" value="<?= number_format($total - $tienvoucher, 0, "", ",") ?>" readonly><sup>d</sup></div>
                                     <?php } else { ?>
-                                        <div class=""><input type="text" name="" id="" value="0đ" readonly></div>
+                                        <div class=""><input type="text" name="" id="" value="<?= number_format($total , 0, "", ",") ?>" readonly></div>
                                     <?php } ?>
                                 </div>
                             </div>
                         </div>
                         <?php if (!empty($total) and  !empty($tienvoucher)) { ?>
                             <input type="text" name="" id="" value="<?= number_format($total - $tienvoucher, 0, "", ",") ?>đ" readonly class="tongtien" />
+                        <?php }else{ ?>
+                            <input type="text" name="" id="" value="<?= number_format($total , 0, "", ",") ?>đ" readonly class="tongtien" />
                         <?php } ?>
                         <div class="div_buttondathang"><a href="#"><input name="order_click" type="submit" value="Đặt hàng" class="buttondathang"></input></a></div>
                     </div>
@@ -307,22 +295,22 @@ $result = mysqli_query($conn, "SELECT * FROM chitietsanpham ORDER BY gia ASC LIM
                                 <div class="sanpham1">
                                     <form action="" method="post">
                                         <?php
-                                        $discount = ceil(($row['giakhuyenmai'] / $row['gia']) * 100);
-                                        if ($discount == 0) { ?>
+                                        $discount = ceil((($row['gia'] - $row['giakhuyenmai']) / $row['gia']) * 100);
+                                        if ($discount == 100) { ?>
                                             <div class=""></div>
                                         <?php } else { ?>
-                                            <div class="nhan_giamgia"><?= $discount ?> %</div>
+                                            <div class="nhan_giamgia"><?= $discount ?> <sub>%</sub></div>
                                         <?php } ?>
                                         <a href="Module/product-details.php?id=<?= $row['ID'] ?>"><img src="<?= $row['linkanhchitiet'] ?>" alt="anh" /></a>
                                         <a href="Module/product-details.php?id=<?= $row['ID'] ?>">
                                             <h3 style="text-align:left"><?= $row['ten_sp'] ?></h3>
                                         </a>
                                         <div class="main_sanpham">
-                                            <div class="giasanpham"><?= $row['gia'] ?><sup>đ</sup></div>
-                                            <?php if ($discount == 0) { ?>
-                                                <div class=""></div>
+                                            <?php if ($discount == 100) { ?>
+                                                <div class="giasanpham"><?= number_format($row['gia'], 0, "", ",") ?><sup>đ</sup></div>
                                             <?php } else { ?>
-                                                <div class="giagiamsanpham"><?= $row['giakhuyenmai']  ?><sup>đ</sup></div>
+                                                <div class="giasanpham"><?= number_format($row['giakhuyenmai'], 0, "", ",") ?><sup>đ</sup></div>
+                                                <div class="giagiamsanpham"><?= number_format($row['gia'], 0, "", ",") ?><sup>đ</sup></div>
                                             <?php } ?>
                                         </div>
                                         <div class="main_luotban">Đã bán:<?php $dem_daban ?></div>

@@ -66,6 +66,7 @@ if (isset($_GET['action'])) {
             break;
         case "deleteall":
             unset($_SESSION['cart']);
+            unset($_SESSION['selected_voucher']);
             header('Location:tranggiohang1.php');
             break;
         case "submit":
