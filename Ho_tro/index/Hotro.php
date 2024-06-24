@@ -1,3 +1,6 @@
+<?php
+    include "../../Layout/Header.php";
+?>
 <!DOCTYPE html>
 <html> 
     
@@ -12,46 +15,11 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../../vendors/styles.css">
     </head>
     <body>
       
-      <header class="header">
-        <div class="grid">
-            <nav class="header__navbar">
-                <ul class="header__navbar-list">
-                    <li class="header__navbar-item">
-                        <a href="" class="header__navbar-item-link">
-                            <i class="fa-solid fa-hand-sparkles"></i>
-                            <span>Future Furniture Shop</span></a>
-                    </li>
-                    <li class="header__navbar-item">
-                        <a href="" class="header__navbar-item-link">
-                            <i class="fa-solid fa-bell"></i>
-                            <span>Thông báo</span>
-                        </a>
-                    </li>
-                    <li class="header__navbar-item">
-                        <a href="" class="header__navbar-item-link">
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i><span>Thoát</span></a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="headerSearch">
-                <div class="header__logo">
-                    <a href="#"><img src="./asset/Logo.png" alt="logo" width="130px" height="130px"/></a>
-                </div>
-                <div class="header__search-bar">
-                    <div class="header-banner">Trung tâm trợ giúp khách hàng </div> 
-                    <div class="header-box">
-                        <input type="text" placeholder="Nhập từ khóa hoặc nội dung cần tìm">
-                        <a href="#">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a> 
-                    </div>
-                    
-            </div>   
-        </div>
-    </header>
+      
         <div id ="page-container">
             <div class = "content-menu">
             <ul> 
@@ -158,44 +126,7 @@ $total_pages = ceil($total_items / $items_per_page);
     <?php endif; ?>
 </div>
         </div>
-        <footer class="footer">
-          <div class="footer-heading">
-            <p>Nếu bạn cần thêm thông tin hãy liên hệ</p>
-          </div>
-          <div class="footer-list">
-            <ul>
-              <li><i class="fa fa-map-marker" aria-hidden="true"></i>170 An Dương Vương, Tp.Quy Nhơn</li>
-              <li><i class="fa fa-phone" aria-hidden="true"></i>(0123)456789</li>
-              <li><i class="fa fa-envelope" aria-hidden="true"></i>laptrinhwed@gmail.com</li>
-            </ul>
-          </div>
-          <div class="footer-bottom">
-            <div class="footer-bottom-trademark">
-              <pre>
-    © 2021 - Bản quyền của Nhà Xinh - thương hiệu thuộc AKA Furniture
-    Từ năm 1999 - thương hiệu đăng ký số 284074 Cục sở hữu trí tuệ
-              </pre>
-            </div>
-            <div class="footer-bottom-icon">
-              <p>Theo dõi chúng tôi:</p>
-              <a href="#"
-                ><i
-                  class="fa-brands fa-square-facebook fa-2xl"
-                  style="color: white"
-                ></i
-              ></a>
-              <a href="#"
-                ><i class="fa-brands fa-youtube fa-2xl" style="color: white"></i
-              ></a>
-              <a href="#"
-                ><i
-                  class="fa-brands fa-square-instagram fa-2xl"
-                  style="color: white"
-                ></i
-              ></a>
-            </div>
-          </div>
-      </footer>
+        
       <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     const links = document.querySelectorAll('.subtitle-link');
@@ -249,5 +180,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
+<?php  include "../../Layout/Footer.php" ?>
     </body>
 </html>

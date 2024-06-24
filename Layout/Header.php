@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "/xampp/htdocs/Deadline2-6-2024/connect.php";
+include "/Deadline2-6-2024/connect.php";
 ?>
 
 <!--------------------- header --------------------->
@@ -10,13 +10,13 @@ include "/xampp/htdocs/Deadline2-6-2024/connect.php";
           <div class="header-top-customer">
             <p><i class="fa-solid fa-phone-volume"></i> Hotline: 0123456</p>
             <a href="#">Giới thiệu</a>
-            <a href="#">Chăm sóc khách hàng</a>
+            <a href="/Deadline2-6-2024/Ho_tro/index/Hotro.php">Chăm sóc khách hàng</a>
           </div>
           <div class="header-top-login">
            <?php if(isset($_SESSION['user'])): ?>
            <?php $user=$_SESSION['user'];?>
               <a style="color:gold"
-                href="/Deadline2-6-2024/profile.php"><?php echo $user['ten_kh']?>
+                href="/Deadline2-6-2024/Ho_so/Hoso.php"><?php echo $user['ten_kh']?>
               </a>
               <a style="font-weight: 200; font-size: small" href="/Deadline2-6-2024/dangxuat.php">Đăng xuất</a>
               <?php else: ?>

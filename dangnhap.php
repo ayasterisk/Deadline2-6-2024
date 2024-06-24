@@ -30,7 +30,18 @@ if($checkemail ==1){
 	$checkPass=password_verify($password, $data['matkhau']);
 	if($checkPass){
 		$_SESSION['user'] = $data;
+		$_SESSION['I-ID'] = $data['magioithieu'];
+		$_SESSION['username'] = $data['tendangnhap'];
+        $_SESSION['fullname'] = $data['ten_kh'];
+        $_SESSION['phone'] = $data['sodienthoai'];
+        $_SESSION['gender'] = $data['gioitinh'];
+        $_SESSION['address'] = $data['diachi'];
+        $_SESSION['account_creation_date'] = $data['ngaydangkythanhvien'];
+        $_SESSION['last_login_date'] = date('Y-m-d');
+        $update_query = "UPDATE users SET last_login_date = '". $_SESSION['last_login_date'] ."' WHERE username = '". $username . "'";
+
 		header('location:index.php');
+
 	}
     else $err['matkhau']='Sai mật khẩu';
 }
