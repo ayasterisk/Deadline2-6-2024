@@ -9,7 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
         <div class="header-top">
           <div class="header-top-customer">
             <p><i class="fa-solid fa-phone-volume"></i> Hotline: 0123456</p>
-            <a href="#">Giới thiệu</a>
+            <a href="introduction.php">Giới thiệu</a>
             <a href="/Deadline2-6-2024/Ho_tro/index/Hotro.php">Chăm sóc khách hàng</a>
           </div>
           <div class="header-top-login">
@@ -72,6 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
 
           <div class="header-bottom-search">
             <input type="text" id="search" placeholder="Search for products...">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <div id="results"></div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="./vendors/search.js"></script>
@@ -171,13 +172,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
 
     <header id="sticky-header">
 
-      <div class="header-bottom-wrapper">
+    <div class="header-bottom-wrapper">
         <div class="header-bottom">
           <div class="header-bottom-logo">
             <a href="/Deadline2-6-2024/index.php"><img src="/Deadline2-6-2024/Image/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
-          <ul>
+            <ul>
               <li>
                 <a href="/Deadline2-6-2024/San_pham/index.php?xem=allproduct&id=1"
                   >SẢN PHẨM
@@ -212,19 +213,101 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
               <li><a href="/Deadline2-6-2024/San_pham/index.php?xem=Decoration&id=1">TRANG TRÍ</a></li>
             </ul>
           </div>
-          
+
           <div class="header-bottom-search">
             <input type="text" id="search" placeholder="Search for products...">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <div id="results"></div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="./vendors/search.js"></script>
           </div>
           
           <div class="header-bottom-cart">
-            <a href="#"
+            
+            <a href="#main-cart"
               ><i class="fa-solid fa-cart-shopping" style="color: black"></i>
-              <span>0</span>
-          </a>
+              <span> 
+                <?php if(isset($_SESSION['glb_count'])){ 
+                 echo $_SESSION['glb_count'];}
+                 else{
+                  echo 0;
+                 } ?>
+              </span>
+            </a>
+            <div class="main-cart" id="main-cart">
+              <div class="cart-wrapper">
+                <div class="scroll-cart">
+                <a href="#" class="close-cart">&times;</a>
+                <form action="">
+                <h2>CART</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Giá khuyến mãi</th>
+                    <th>SL</th>
+                    <th>Chọn<nav></nav></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  if (!empty($_SESSION['cart'])) {
+                    $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
+                  }
+                  if(isset($product)){
+                    $count = 0;
+                  while ($row = mysqli_fetch_array($product)) {
+                   
+                    $total = 0;
+                     $giamgia = ceil((($row['gia'] - $row['giakhuyenmai']) / $row['gia']) * 100);
+                  
+                                
+                                    if (isset($_SESSION['selected_voucher'])) {
+                                        $tienvoucher = (int)($_SESSION['selected_voucher']);
+                                    }
+                                    if ($giamgia == 100) {
+                                        $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
+                                    } else {
+                                        $total += ($row['giakhuyenmai'] * $_SESSION['cart'][$row['ID']]);
+                                    }
+                                 $count++;
+                                 
+                  ?>
+                  <tr>
+                    <td style="display: flex; align-items: center;" ><img style="width: 70px" src="<?= $row['linkanhchitiet'] ?>" alt=""><?= $row['ten_sp'] ?></td>
+                    <td><p><span><?= number_format($row['gia'],0,"",",") ?></span><sup>đ</sup></p></td>
+                    <td><p><span><?= number_format($row['giakhuyenmai'],0,"",",")?></span><sup>đ</sup></p></td>
+                    <td><input style="width: 30px; outline: none;" type="number" value="<?= $_SESSION['cart'][$row['ID']] ?>" min="1" max="100"></td>
+                    <td style="cursor: pointer;">Xóa</td>
+                  </tr>
+                  
+                  <?php
+                  }
+                  $_SESSION['glb_count'] = $count;
+                }
+                  else{?>
+                    <tr>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                    </tr>
+                    <?php
+                  }
+                  ?>
+                </tbody>
+              </table>
+              <div style="text-align: right;" class="price-total">
+                <?php if(isset($total)){ ?>
+                <p style="font-weight: bold;">Tổng tiền:<span><?php echo number_format($total,0,"",",");  ?></span><sup>đ</sup></p>
+                <?php } ?>
+              </div>
+            </form>
+                </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
