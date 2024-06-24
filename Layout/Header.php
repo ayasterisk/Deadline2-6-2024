@@ -82,7 +82,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
             <a href="#main-cart"
               ><i class="fa-solid fa-cart-shopping" style="color: black"></i>
               <span> 
-                0
+                <?php echo $_SESSION['glb_count']; ?>
               </span>
             </a>
             <div class="main-cart" id="main-cart">
@@ -96,6 +96,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
                   <tr>
                     <th>Sản phẩm</th>
                     <th>Giá</th>
+                    <th>Giá khuyến mãi</th>
                     <th>SL</th>
                     <th>Chọn<nav></nav></th>
                   </tr>
@@ -106,18 +107,39 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
                     $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
                   }
                   if(isset($product)){
+                    $count = 0;
                   while ($row = mysqli_fetch_array($product)) {
+                   
+                    $total = 0;
+                     $giamgia = ceil((($row['gia'] - $row['giakhuyenmai']) / $row['gia']) * 100);
+                  
+                                
+                                    if (isset($_SESSION['selected_voucher'])) {
+                                        $tienvoucher = (int)($_SESSION['selected_voucher']);
+                                    }
+                                    if ($giamgia == 100) {
+                                        $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
+                                    } else {
+                                        $total += ($row['giakhuyenmai'] * $_SESSION['cart'][$row['ID']]);
+                                    }
+                                 $count++;
+                                 
                   ?>
                   <tr>
                     <td style="display: flex; align-items: center;" ><img style="width: 70px" src="<?= $row['linkanhchitiet'] ?>" alt=""><?= $row['ten_sp'] ?></td>
                     <td><p><span><?= $row['gia'] ?></span><sup>đ</sup></p></td>
+                    <td><p><span><?= $row['giakhuyenmai'] ?></span><sup>đ</sup></p></td>
                     <td><input style="width: 30px; outline: none;" type="number" value="<?= $_SESSION['cart'][$row['ID']] ?>" min="1" max="100"></td>
                     <td style="cursor: pointer;">Xóa</td>
                   </tr>
+                  
                   <?php
-                  }}
+                  }
+                  $_SESSION['glb_count'] = $count;
+                }
                   else{?>
                     <tr>
+                     <td></td>
                      <td></td>
                      <td></td>
                      <td></td>
@@ -129,7 +151,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
                 </tbody>
               </table>
               <div style="text-align: right;" class="price-total">
-                <p style="font-weight: bold;">Tổng tiền:<span>2,000,000</span><sup>đ</sup></p>
+                <p style="font-weight: bold;">Tổng tiền:<span><?php echo $total;  ?></span><sup>đ</sup></p>
               </div>
             </form>
                 </div>
