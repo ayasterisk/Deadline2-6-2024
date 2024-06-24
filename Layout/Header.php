@@ -29,11 +29,6 @@ session_start();
 
       <div class="header-bottom-wrapper">
         <div class="header-bottom">
-          <div class="header-bottom-toggle">
-            <a href="#"
-              ><i class="fa-solid fa-bars" style="color: black"></i
-            ></a>
-          </div>
           <div class="header-bottom-logo">
             <a href="/Deadline2-6-2024/index.php"><img src="/Deadline2-6-2024/Image/Future furniture.png" alt=""/></a>
           </div>
@@ -46,41 +41,39 @@ session_start();
                 </a>
               </li>
               <li>
-                <a href="index.php?xem=Livingroom&id=1"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Livingroom&id=1"
                   >PHÒNG KHÁCH
                   
                 </a>
               </li>
 
               <li>
-                <a href="index.php?xem=Kitchen&id=1"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Kitchen&id=1"
                   >PHÒNG ĂN
                   
                 </a>
               </li>
               <li>
-                <a href="index.php?xem=Bedroom&id=1"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Bedroom&id=1"
                   >PHÒNG NGỦ
                   
                 </a>
               </li>
               <li>
-                <a href="index.php?xem=Bathroom&id=1"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Bathroom&id=1"
                   >PHÒNG TẮM
                   
                 </a>
               </li>
-              <li><a href="index.php?xem=Decoration&id=1">TRANG TRÍ</a></li>
+              <li><a href="/Deadline2-6-2024/San_pham/index.php?xem=Decoration&id=1">TRANG TRÍ</a></li>
             </ul>
           </div>
+
           <div class="header-bottom-search">
-            <div class="search-icon" id="searchIcon">
-              <i class="fa-solid fa-magnifying-glass" style="color: black"></i>
-            </div>
-            <!-- Search icon, you can use any icon or an image -->
-            <div class="search-box" id="searchBox">
-              <input type="text" placeholder="Tìm kiếm..." />
-            </div>
+            <input type="text" id="search" placeholder="Search for products...">
+            <div id="results"></div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="./vendors/search.js"></script>
           </div>
           
           <div class="header-bottom-cart">
@@ -90,8 +83,6 @@ session_start();
           </div>
         </div>
       </div>
-
-      
     </header>
 
 
@@ -99,16 +90,11 @@ session_start();
 
       <div class="header-bottom-wrapper">
         <div class="header-bottom">
-          <div class="header-bottom-toggle">
-            <a href="#"
-              ><i class="fa-solid fa-bars" style="color: black"></i
-            ></a>
-          </div>
           <div class="header-bottom-logo">
             <a href="/Deadline2-6-2024/index.php"><img src="/Deadline2-6-2024/Image/Future furniture.png" alt=""/></a>
           </div>
           <div class="header-bottom-nvbar">
-            <ul>
+          <ul>
               <li>
                 <a href="/Deadline2-6-2024/San_pham/index.php"
                   >SẢN PHẨM
@@ -116,41 +102,39 @@ session_start();
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Livingroom&id=1"
                   >PHÒNG KHÁCH
                   
                 </a>
               </li>
 
               <li>
-                <a href="#"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Kitchen&id=1"
                   >PHÒNG ĂN
                   
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Bedroom&id=1"
                   >PHÒNG NGỦ
                   
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a href="/Deadline2-6-2024/San_pham/index.php?xem=Bathroom&id=1"
                   >PHÒNG TẮM
                   
                 </a>
               </li>
-              <li><a href="#">TRANG TRÍ</a></li>
+              <li><a href="/Deadline2-6-2024/San_pham/index.php?xem=Decoration&id=1">TRANG TRÍ</a></li>
             </ul>
           </div>
+          
           <div class="header-bottom-search">
-            <div class="search-icon" id="searchIcon">
-              <i class="fa-solid fa-magnifying-glass" style="color: black"></i>
-            </div>
-            <!-- Search icon, you can use any icon or an image -->
-            <div class="search-box" id="searchBox">
-              <input type="text" placeholder="Tìm kiếm..." />
-            </div>
+            <input type="text" id="search" placeholder="Search for products...">
+            <div id="results"></div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="./vendors/search.js"></script>
           </div>
           
           <div class="header-bottom-cart">
@@ -164,6 +148,7 @@ session_start();
       
     </header>
     <script>
+      //sticky header
       window.onscroll = function() {
     var initialHeader = document.getElementById("initial-header");
     var stickyHeader = document.getElementById("sticky-header");

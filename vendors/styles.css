@@ -75,14 +75,6 @@ header {
   margin: auto;
   width: 100%;
 }
-.header-bottom-toggle {
-  align-items: center;
-  display: flex;
-  width: 5%;
-}
-.header-bottom-toggle i {
-  font-size: 30px;
-}
 .header-bottom-logo {
   width: 5%;
 }
@@ -94,7 +86,7 @@ header {
 .header-bottom-nvbar {
   display: flex;
   align-items: center;
-  width: 85%;
+  width: 80%;
   justify-content: space-evenly;
 }
 .header-bottom-nvbar ul {
@@ -116,39 +108,59 @@ header {
 .header-bottom-nvbar a:hover {
   color: gold;
 }
-.header-bottom-cart,
-.header-bottom-search {
-  width: 3%;
+.header-bottom-cart {
+  width: 2%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 30px;
   margin-left: 15px;
 }
-.search-icon {
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
+.header-bottom-search {
+  width: 13%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.search-box {
-  display: none;
+#search {
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 99px;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px; /* Khoảng cách bên trong */
+  font-size: 14px; /* Kích thước chữ */
+  border-radius: 25px;
+}
+#results {
+  top: 90px;
   position: absolute;
-  margin-top: 100px;
+  width: 500px;
   background-color: white;
-  border: 1px solid #ccc;
-  padding: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10; /* Ensures it stays on top */
-}
-
-.search-box input {
-  width: 200px;
-  padding: 5px;
   border: none;
-  outline: none;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000; /* Đảm bảo hiển thị trên tất cả các phần khác */
+}
+.result-details:hover {
+  color: #f5a623;
+}
+/* Tùy chỉnh để phù hợp với giao diện cụ thể của bạn */
+.result-item {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
 }
 
+.result-item img {
+  max-width: 50px;
+  margin-right: 10px;
+}
+
+.result-details {
+  display: flex;
+  flex-direction: column;
+}
 /* header */
 
 /* footer */
