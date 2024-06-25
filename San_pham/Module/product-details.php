@@ -71,7 +71,7 @@
             <div class="quantity-button" id="increase">+</div>
         </div>
         <br>
-          <input type="submit" name="" id="" value="MUA NGAY" /> 
+          <input type="submit" name="buy-btn" id="" value="MUA NGAY" /> 
         </form>
         <div class="product-content-right-describe">
           <p style="font-weight: bold; margin-top: 20px;">Mô tả:</p>

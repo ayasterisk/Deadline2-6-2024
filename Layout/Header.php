@@ -9,7 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
         <div class="header-top">
           <div class="header-top-customer">
             <p><i class="fa-solid fa-phone-volume"></i> Hotline: 0123456</p>
-            <a href="introduction.php">Giới thiệu</a>
+            <a href="/Deadline2-6-2024/introduction.php">Giới thiệu</a>
             <a href="/Deadline2-6-2024/Ho_tro/index/Hotro.php">Chăm sóc khách hàng</a>
           </div>
           <div class="header-top-login">
@@ -78,16 +78,27 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
             <script src="./vendors/search.js"></script>
           </div>
           
+
+          <?php 
+            if (!empty($_SESSION['cart'])) {
+              $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
+            }
+            if(isset($product)){
+            $count = 0;
+            while($row=mysqli_fetch_array($product)){
+              $count++;
+            }}
+          ?>
           <div class="header-bottom-cart">
             
             <a href="#main-cart"
               ><i class="fa-solid fa-cart-shopping" style="color: black"></i>
               <span> 
-                <?php if(isset($_SESSION['glb_count'])){ 
-                 echo $_SESSION['glb_count'];}
-                 else{
+                <?php
+                if(isset($count)){
+                echo $count;}else{
                   echo 0;
-                 } ?>
+                } ?>
               </span>
             </a>
             <div class="main-cart" id="main-cart">
@@ -108,41 +119,33 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
                 </thead>
                 <tbody>
                   <?php
-                  if (!empty($_SESSION['cart'])) {
-                    $product = mysqli_query($conn, "SELECT *FROM chitietsanpham WHERE ID IN (" . implode(",", array_keys($_SESSION['cart'])) . ")");
-                  }
-                  if(isset($product)){
-                    $count = 0;
-                  while ($row = mysqli_fetch_array($product)) {
-                   
-                    $total = 0;
-                     $giamgia = ceil((($row['gia'] - $row['giakhuyenmai']) / $row['gia']) * 100);
                   
-                                
-                                    if (isset($_SESSION['selected_voucher'])) {
-                                        $tienvoucher = (int)($_SESSION['selected_voucher']);
-                                    }
+                  if(isset($product)){
+                    $total = 0;
+                  foreach ($product as $product_cart) {
+                     $giamgia = ceil((($product_cart['gia'] - $product_cart['giakhuyenmai']) / $product_cart['gia']) * 100);    
                                     if ($giamgia == 100) {
-                                        $total += ($row['gia'] * $_SESSION['cart'][$row['ID']]);
+                                        $total += ($product_cart['gia'] * $_SESSION['cart'][$product_cart['ID']]);
                                     } else {
-                                        $total += ($row['giakhuyenmai'] * $_SESSION['cart'][$row['ID']]);
+                                        $total += ($product_cart['giakhuyenmai'] * $_SESSION['cart'][$product_cart['ID']]);
                                     }
-                                 $count++;
-                                 
+                                    
                   ?>
+                  
                   <tr>
-                    <td style="display: flex; align-items: center;" ><img style="width: 70px" src="<?= $row['linkanhchitiet'] ?>" alt=""><?= $row['ten_sp'] ?></td>
-                    <td><p><span><?= number_format($row['gia'],0,"",",") ?></span><sup>đ</sup></p></td>
-                    <td><p><span><?= number_format($row['giakhuyenmai'],0,"",",")?></span><sup>đ</sup></p></td>
-                    <td><input style="width: 30px; outline: none;" type="number" value="<?= $_SESSION['cart'][$row['ID']] ?>" min="1" max="100"></td>
+                    <td style="display: flex; align-items: center;" ><img style="width: 70px" src="<?= $product_cart['linkanhchitiet'] ?>" alt=""><?= $product_cart['ten_sp'] ?></td>
+                    <td><p><span><?= number_format($product_cart['gia'],0,"",",") ?></span><sup>đ</sup></p></td>
+                    <td><p><span><?= number_format($product_cart['giakhuyenmai'],0,"",",")?></span><sup>đ</sup></p></td>
+                    <td><input style="width: 30px; outline: none;" type="text" value="<?= $_SESSION['cart'][$product_cart['ID']] ?>" min="1" max="100"></td>
                     <td style="cursor: pointer;">Xóa</td>
                   </tr>
-                  
                   <?php
                   }
-                  $_SESSION['glb_count'] = $count;
+                  
                 }
-                  else{?>
+            
+                  else{
+                    ?>
                     <tr>
                      <td></td>
                      <td></td>
