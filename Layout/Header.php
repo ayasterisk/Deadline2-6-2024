@@ -71,7 +71,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
           </div>
 
           <div class="header-bottom-search">
-            <input type="text" id="search" placeholder="Search for products...">
+            <input type="text" id="search" placeholder="Tìm kiếm...">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <div id="results"></div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -218,7 +218,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/Deadline2-6-2024/connect.php';
           </div>
 
           <div class="header-bottom-search">
-            <input type="text" id="search" placeholder="Search for products...">
+            <input type="text" id="search" placeholder="Tìm kiếm...">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <div id="results"></div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
